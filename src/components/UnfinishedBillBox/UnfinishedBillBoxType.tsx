@@ -1,7 +1,7 @@
 export interface UnfinishedBillBoxProps {
-    text?: string;
-    text2?: string;
-    text3?: string;
+    bill_name?: string;
+    bill_owner?: string;
+    publish_date?: string;
     status?: boolean;
     image?: string;
 }
