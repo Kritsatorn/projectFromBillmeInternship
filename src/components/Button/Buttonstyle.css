@@ -1,0 +1,12 @@
+.Button {
+  color: white;
+  font-size: 16px;
+  border-radius: 7.5px;
+  box-shadow: 0 2.5px 3px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ff6666;
+}
+
+.Button.disable {
+  color: #494949;
+  background-color: #afafaf;
+}
