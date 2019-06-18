@@ -1,0 +1,22 @@
+.Button {
+  color: white;
+  width: 122px;
+  height: 40px;
+  font-size: 22px;
+  border-radius: 15px;
+  box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ff6666;
+}
+
+.Button.disable {
+  color: #494949;
+  background-color: #afafaf;
+}
+
+.Button:focus {
+  outline: none;
+}
+
+.Button:active {
+  background-color: #ff8a8a;
+}

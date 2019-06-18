@@ -1,0 +1,48 @@
+@font-face {
+  font-family: SukhumvitSet-Text;
+  src: url('../assets/SukhumvitSet-Text.ttf');
+}
+
+body, div {
+  margin: 0;
+  padding: 0;
+}
+
+p, a, button, h1, input, body, div, select, textarea {
+  font-family: SukhumvitSet-Text !important;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+table, td, th {
+  border-collapse: collapse;
+  word-wrap:break-word;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.ReactModalPortal+div>div,
+.ReactModalPortal+style+div>div {
+  min-height: 282px !important;
+}
