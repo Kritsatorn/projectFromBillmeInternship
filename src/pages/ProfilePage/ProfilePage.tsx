@@ -58,28 +58,28 @@ export class ProfilePage
       return (
         <div className="Profile-page">
           <div className="title">
-            รายการบิลที่มี
+            <div className="title-text">รายการบิลที่มี</div>
           </div>
           <div className="Profile-page_container">
 
               <UnfinishedBillBox
-                text="กินข้าวร้านครัวแกงเผ็ด"
-                text2="By Pammu"
-                text3="15 April 2018"
+                bill_name="กินข้าวร้านครัวแกงเผ็ด"
+                bill_owner="By Pammu"
+                publish_date="15 April 2018"
                 status={true}
                 image={image}
               />
               <UnfinishedBillBox
-                text="กินข้าวร้านครัวแกงเผ็ด"
-                text2="By Pammu"
-                text3="15 April 2018"
+                bill_name="กินข้าวร้านครัวแกงเผ็ด"
+                bill_owner="By Pammu"
+                publish_date="15 April 2018"
                 status={true}
                 image={image}
               />
               <UnfinishedBillBox
-                text="กินข้าวร้านครัวแกงเผ็ด"
-                text2="By Pammu"
-                text3="15 April 2018"
+                bill_name="กินข้าวร้านครัวแกงเผ็ด"
+                bill_owner="By Pammu"
+                publish_date="15 April 2018"
                 status={true}
                 image={image}
               />
