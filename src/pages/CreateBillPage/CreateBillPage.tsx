@@ -3,8 +3,8 @@ import { Button } from '../../components/Button/Button';
 import { Stepper } from '../../components/Stepper/Stepper';
 import { Checkbox } from '../../components/Checkbox/Checkbox';
 import { TextField } from '../../components/TextField/TextField';
-import './CreateBillPage.css';
 import { BillingStep } from '../../definitions/enum/BillingStep';
+import './CreateBillPage.css';
 
 export class CreateBillPage
   extends React.Component {
