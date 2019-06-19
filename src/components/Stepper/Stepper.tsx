@@ -4,8 +4,10 @@ import './Stepper.css';
 
 export class Stepper
   extends React.Component<StepperProps> {
+
   render() {
     const { status = '', title1, title2, title3 } = this.props;
+
     return (
       <div className="stepper">
         <div className="stepper-bar">
