@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { StepperProps } from './StepperType';
 import './Stepper.css';
+import { BillingStep } from '../../definitions/enum/BillingStep';
 
 export class Stepper
   extends React.Component<StepperProps> {
@@ -34,12 +35,12 @@ export class Stepper
     );
   }
 
-  stepperProgress(status: string) {
-    if (status === '1') {
+  stepperProgress(step: string) {
+    if (step === BillingStep.CREATE_BILL) {
       return ['status current', 'status none', 'status none'];
-    } else if (status === '2') {
+    } else if (step === BillingStep.ADD_FRIENDS) {
       return ['status pass', 'status current', 'status none'];
-    } else if (status === '3') {
+    } else if (step === BillingStep.PAYMENTS) {
       return ['status pass', 'status pass', 'status current'];
     } else {
       return ['status none', 'status none', 'status none'];
