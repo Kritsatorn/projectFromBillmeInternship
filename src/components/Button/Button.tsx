@@ -4,6 +4,7 @@ import './Button.css';
 
 export class Button
   extends React.Component<ButtonProps> {
+
   render() {
     const { title, type, disable, onclick } = this.props;
     const style = this.stylingButton(type, disable);
