@@ -7,10 +7,11 @@ import './CreateBillPage.css';
 
 export class CreateBillPage
   extends React.Component<{}, {}> {
+
   render() {
     return (
-      <div className="Bg">
-        <div className="Top-stepper">
+      <div className="bg">
+        <div className="top-stepper">
           <Stepper
             status="2"
             title1="ใส่รายการ"
@@ -18,8 +19,8 @@ export class CreateBillPage
             title3="ช่องทางการชำระเงิน"
           />
         </div>
-        <div className="Bill-title">
-          <div className="Bill-title-size">
+        <div className="bill-title">
+          <div className="bill-title-size">
             <TextField
               name="ใส่ชื่อบิล"
               placeHolder="ใส่ชื่อบิล"
@@ -31,18 +32,18 @@ export class CreateBillPage
             />
           </div>
         </div>
-        <div className="Bill-box">
-          <div className="Top-row">
-            <div className="Column-title Column-left row">
+        <div className="bill-box">
+          <div className="top-row">
+            <div className="column-title column-left row">
               รายการ
             </div>
-            <div className="Column-title Column-right row">
+            <div className="column-title column-right row">
               ราคา
             </div>
             <div style={{ width: '28px' }} />
           </div>
           <div className="row">
-            <div className="Column-left">
+            <div className="column-left">
               <TextField
                 name="food"
                 placeHolder="รายการ"
@@ -53,7 +54,7 @@ export class CreateBillPage
                 disabled={false}
               />
             </div>
-            <div className="Column-right">
+            <div className="column-right">
               <TextField
                 name="food"
                 placeHolder="0.0"
@@ -65,13 +66,13 @@ export class CreateBillPage
               />
             </div>
             <button
-              className="Cancel-button"
+              className="cancel-button"
               disabled={false}
             >
               X
             </button>
           </div>
-          <div className="Add-button-size">
+          <div className="add-button-size">
             <Button
               title="เพิ่มรายการในบิล"
               type="addlist"
