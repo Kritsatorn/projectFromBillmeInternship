@@ -41,8 +41,3 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
-.ReactModalPortal+div>div,
-.ReactModalPortal+style+div>div {
-  min-height: 282px !important;
-}
