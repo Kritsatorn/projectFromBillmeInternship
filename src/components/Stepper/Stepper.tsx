@@ -7,26 +7,26 @@ export class Stepper
   extends React.Component<StepperProps> {
 
   render() {
-    const { status = 0, step1, step2, step3 } = this.props;
+    const { step = 0, step1, step2, step3 } = this.props;
 
     return (
       <div className="stepper">
         <div className="stepper-bar">
           <div className="progress-box">
             <div className="progress">
-              <div className={this.stepperProgress(status)[0]} />
+              <div className={this.stepperProgress(step)[BillingStep.CREATE_BILL]} />
             </div>
             <div className="stepper-title">{step1}</div>
           </div>
           <div className="progress-box">
             <div className="progress">
-              <div className={this.stepperProgress(status)[1]} />
+              <div className={this.stepperProgress(step)[1]} />
             </div>
             <div className="stepper-title">{step2}</div>
           </div>
           <div className="progress-box">
             <div className="progress">
-              <div className={this.stepperProgress(status)[2]} />
+              <div className={this.stepperProgress(step)[2]} />
             </div>
             <div className="stepper-title">{step3}</div>
           </div>

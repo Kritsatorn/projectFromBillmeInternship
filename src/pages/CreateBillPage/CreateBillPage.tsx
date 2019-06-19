@@ -4,6 +4,7 @@ import { Stepper } from '../../components/Stepper/Stepper';
 import { Checkbox } from '../../components/Checkbox/Checkbox';
 import { TextField } from '../../components/TextField/TextField';
 import './CreateBillPage.css';
+import { BillingStep } from '../../definitions/enum/BillingStep';
 
 export class CreateBillPage
   extends React.Component {
@@ -13,7 +14,7 @@ export class CreateBillPage
       <div className="bg">
         <div className="top-stepper">
           <Stepper
-            status={2}
+            step={BillingStep.ADD_FRIENDS}
             step1="ใส่รายการ"
             step2="เลือกเพื่อน"
             step3="ช่องทางการชำระเงิน"
