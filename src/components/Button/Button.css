@@ -1,0 +1,29 @@
+.button {
+  color: white;
+  width: 100%;
+  height: 100%;
+  font-size: 22px;
+  border-radius: 15px;
+  box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ff6666;
+  border: none;
+}
+
+.button.addlist {
+  color: #afafaf;
+  background-color: white;
+  font-size: 15px;
+}
+
+.button.disable {
+  color: #494949;
+  background-color: #afafaf;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:active {
+  background-color: #ff8a8a;
+}
