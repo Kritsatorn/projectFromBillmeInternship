@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { ProfilePageState } from './ProfilePageType';
+import { BillFacade } from '../../facades/BillFacade';
 import { UnfinishedBillBox } from '../../components/UnfinishedBillBox/UnfinishedBillBox';
 import './ProfilePage.css';
 
@@ -10,7 +11,8 @@ interface MyWindow extends Window {
     getProfile: () => {
       displayName: string,
       pictureUrl: string,
-      statusMessage: string
+      statusMessage: string,
+      userId: string
     };
     closeWindow: () => void;
      // tslint:disable-next-line: no-any
@@ -27,66 +29,73 @@ export class ProfilePage
       super(props);
 
       this.state = {
-        count : 0,
-        text : '',
-        displayName : '',
         userId : '',
-        pictureUrl : '',
-        statusMessage : ''
+        billInfo: [],
+        isLoadingComplete: false
       };
+      const billList = BillFacade.getBillList('userId');
 
-      // this.initialize = this.initialize.bind(this);
+      billList.then(result => {
+            this.setState({
+              billInfo: result.billList,
+              isLoadingComplete: true
+            });
+          });
+      this.initialize = this.initialize.bind(this);
+      }
+
+    componentDidMount() {
+    window.addEventListener('load', this.initialize);
     }
-    // componentDidMount() {
-    // 	window.addEventListener('load', this.initialize);
-    // }
 
-    // initialize() {
-    // 	this.liff!.init(async (data) => {
-    // 		let profile = await this.liff!.getProfile();
-    // 		this.setState({
-    // 			displayName : profile.displayName,
-    // 			userId : profile.userId,
-    // 			pictureUrl : profile.pictureUrl,
-    // 			statusMessage : profile.statusMessage
-    // 		});
-    // 	});
-    // }
+    initialize() {
+      this.liff!.init(async () => {
+        let profile = await this.liff!.getProfile();
+        this.setState({
+          userId : profile.userId
+        });
+      });
+    }
 
     render() {
-      const image = require('../../assets/Angry_Birds_Fat.png');
       return (
         <div className="Profile-page">
           <div className="title">
             <div className="title-text">รายการบิลที่มี</div>
           </div>
           <div className="Profile-page_container">
-
-              <UnfinishedBillBox
-                bill_name="กินข้าวร้านครัวแกงเผ็ด"
-                bill_owner="By Pammu"
-                publish_date="15 April 2018"
-                status={true}
-                image={image}
-              />
-              <UnfinishedBillBox
-                bill_name="กินข้าวร้านครัวแกงเผ็ด"
-                bill_owner="By Pammu"
-                publish_date="15 April 2018"
-                status={true}
-                image={image}
-              />
-              <UnfinishedBillBox
-                bill_name="กินข้าวร้านครัวแกงเผ็ด"
-                bill_owner="By Pammu"
-                publish_date="15 April 2018"
-                status={true}
-                image={image}
-              />
-
+          {
+            this.state.isLoadingComplete ?
+            this.renderUnfinishedBillBox(this.state.billInfo) :
+            <br/>
+          }
           </div>
-
         </div>
         );
     }
-  }
+
+    renderUnfinishedBillBox(
+      data2: {
+        billId: string;
+        billName: string ;
+        billOwner: string;
+        billStatus: boolean;
+        publishDate: string;
+        image: string;
+      }[]
+    ) {
+      return data2.map((result, index) => {
+        return(
+          <div key={`unfinish-bill--${index}`}>
+            <UnfinishedBillBox
+              bill_name={result.billName}
+              bill_owner={result.billOwner}
+              publish_date={result.publishDate}
+              status={result.billStatus}
+              image={result.image}
+            />
+          </div>
+        );
+      });
+    }
+}

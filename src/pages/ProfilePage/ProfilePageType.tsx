@@ -1,8 +1,12 @@
 export interface ProfilePageState {
-  count: number;
-  text: string;
-  displayName: string;
   userId: string;
-  pictureUrl: string;
-  statusMessage: string;
+  billInfo: {
+  billId: string;
+  billName: string ;
+  billOwner: string;
+  billStatus: boolean;
+  publishDate: string;
+  image: string;
+  }[];
+  isLoadingComplete: boolean;
 }

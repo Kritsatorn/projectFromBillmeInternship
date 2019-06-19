@@ -1,6 +1,6 @@
 @import 'https://fonts.googleapis.com/css?family=Kanit|Prompt';
 .Profile-page {
-	background-image: url('../../assets/main.png');
+  background-image: url('../../assets/main.png');
   color:#008b8b;
   height: 100%;
   min-height: 100vh;
