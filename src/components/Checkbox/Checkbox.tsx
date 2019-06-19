@@ -9,13 +9,13 @@ export class Checkbox extends React.Component<CheckboxProps> {
 
     return (
       <div>
-        <label className="Container">
+        <label className="container">
           <input
             type="checkbox"
-            className="Checkbox__input"
+            className="checkbox__input"
             checked={checked}
           />
-        <span className="Text-label">{title}</span>
+        <span className="text-label">{title}</span>
         </label>
       </div>
     );

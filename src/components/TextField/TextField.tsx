@@ -16,7 +16,7 @@ export class TextField
             name={name}
             id={id}
             type={type}
-            className="Text-field__input"
+            className="text-field__input"
             required={required}
             placeholder={placeHolder}
             disabled={disabled}

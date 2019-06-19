@@ -7,25 +7,25 @@ export class Stepper
   render() {
     const { status = '', title1, title2, title3 } = this.props;
     return (
-      <div className="Stepper">
-        <div className="Stepper-bar">
-          <div className="Progress-box">
-            <div className="Progress">
+      <div className="stepper">
+        <div className="stepper-bar">
+          <div className="progress-box">
+            <div className="progress">
               <div className={this.stepperProgress(status)[0]} />
             </div>
-            <div className="Stepper-title">{title1}</div>
+            <div className="stepper-title">{title1}</div>
           </div>
-          <div className="Progress-box">
-            <div className="Progress">
+          <div className="progress-box">
+            <div className="progress">
               <div className={this.stepperProgress(status)[1]} />
             </div>
-            <div className="Stepper-title">{title2}</div>
+            <div className="stepper-title">{title2}</div>
           </div>
-          <div className="Progress-box">
-            <div className="Progress">
+          <div className="progress-box">
+            <div className="progress">
               <div className={this.stepperProgress(status)[3]} />
             </div>
-            <div className="Stepper-title">{title3}</div>
+            <div className="stepper-title">{title3}</div>
           </div>
         </div>
       </div>

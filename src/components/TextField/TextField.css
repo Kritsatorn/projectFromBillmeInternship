@@ -1,4 +1,4 @@
-.Text-field__input {
+.text-field__input {
   height: 100%;
   width: 100%;
   font-size: 20px;
@@ -14,16 +14,16 @@
   box-sizing: border-box;
 }
 
-.Text-field__input:focus {
+.text-field__input:focus {
   outline: none;
 }
 
-.Text-field__input::placeholder {
+.text-field__input::placeholder {
   opacity:1;
   color:rgba(0,0,0,0.38);
   transition:color 0.18s cubic-bezier(0.4,0,0.2,1);
 }
 
-.Text-field__input:focus::placeholder {
+.text-field__input:focus::placeholder {
   color:rgba(0,0,0,0.54);
 }

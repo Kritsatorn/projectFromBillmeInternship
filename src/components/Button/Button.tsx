@@ -21,7 +21,7 @@ export class Button
   }
 
   stylingButton(type: string, disable: boolean) {
-    return disable ? 'Button disable' : 'Button ' + type;
+    return disable ? 'button disable' : 'button ' + type;
   }
 
 }

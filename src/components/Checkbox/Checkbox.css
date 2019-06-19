@@ -1,13 +1,13 @@
-.Container {
+.container {
   display: block;
   position: relative;
 }
-.Text-label {
+.text-label {
   margin-left: 8px;
   font-weight: 600;
 }
 
-.Checkbox__label {
+.checkbox__label {
   margin-left: 16px;
   font-size: 16px;
 	letter-spacing: -0.1px;
@@ -15,11 +15,11 @@
   color: #494949;
 }
 
-.Checkbox__label.disabled {
+.checkbox__label.disabled {
   color: #c8ccd1;
 }
 
-.Checkbox__input {
+.checkbox__input {
   margin: 0;
   cursor: pointer;
   -webkit-appearance: none;
@@ -35,33 +35,33 @@
   background-color: #ffffff;
 }
 
-.Checkbox__input:checked {
+.checkbox__input:checked {
   border: 2px solid #00ace1;
   color: #00ace1;
   text-align: center;
   background-color: #ffffff;
 }
 
-.Checkbox__input:checked::before {
+.checkbox__input:checked::before {
   content: '';
 }
 
-.Checkbox__input:checked::after {
+.checkbox__input:checked::after {
   content: url('../../assets/checked.svg');
   line-height: 24px;
   text-align: center;
   transition: all 0.3s linear;
 }
 
-.Checkbox__input:focus {
+.checkbox__input:focus {
   outline: none;
   box-shadow: none;
 }
 
-.Checkbox__input:hover:not(:disabled) {
+.checkbox__input:hover:not(:disabled) {
   border: 2px solid #00ace1;
 }
 
-.Checkbox__input:disabled {
+.checkbox__input:disabled {
   cursor: default;
 }

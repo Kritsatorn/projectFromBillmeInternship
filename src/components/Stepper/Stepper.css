@@ -1,10 +1,10 @@
-.Stepper{
+.stepper {
   width: 70%;
   background-color: #00ace1;
   display: flex;
 }
 
-.Stepper-bar {
+.stepper-bar {
   margin-left: 10px;
   margin-right: 10px;
   display: flex;
@@ -13,14 +13,14 @@
   justify-content: space-around;
 }
 
-.Progress-box{
+.progress-box {
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: visible;
 }
 
-.Progress {
+.progress {
   background-color: white;
   border-radius: 50%;
   width: 21px;
@@ -37,29 +37,29 @@
   border-radius: 50%;
 }
 
-.status.none{
+.status.none {
   box-shadow: 0 0 0 0 rgb(255, 255, 255);
   background-color: #ffffff;
 }
 
-.status.current{
+.status.current {
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #ff6666;
 }
 
-.status.pass{
+.status.pass {
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #21343a;
 }
 
-.Lockbar {
+.lockbar {
   min-width: 72px;
   display: flex;
   justify-content: center;
   z-index: 1;
 }
 
-.Tagbar{
+.tagbar {
   background-color: white;
   width: 80px;
   height: 5px;
@@ -67,9 +67,9 @@
 }
 
 
-.Stepper-title {
+.stepper-title {
   color: #494949;
   font-size: 10px;
-  text-overflow:ellipsis;
+  text-overflow: ellipsis;
   overflow: visible;
 }
