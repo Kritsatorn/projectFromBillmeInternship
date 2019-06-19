@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import registerServiceWorker from './registerServiceWorker';
-import { Router, Switch, Route } from 'react-router';
 import { createBrowserHistory } from 'history';
+import { Router, Switch, Route } from 'react-router';
+import registerServiceWorker from './registerServiceWorker';
 import { CreateBillPage } from './pages/CreateBillPage/CreateBillPage';
 import './styles/index.css';
 
