@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CheckboxProps } from './CheckboxType';
+import { CheckboxProps } from './CheckboxTypes';
 import './Checkbox.css';
 
 export class Checkbox extends React.Component<CheckboxProps> {
