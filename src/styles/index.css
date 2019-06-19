@@ -1,6 +1,6 @@
 @font-face {
-  font-family: SukhumvitSet-Text;
-  src: url('../assets/SukhumvitSet-Text.ttf');
+  font-family: 'Kanit', sans-serif;
+  /* src: url('../assets/SukhumvitSet-Text.ttf'); */
 }
 
 body, div {
