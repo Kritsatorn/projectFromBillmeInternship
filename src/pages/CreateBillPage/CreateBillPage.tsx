@@ -14,9 +14,9 @@ export class CreateBillPage
         <div className="top-stepper">
           <Stepper
             status={2}
-            title1="ใส่รายการ"
-            title2="เลือกเพื่อน"
-            title3="ช่องทางการชำระเงิน"
+            step1="ใส่รายการ"
+            step2="เลือกเพื่อน"
+            step3="ช่องทางการชำระเงิน"
           />
         </div>
         <div className="bill-title">
