@@ -11,9 +11,7 @@ export class TextField
         type
       } = this.props;
 
-      // const fieldstyle = this.stylingField(className);
       return (
-        <div className="Text-field">
           <input
             name={name}
             id={id}
@@ -23,7 +21,6 @@ export class TextField
             placeholder={placeHolder}
             disabled={disabled}
           />
-        </div>
       );
 
     }
