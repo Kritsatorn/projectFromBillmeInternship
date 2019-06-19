@@ -13,7 +13,7 @@ export class CreateBillPage
       <div className="bg">
         <div className="top-stepper">
           <Stepper
-            status="2"
+            status={2}
             title1="ใส่รายการ"
             title2="เลือกเพื่อน"
             title3="ช่องทางการชำระเงิน"

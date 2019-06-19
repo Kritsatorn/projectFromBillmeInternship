@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StepperProps } from './StepperType';
+import { StepperProps } from './StepperTypes';
 import './Stepper.css';
 import { BillingStep } from '../../definitions/enum/BillingStep';
 
@@ -7,7 +7,7 @@ export class Stepper
   extends React.Component<StepperProps> {
 
   render() {
-    const { status = '', title1, title2, title3 } = this.props;
+    const { status = 0, title1, title2, title3 } = this.props;
 
     return (
       <div className="stepper">
@@ -26,7 +26,7 @@ export class Stepper
           </div>
           <div className="progress-box">
             <div className="progress">
-              <div className={this.stepperProgress(status)[3]} />
+              <div className={this.stepperProgress(status)[2]} />
             </div>
             <div className="stepper-title">{title3}</div>
           </div>
@@ -35,7 +35,7 @@ export class Stepper
     );
   }
 
-  stepperProgress(step: string) {
+  stepperProgress(step: number) {
     if (step === BillingStep.CREATE_BILL) {
       return ['status current', 'status none', 'status none'];
     } else if (step === BillingStep.ADD_FRIENDS) {
