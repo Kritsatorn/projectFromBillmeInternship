@@ -3,6 +3,7 @@ import { CheckboxProps } from './CheckboxType';
 import './Checkbox.css';
 
 export class Checkbox extends React.Component<CheckboxProps> {
+
   render() {
     const{title, checked} = this.props;
 
