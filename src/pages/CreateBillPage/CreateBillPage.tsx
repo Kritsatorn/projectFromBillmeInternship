@@ -6,7 +6,7 @@ import { TextField } from '../../components/TextField/TextField';
 import './CreateBillPage.css';
 
 export class CreateBillPage
-  extends React.Component<{}, {}> {
+  extends React.Component {
 
   render() {
     return (
