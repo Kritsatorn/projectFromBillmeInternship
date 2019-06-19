@@ -1,0 +1,84 @@
+.Bg {
+  background-color: #00ace1;
+  min-height: 100vh;
+  height: 100%;
+  padding-top: 16px;
+}
+
+.Top-stepper {
+  display: flex;
+  justify-content: center;
+  width: 100vm;
+  align-items: center;
+}
+
+.Bill-title {
+  width: 100vw;
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Bill-title-size {
+  width: 85%;
+  height: 44px;
+}
+
+.Bill-box {
+  width: 351px;
+  height: 307px;
+  border-radius: 30px;
+  background-color: #f2f2f2;
+  margin: auto;
+  margin-top: 20px;
+}
+.Top-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.row {
+  display: flex;
+  margin-top: 8px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Column-title {
+  height: 32px;
+  display: flex;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 16px;
+  align-items: center;
+  justify-content: center;
+  background-color: #21343a;
+}
+
+.Column-left {
+  width: 192.6px;
+}
+
+.Column-right {
+  width: 81px;
+}
+
+.Cancel-button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ff6666;
+  color: white;
+  margin: 0px;
+  border: none;
+}
+
+.Add-button-size {
+  height: 31px;
+  margin-top: 8px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
