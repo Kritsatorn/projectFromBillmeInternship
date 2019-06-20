@@ -135,6 +135,9 @@ export class CreateBillPage
             type="number"
           />
         </div>
+        {
+          // TODO: X represent remove icon for remove button will change later
+        }
         <button
           className="cancel-button"
           disabled={false}
