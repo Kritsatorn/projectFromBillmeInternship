@@ -15,7 +15,7 @@ export class CreateBillPage
 
     this.state = {
       items: [],
-      totalprice: 0
+      totalPrice: 0
     };
 
     this.addList = this.addList.bind(this);
@@ -97,7 +97,7 @@ export class CreateBillPage
             <div className="summary-section__text">
               ยอดรวม
               <span className="summary-section__text--price">
-                {this.state.totalprice}
+                {this.state.totalPrice}
               </span>
               บาท
             </div>

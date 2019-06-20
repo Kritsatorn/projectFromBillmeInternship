@@ -1,5 +1,5 @@
 export interface CreateBillState {
-  totalprice: number;
+  totalPrice: number;
   items: Item[];
 }
 
