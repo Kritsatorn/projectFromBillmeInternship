@@ -1,3 +1,5 @@
+import { BillDataAPI } from '../definitions/types/Datalist';
+
 export class BillListModel {
 
   billList: {
@@ -9,29 +11,11 @@ export class BillListModel {
     billStatus: boolean;
   }[];
 
-  static apply(
-    datalist: {
-      id: string,
-      name: string,
-      owner_id: string,
-      publish_date: string,
-      status: boolean,
-      image: string
-    }[]
-  ) {
+  static apply(datalist: BillDataAPI[]) {
     return new BillListModel(datalist);
   }
 
-  static formatBills(
-    datalist: {
-      id: string,
-      name: string,
-      owner_id: string,
-      publish_date: string,
-      status: boolean,
-      image: string
-    }[]
-  ) {
+  static formatBills(datalist: BillDataAPI[]) {
     return datalist.map(data => {
       return {
         billId: data.id,
@@ -44,16 +28,7 @@ export class BillListModel {
     });
   }
 
-  constructor (
-    datalist: {
-      id: string,
-      name: string,
-      owner_id: string,
-      publish_date: string,
-      status: boolean,
-      image: string
-    }[]
-  ) {
+  constructor (datalist: BillDataAPI[]) {
     this.billList = BillListModel.formatBills(datalist);
   }
 }
