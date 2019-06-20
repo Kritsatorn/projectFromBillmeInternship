@@ -2,7 +2,7 @@
   height: 100%;
   min-height: 100vh;
   padding-top: 16px;
-  background-color: #00ace18a;
+  background-color: white;
 }
 
 .top-stepper {
@@ -71,6 +71,7 @@
   margin: 0px;
   height: 28px;
   border: none;
+  outline: none;
   color: white;
   border-radius: 50%;
   background-color: #ff6666;
@@ -125,4 +126,19 @@
   display: flex;
   width: 351px;
   justify-content: flex-end;
+}
+
+.summary-section__text {
+  margin-top: 12px;
+  color: white;
+  font-size: 1.7em;
+  font-weight: 500;
+  padding-right: 5%;
+}
+
+.summary-section__text__price {
+  font-weight: 600;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-decoration: underline;
 }
