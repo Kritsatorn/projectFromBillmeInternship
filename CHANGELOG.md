@@ -1,5 +1,9 @@
 # Changelog
 
+## [V0.0.7] - 2019-06-20
+## Updated
+- Updated conect quatations api
+
 ## [V0.0.6] - 2019-06-20
 ## Updated
 - Added addlist method for Create Bill Page
