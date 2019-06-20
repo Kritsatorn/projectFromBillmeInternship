@@ -67,7 +67,7 @@ export class CreateBillPage
               className="cancel-button"
               disabled={false}
             >
-              X
+              x
             </button>
           </div>
           <div className="add-button-size">
