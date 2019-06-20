@@ -7,8 +7,8 @@ export class TextField
 
   render() {
     const {
-      name, id, disabled,
-      required, placeHolder,
+      name, id, disabled = false,
+      required = false, placeHolder = '',
       type, shadow = false, isunderline = false
     } = this.props;
 
