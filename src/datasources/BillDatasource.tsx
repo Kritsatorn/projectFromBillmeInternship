@@ -1,4 +1,3 @@
-// import { API } from '../utilities/API';
 import { data } from '../mocks/BillData';
 
 export class BillDatasource {
