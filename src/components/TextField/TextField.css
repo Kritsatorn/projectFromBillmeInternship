@@ -4,14 +4,16 @@
   font-size: 20px;
   font-weight: 600;
   color: rgba(0,0,0,0.87);
-  padding: 0;
   border: none;
   margin: 2px;
   border-radius: 8px;
   font-family: 'Kanit', sans-serif;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  padding: 0 16px 0px 16px;
+  padding: 1px 16px 1px 16px;
   box-sizing: border-box;
+}
+
+.text-field__input.shadow {
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 }
 
 .text-field__input:focus {
