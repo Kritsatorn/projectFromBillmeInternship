@@ -13,7 +13,11 @@ export class CreateBillPage
   constructor(props: {}) {
     super(props);
 
-    this.state = { totalprice: 107.1 };
+    this.state = {
+      items: [],
+      totalprice: 107.1
+    };
+    this.addList = this.addList.bind(this);
   }
 
   render() {
@@ -48,34 +52,43 @@ export class CreateBillPage
             </div>
             <div style={{ width: '28px' }} />
           </div>
-          <div className="row">
-            <div className="column-left">
-              <TextField
-                name="food"
-                placeHolder="รายการ"
-                id="2"
-                type="text"
-              />
-            </div>
-            <div className="column-right">
-              <TextField
-                name="price"
-                placeHolder="0.0"
-                id="2"
-                type="number"
-              />
-            </div>
-            <button
-              className="cancel-button"
-              disabled={false}
-            >
-              x
-            </button>
-          </div>
+            {
+              this.state.items.map(
+                (item, index) => {
+                  return (
+                    <div key={index} className="row">
+                      <div className="column-left">
+                        <TextField
+                          name="food"
+                          placeHolder="รายการ"
+                          id="2"
+                          type="text"
+                        />
+                      </div>
+                      <div className="column-right">
+                        <TextField
+                          name="price"
+                          placeHolder="0.0"
+                          id="2"
+                          type="number"
+                        />
+                      </div>
+                      <button
+                        className="cancel-button"
+                        disabled={false}
+                      >
+                        x
+                      </button>
+                    </div>
+                  );
+                }
+              )
+            }
           <div className="add-button-size">
             <Button
               title="+ เพิ่มรายการในบิล"
               type="addlist"
+              onclick={() => this.addList()}
               disable={false}
             />
           </div>
@@ -125,5 +138,14 @@ export class CreateBillPage
         </div>
       </div>
     );
+  }
+
+  addList() {
+    const item = this.state.items;
+    item.push({
+      detail: '',
+      price: 0
+    });
+    this.setState({ items: item });
   }
 }
