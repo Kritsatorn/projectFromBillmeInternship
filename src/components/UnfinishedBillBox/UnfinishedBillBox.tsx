@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { UnfinishedBillBoxProps } from './UnfinishedBillBoxType';
+import { UnfinishedBillBoxProps } from './UnfinishedBillBoxTypes';
 import './UnfinishedBillBox.css';
 
 export class UnfinishedBillBox

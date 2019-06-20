@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ProfilePageState } from './ProfilePageType';
+import { ProfilePageState } from './ProfilePageTypes';
 import { BillFacade } from '../../facades/BillFacade';
 import { Button } from '../../components/Button/Button';
 import { UnfinishedBillBox } from '../../components/UnfinishedBillBox/UnfinishedBillBox';
