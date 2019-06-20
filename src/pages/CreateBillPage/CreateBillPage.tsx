@@ -59,17 +59,17 @@ export class CreateBillPage
                     <div key={index} className="row">
                       <div className="column-left">
                         <TextField
-                          name="food"
+                          name={index + 'detail'}
                           placeHolder="รายการ"
-                          id="2"
+                          id={index + 'detail'}
                           type="text"
                         />
                       </div>
                       <div className="column-right">
                         <TextField
-                          name="price"
+                          name={index + 'price'}
                           placeHolder="0.0"
-                          id="2"
+                          id={index + 'price'}
                           type="number"
                         />
                       </div>
