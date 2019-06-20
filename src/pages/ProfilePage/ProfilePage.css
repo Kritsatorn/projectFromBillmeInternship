@@ -1,4 +1,4 @@
-.Profile-page {
+.profile-page {
   background-image: url('../../assets/main.png');
   color:#008b8b;
   height: 100%;
@@ -6,10 +6,10 @@
   min-width: 375px;
 }
 
-.Profile-page_container {
+.profile-page_container {
   height: 100%;
   min-height: 100vh;
-	margin: auto;
+  margin: auto;
   width: 70%;
   display: flex;
   flex-direction: column;
@@ -19,8 +19,8 @@
 }
 
 .title {
-	width: 8em;
-	height: 2em;
+  width: 8em;
+  height: 2em;
   font-family: Kanit;
   font-size: 30px;
   font-weight: normal;
@@ -36,9 +36,9 @@
   top: 0px;
   left: 6.5px;
   position: relative;
-	border-bottom-right-radius: 15px;
-	border-bottom-left-radius: 15px;
-	background-color: rgba(33, 52, 58, 0.6);
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  background-color: rgba(33, 52, 58, 0.6);
 }
 
 .title-text {
@@ -54,7 +54,7 @@
   padding: 10px 8px 8px 8px;
   border-radius: 15px;
   border-bottom-right-radius: 20px;
-	border-bottom-left-radius: 20px;
+  border-bottom-left-radius: 20px;
   background-color: #f8f8f8;
   z-index: 2;
 }
@@ -74,8 +74,4 @@
   bottom: 0;
   z-index: 1;
   background-color:#00ace1;
-}
-
-.h1 {
-    color: brown;
 }
