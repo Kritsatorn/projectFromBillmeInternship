@@ -145,6 +145,9 @@ export class CreateBillPage
         <button
           className="cancel-button"
           disabled={false}
+          onClick={() => {
+            this.removeItemRow(index);
+          }}
         >
           x
         </button>
@@ -161,5 +164,15 @@ export class CreateBillPage
     });
 
     this.setState({ items: item });
+  }
+
+  removeItemRow(index: number) {
+    const items = this.state.items;
+
+    items.splice(index, 1);
+
+    this.setState({
+      items: items
+    });
   }
 }
