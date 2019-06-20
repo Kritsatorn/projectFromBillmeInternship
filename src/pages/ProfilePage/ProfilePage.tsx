@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { ProfilePageState } from './ProfilePageType';
 import { BillFacade } from '../../facades/BillFacade';
+import { Button } from '../../components/Button/Button';
 import { UnfinishedBillBox } from '../../components/UnfinishedBillBox/UnfinishedBillBox';
 import './ProfilePage.css';
 
@@ -36,11 +37,12 @@ export class ProfilePage
       const billList = BillFacade.getBillList('userId');
 
       billList.then(result => {
-            this.setState({
-              billInfo: result.billList,
-              isLoadingComplete: true
-            });
-          });
+        this.setState({
+          billInfo: result.billList,
+          isLoadingComplete: true
+        });
+      });
+
       this.initialize = this.initialize.bind(this);
       }
 
@@ -69,6 +71,14 @@ export class ProfilePage
             this.renderUnfinishedBillBox(this.state.billInfo) :
             <br/>
           }
+          <div className="footer">
+            <Button
+              title="HI"
+              type=""
+              disable={false}
+            />
+          </div>
+          <div className="background-footer" />
           </div>
         </div>
         );
