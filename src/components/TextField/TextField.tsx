@@ -28,7 +28,10 @@ export class TextField
   stylingField(shadow: boolean, isunderline: boolean) {
     if (isunderline) {
       return 'text-field__input-underline';
+    } else if (shadow) {
+      return 'text-field__input shadow';
+    } else {
+      return 'text-field__input';
     }
-    return shadow ? 'text-field__input shadow' : 'text-field__input';
   }
 }
