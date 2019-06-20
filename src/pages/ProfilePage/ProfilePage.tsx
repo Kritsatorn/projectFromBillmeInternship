@@ -23,6 +23,7 @@ interface MyWindow extends Window {
 
 export class ProfilePage
     extends React.Component<object, ProfilePageState> {
+
     myWindow: MyWindow = window;
     liff = this.myWindow.liff;
 
@@ -34,6 +35,7 @@ export class ProfilePage
         billInfo: [],
         isLoadingComplete: false
       };
+
       const billList = BillFacade.getBillList('userId');
 
       billList.then(result => {
@@ -44,10 +46,10 @@ export class ProfilePage
       });
 
       this.initialize = this.initialize.bind(this);
-      }
+    }
 
     componentDidMount() {
-    window.addEventListener('load', this.initialize);
+      window.addEventListener('load', this.initialize);
     }
 
     initialize() {
@@ -66,11 +68,11 @@ export class ProfilePage
             <div className="title-text">รายการบิลที่มี</div>
           </div>
           <div className="Profile-page_container">
-          {
-            this.state.isLoadingComplete ?
-            this.renderUnfinishedBillBox(this.state.billInfo) :
-            <br/>
-          }
+            {
+              this.state.isLoadingComplete ?
+              this.renderUnfinishedBillBox(this.state.billInfo) :
+              <br/>
+            }
           <div className="footer">
             <Button
               title="HI"
@@ -81,7 +83,7 @@ export class ProfilePage
           <div className="background-footer" />
           </div>
         </div>
-        );
+      );
     }
 
     renderUnfinishedBillBox(
