@@ -25,7 +25,7 @@
 ## [V0.0.3] - 2019-06-20
 ## Updated
 - Added ProfilePage.
-- Added UnfinishedBillBox-component.
+- Added UnfinishedBillBox component.
 - Added BillModel.
 - Added BillFacade.
 - Added BillDatasource.
@@ -33,11 +33,11 @@
 
 ## [V0.0.2] - 2019-06-19
 ## Updated
-- Added Checkbox Component.
-- Added Stepper Component.
-- Added Textfield Component.
-- Added Button Component.
-- Added Create Bill Page.
+- Added Checkbox component.
+- Added Stepper component.
+- Added Textfield component.
+- Added Button component.
+- Added Create bill Page.
 
 ## [V0.0.1] - 2019-06-18
 
