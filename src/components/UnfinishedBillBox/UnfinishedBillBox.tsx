@@ -11,7 +11,7 @@ export class UnfinishedBillBox
     return (
       <div className="box">
         <img
-          className="box_image"
+          className="bill-image"
           src={image}
           alt=""
         />
