@@ -15,7 +15,7 @@ export class CreateBillPage
 
     this.state = {
       items: [],
-      totalprice: 107.1
+      totalprice: 0
     };
 
     this.addList = this.addList.bind(this);
