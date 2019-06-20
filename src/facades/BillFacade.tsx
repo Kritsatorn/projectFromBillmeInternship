@@ -5,7 +5,7 @@ export class BillFacade {
   static getBillList(id: string) {
     return BillDatasource.getBillList(id)
     .then(result => {
-      return BillListModel.apply(result);
+      return BillListModel.apply(result.quotations);
     });
   }
 }

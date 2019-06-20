@@ -1,7 +1,9 @@
-import { data } from '../mocks/BillData';
-
+import { API } from '../utilities/API';
 export class BillDatasource {
   static getBillList(id: string) {
-    return Promise.resolve(data.quotations);
+    return API.get(
+      'https://dev-kidtang.billme.co.th/services',
+      `/api/line/users/Uf77cf2a5c273a986359267abea8fe35e/quotations`
+    );
   }
 }
