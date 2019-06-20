@@ -53,13 +53,7 @@ export class CreateBillPage
             </div>
             <div style={{ width: '28px' }} />
           </div>
-          {
-            this.state.items.map(
-              (item, index) => {
-                return this.listItemRow(index, item);
-              }
-            )
-          }
+          {this.mappingItems()}
           <div className="add-button-size">
             <Button
               title="+ เพิ่มรายการในบิล"
@@ -113,6 +107,16 @@ export class CreateBillPage
           </div>
         </div>
       </div>
+    );
+  }
+
+  mappingItems() {
+    return (
+      this.state.items.map(
+        (item, index) => {
+          return this.listItemRow(index, item);
+        }
+      )
     );
   }
 
