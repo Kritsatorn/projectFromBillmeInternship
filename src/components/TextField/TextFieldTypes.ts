@@ -7,4 +7,5 @@ export interface TextFieldProps {
   type?: string;
   isValid?: boolean;
   className?: string;
+  shadow: boolean;
 }
