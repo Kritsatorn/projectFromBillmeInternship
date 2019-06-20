@@ -1,4 +1,5 @@
 export class BillListModel {
+
   billList: {
     billId: string;
     billName: string;
@@ -18,7 +19,29 @@ export class BillListModel {
       image: string
     }[]
   ) {
-  return new BillListModel(datalist);
+    return new BillListModel(datalist);
+  }
+
+  static formatBills(
+    datalist: {
+      id: string,
+      name: string,
+      owner_id: string,
+      publish_date: string,
+      status: boolean,
+      image: string
+    }[]
+  ) {
+    return datalist.map(data => {
+      return {
+        billId: data.id,
+        billName: data.name,
+        billOwner: data.owner_id,
+        publishDate: data.publish_date,
+        image: data.image,
+        billStatus: data.status
+      };
+    });
   }
 
   constructor (
@@ -31,15 +54,6 @@ export class BillListModel {
       image: string
     }[]
   ) {
-  this.billList = datalist.map(data => {
-    return {
-      billId: data.id,
-      billName: data.name,
-      billOwner: data.owner_id,
-      publishDate: data.publish_date,
-      image: data.image,
-      billStatus: data.status
-    };
-  });
+    this.billList = BillListModel.formatBills(datalist);
   }
 }
