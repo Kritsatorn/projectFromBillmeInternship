@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { CreateBillState } from './CreateBillPageTypes';
 import { Button } from '../../components/Button/Button';
 import { Stepper } from '../../components/Stepper/Stepper';
 import { Checkbox } from '../../components/Checkbox/Checkbox';
+import { CreateBillState, Item } from './CreateBillPageTypes';
 import { TextField } from '../../components/TextField/TextField';
 import { BillingStep } from '../../definitions/enum/BillingStep';
 import './CreateBillPage.css';
@@ -13,7 +13,12 @@ export class CreateBillPage
   constructor(props: {}) {
     super(props);
 
-    this.state = { totalprice: 107.1 };
+    this.state = {
+      items: [],
+      totalPrice: 0
+    };
+
+    this.addList = this.addList.bind(this);
   }
 
   render() {
@@ -48,34 +53,12 @@ export class CreateBillPage
             </div>
             <div style={{ width: '28px' }} />
           </div>
-          <div className="row">
-            <div className="column-left">
-              <TextField
-                name="food"
-                placeHolder="รายการ"
-                id="2"
-                type="text"
-              />
-            </div>
-            <div className="column-right">
-              <TextField
-                name="price"
-                placeHolder="0.0"
-                id="2"
-                type="number"
-              />
-            </div>
-            <button
-              className="cancel-button"
-              disabled={false}
-            >
-              x
-            </button>
-          </div>
+          {this.mappingItems()}
           <div className="add-button-size">
             <Button
               title="+ เพิ่มรายการในบิล"
               type="addlist"
+              onclick={() => this.addList()}
               disable={false}
             />
           </div>
@@ -108,7 +91,7 @@ export class CreateBillPage
             <div className="summary-section__text">
               ยอดรวม
               <span className="summary-section__text--price">
-                {this.state.totalprice}
+                {this.state.totalPrice}
               </span>
               บาท
             </div>
@@ -125,5 +108,58 @@ export class CreateBillPage
         </div>
       </div>
     );
+  }
+
+  mappingItems() {
+    return (
+      this.state.items.map(
+        (item, index) => {
+          return this.listItemRow(index, item);
+        }
+      )
+    );
+  }
+
+  listItemRow(index: number, item: Item) {
+    return (
+      <div key={index} className="row">
+        <div className="column-left">
+          <TextField
+            name={index + 'detail'}
+            placeHolder="รายการ"
+            id={index + 'detail'}
+            type="text"
+          />
+        </div>
+        <div className="column-right">
+          <TextField
+            name={index + 'price'}
+            placeHolder="0.0"
+            id={index + 'price'}
+            type="number"
+          />
+        </div>
+        {
+          // TODO: X represent remove icon for remove button will change later
+        }
+        <button
+          className="cancel-button"
+          disabled={false}
+        >
+          x
+        </button>
+      </div>
+    );
+  }
+
+  addList() {
+    const item = this.state.items;
+
+    item.push({
+      detail: '',
+      price: 0
+    });
+
+    this.setState({ items: item });
   }
 }
