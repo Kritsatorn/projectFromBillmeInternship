@@ -30,6 +30,7 @@ export class CreateBillPage
               shadow={true}
               required={false}
               disabled={false}
+              isunderline={false}
             />
           </div>
         </div>
@@ -53,6 +54,7 @@ export class CreateBillPage
                 shadow={false}
                 required={false}
                 disabled={false}
+                isunderline={false}
               />
             </div>
             <div className="column-right">
@@ -64,6 +66,7 @@ export class CreateBillPage
                 shadow={false}
                 required={false}
                 disabled={false}
+                isunderline={false}
               />
             </div>
             <button
@@ -81,12 +84,33 @@ export class CreateBillPage
             />
           </div>
         </div>
-        <Checkbox
-          title="VAT"
-        />
-        <Checkbox
-          title="Service Charge"
-        />
+        <div className="optional">
+          <div className="optional__row">
+            <Checkbox
+              title="VAT"
+            />
+          </div>
+          <div className="optional__row">
+            <Checkbox
+              title="Service Charge"
+            />
+            <div className="service-charge-textfield">
+              <TextField
+                name="servicecharge"
+                placeHolder=""
+                id="2"
+                type="number"
+                shadow={false}
+                required={false}
+                disabled={false}
+                isunderline={true}
+              />
+            </div>
+            <div>
+              %
+            </div>
+          </div>
+        </div>
         <div>
           <Button
             title="ถัดไป"
