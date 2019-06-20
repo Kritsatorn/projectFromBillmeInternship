@@ -1,5 +1,9 @@
 # Changelog
 
+## [V0.0.5] - 2019-06-20
+## Fixed
+- Fixed container's name in profile page
+
 ## [V0.0.4] - 2019-06-20
 ## Updated
 - Updated underline and shadow Textfield Style
