@@ -1,5 +1,9 @@
 # Changelog
 
+## [V0.0.6] - 2019-06-20
+## Updated
+- Added addlist method for Create Bill Page
+
 ## [V0.0.5] - 2019-06-20
 ## Fixed
 - Fixed container's name in profile page
