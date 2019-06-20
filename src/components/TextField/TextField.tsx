@@ -7,9 +7,9 @@ export class TextField
 
   render() {
     const {
-      name, id, disabled,
-      required, placeHolder,
-      type
+      name, id, disabled = false,
+      required = false, placeHolder = '',
+      type, shadow = false, isunderline = false
     } = this.props;
 
     return (
@@ -17,7 +17,7 @@ export class TextField
         name={name}
         id={id}
         type={type}
-        className="text-field__input"
+        className={this.stylingField(shadow, isunderline)}
         required={required}
         placeholder={placeHolder}
         disabled={disabled}
@@ -25,7 +25,13 @@ export class TextField
     );
   }
 
-  stylingField(className: string) {
-    return 'Text-field ' + className;
+  stylingField(shadow: boolean, isunderline: boolean) {
+    if (isunderline) {
+      return 'text-field__input-underline';
+    } else if (shadow) {
+      return 'text-field__input shadow';
+    } else {
+      return 'text-field__input';
+    }
   }
 }

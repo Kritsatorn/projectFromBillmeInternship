@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="375" height="609" viewBox="0 0 375 609">
+  <defs>
+    <clipPath id="clip-หน้าหลัก_1">
+      <rect width="375" height="609"/>
+    </clipPath>
+  </defs>
+  <g id="หน้าหลัก_1" data-name="หน้าหลัก – 1" clip-path="url(#clip-หน้าหลัก_1)">
+    <rect width="375" height="609" fill="#fff"/>
+    <path id="Path_1" data-name="Path 1" d="M0,0H375V160H0Z" fill="#00ace1"/>
+  </g>
+</svg>
