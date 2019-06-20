@@ -7,6 +7,15 @@
 - Added Service Charge Field
 - Added Summary Section
 
+## [V0.0.3] - 2019-06-20
+## Updated
+- Added ProfilePage
+- Added UnfinishedBillBox-component
+- Added BillModel
+- Added BillFacade
+- Added BillDatasource
+- Added MockBillData
+
 ## [V0.0.2] - 2019-06-19
 ## Updated
 - Added Checkbox Component

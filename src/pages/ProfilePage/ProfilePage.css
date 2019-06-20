@@ -1,0 +1,77 @@
+.profile-page {
+  background-image: url('../../assets/main.png');
+  color:#008b8b;
+  height: 100%;
+  min-height: 100vh;
+  min-width: 375px;
+}
+
+.profile-page__container {
+  height: 100%;
+  min-height: 100vh;
+  margin: auto;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+  align-items: center;
+
+}
+
+.title {
+  width: 8em;
+  height: 2em;
+  font-family: Kanit;
+  font-size: 30px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align:center;
+  vertical-align: text-bottom;
+  margin-bottom: 3.5px;
+  padding-bottom: 8px;
+  color:#ffffff;
+  top: 0px;
+  left: 6.5px;
+  position: relative;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  background-color: rgba(33, 52, 58, 0.6);
+}
+
+.title-text {
+  padding-top: 20px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 22px;
+  width: 136px;
+  height: 46px;
+  padding: 10px 8px 8px 8px;
+  border-radius: 15px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: #f8f8f8;
+  z-index: 2;
+}
+
+.footer .button {
+  width: 136px;
+  height: 46px;
+  border-radius: 15px;
+  box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ff6666;
+}
+
+.background-footer {
+  position: absolute;
+  height: 54px;
+  width: 100%;
+  bottom: 0;
+  z-index: 1;
+  background-color:#00ace1;
+}
