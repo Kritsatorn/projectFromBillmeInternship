@@ -16,5 +16,6 @@ ReactDOM.render(
       <Route exact={true} path="/create" component={CreateBillPage}/>
     </Switch>
   </Router>,
-  document.getElementById('root'));
+  document.getElementById('root')
+);
 registerServiceWorker();
