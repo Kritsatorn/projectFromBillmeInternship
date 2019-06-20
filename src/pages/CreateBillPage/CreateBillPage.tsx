@@ -9,6 +9,7 @@ import './CreateBillPage.css';
 
 export class CreateBillPage
   extends React.Component<{}, CreateBillState> {
+
   constructor(props: {}) {
     super(props);
     this.state = { totalprice: 107.1 };
@@ -105,7 +106,7 @@ export class CreateBillPage
           <div className="summary-section__row">
             <div className="summary-section__text">
               ยอดรวม
-              <span className="summary-section__text__price">
+              <span className="summary-section__text--price">
                 {this.state.totalprice}
               </span>
               บาท
