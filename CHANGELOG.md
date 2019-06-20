@@ -2,7 +2,7 @@
 
 ## [V0.0.7] - 2019-06-20
 ## Updated
-- Updated connect quaotations api
+- Updated connect quotations api
 
 ## [V0.0.6] - 2019-06-20
 ## Updated
