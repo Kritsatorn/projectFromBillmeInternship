@@ -1,21 +1,22 @@
 export class BillListModel {
   billList: {
-  billId: string;
-  billName: string;
-  billOwner: string;
-  publishDate: string;
-  image: string;
-  billStatus: boolean;
+    billId: string;
+    billName: string;
+    billOwner: string;
+    publishDate: string;
+    image: string;
+    billStatus: boolean;
   }[];
 
-  static apply(datalist: {
-    id: string,
-    name: string,
-    owner_id: string,
-    publish_date: string,
-    status: boolean,
-    image: string
-  }[]
+  static apply(
+    datalist: {
+      id: string,
+      name: string,
+      owner_id: string,
+      publish_date: string,
+      status: boolean,
+      image: string
+    }[]
   ) {
   return new BillListModel(datalist);
   }
