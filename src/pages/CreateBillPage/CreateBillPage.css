@@ -83,3 +83,24 @@
   margin-left: 10px;
   margin-right: 10px;
 }
+
+.optional {
+  margin-top: 4px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.optional__row {
+  width: 85%;
+  display: flex;
+  margin-top: 4px;
+}
+
+.service-charge-textfield {
+  height: 16px;
+  width: 24px;
+  margin-left: 8px;
+  margin-right: 8px;
+}

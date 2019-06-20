@@ -27,9 +27,7 @@ export class CreateBillPage
               placeHolder="ใส่ชื่อบิล"
               id="1"
               type=""
-              className=""
-              required={false}
-              disabled={false}
+              shadow={true}
             />
           </div>
         </div>
@@ -49,21 +47,15 @@ export class CreateBillPage
                 name="food"
                 placeHolder="รายการ"
                 id="2"
-                type=""
-                className=""
-                required={false}
-                disabled={false}
+                type="text"
               />
             </div>
             <div className="column-right">
               <TextField
-                name="food"
+                name="price"
                 placeHolder="0.0"
                 id="2"
-                type=""
-                className=""
-                required={false}
-                disabled={false}
+                type="number"
               />
             </div>
             <button
@@ -81,12 +73,29 @@ export class CreateBillPage
             />
           </div>
         </div>
-        <Checkbox
-          title="VAT"
-        />
-        <Checkbox
-          title="Service Charge"
-        />
+        <div className="optional">
+          <div className="optional__row">
+            <Checkbox
+              title="VAT"
+            />
+          </div>
+          <div className="optional__row">
+            <Checkbox
+              title="Service Charge"
+            />
+            <div className="service-charge-textfield">
+              <TextField
+                name="servicecharge"
+                id="2"
+                type="number"
+                isunderline={true}
+              />
+            </div>
+            <div>
+              %
+            </div>
+          </div>
+        </div>
         <div>
           <Button
             title="ถัดไป"
