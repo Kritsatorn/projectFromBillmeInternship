@@ -2,7 +2,7 @@
 
 ## [V0.0.7] - 2019-06-20
 ## Updated
-- Updated conect quatations api
+- Updated connect quaotations api
 
 ## [V0.0.6] - 2019-06-20
 ## Updated
