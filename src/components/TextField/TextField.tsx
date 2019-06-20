@@ -9,7 +9,7 @@ export class TextField
     const {
       name, id, disabled,
       required, placeHolder,
-      type
+      type, shadow = false
     } = this.props;
 
     return (
@@ -17,7 +17,7 @@ export class TextField
         name={name}
         id={id}
         type={type}
-        className="text-field__input"
+        className={this.stylingField(shadow)}
         required={required}
         placeholder={placeHolder}
         disabled={disabled}
@@ -25,7 +25,7 @@ export class TextField
     );
   }
 
-  stylingField(className: string) {
-    return 'Text-field ' + className;
+  stylingField(shadow: boolean) {
+    return shadow ? 'text-field__input shadow' : 'text-field__input';
   }
 }
