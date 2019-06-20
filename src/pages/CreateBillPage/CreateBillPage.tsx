@@ -28,9 +28,6 @@ export class CreateBillPage
               id="1"
               type=""
               shadow={true}
-              required={false}
-              disabled={false}
-              isunderline={false}
             />
           </div>
         </div>
@@ -51,10 +48,6 @@ export class CreateBillPage
                 placeHolder="รายการ"
                 id="2"
                 type="text"
-                shadow={false}
-                required={false}
-                disabled={false}
-                isunderline={false}
               />
             </div>
             <div className="column-right">
@@ -63,10 +56,6 @@ export class CreateBillPage
                 placeHolder="0.0"
                 id="2"
                 type="number"
-                shadow={false}
-                required={false}
-                disabled={false}
-                isunderline={false}
               />
             </div>
             <button
@@ -97,12 +86,8 @@ export class CreateBillPage
             <div className="service-charge-textfield">
               <TextField
                 name="servicecharge"
-                placeHolder=""
                 id="2"
                 type="number"
-                shadow={false}
-                required={false}
-                disabled={false}
                 isunderline={true}
               />
             </div>
