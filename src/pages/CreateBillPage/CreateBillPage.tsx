@@ -27,7 +27,7 @@ export class CreateBillPage
               placeHolder="ใส่ชื่อบิล"
               id="1"
               type=""
-              className=""
+              shadow={true}
               required={false}
               disabled={false}
             />
@@ -49,19 +49,19 @@ export class CreateBillPage
                 name="food"
                 placeHolder="รายการ"
                 id="2"
-                type=""
-                className=""
+                type="text"
+                shadow={false}
                 required={false}
                 disabled={false}
               />
             </div>
             <div className="column-right">
               <TextField
-                name="food"
+                name="price"
                 placeHolder="0.0"
                 id="2"
-                type=""
-                className=""
+                type="number"
+                shadow={false}
                 required={false}
                 disabled={false}
               />
