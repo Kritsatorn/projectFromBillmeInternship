@@ -96,13 +96,15 @@ export class CreateBillPage
             </div>
           </div>
         </div>
-        <div>
-          <div className="next-button-size">
-            <Button
-              title="ถัดไป"
-              type=""
-              disable={false}
-            />
+        <div className="summary-section">
+          <div className="summary-section__row">
+            <div className="next-button-size">
+              <Button
+                title="ถัดไป"
+                type=""
+                disable={false}
+              />
+            </div>
           </div>
         </div>
       </div>
