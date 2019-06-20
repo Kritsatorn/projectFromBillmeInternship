@@ -1,7 +1,9 @@
 export interface CreateBillState {
   totalprice: number;
-  items: {
-    detail: string;
-    price: number;
-  }[];
+  items: Item[];
+}
+
+export interface Item {
+  detail: string;
+  price: number;
 }
