@@ -1,10 +1,10 @@
 import * as React from 'react';
+import { CreateBillState } from './CreateBillPageTypes';
 import { Button } from '../../components/Button/Button';
 import { Stepper } from '../../components/Stepper/Stepper';
 import { Checkbox } from '../../components/Checkbox/Checkbox';
 import { TextField } from '../../components/TextField/TextField';
 import { BillingStep } from '../../definitions/enum/BillingStep';
-import { CreateBillState } from './CreateBillPageTypes';
 import './CreateBillPage.css';
 
 export class CreateBillPage
@@ -12,6 +12,7 @@ export class CreateBillPage
 
   constructor(props: {}) {
     super(props);
+
     this.state = { totalprice: 107.1 };
   }
 
