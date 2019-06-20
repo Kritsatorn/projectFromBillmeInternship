@@ -1,7 +1,7 @@
 .text-field__input {
   height: 100%;
   width: 100%;
-  font-size: 20px;
+  font-size: 1em;
   font-weight: 600;
   color: rgba(0,0,0,0.87);
   border: none;
@@ -10,6 +10,18 @@
   font-family: 'Kanit', sans-serif;
   padding: 1px 16px 1px 16px;
   box-sizing: border-box;
+}
+
+.text-field__input-underline {
+  width: 100%;
+  height: 100%;
+  font-size: 1em;
+  text-align: center;
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  border-bottom-style: solid;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .text-field__input.shadow {
