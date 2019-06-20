@@ -2,24 +2,9 @@ import * as React from 'react';
 import { ProfilePageState } from './ProfilePageTypes';
 import { BillFacade } from '../../facades/BillFacade';
 import { Button } from '../../components/Button/Button';
+import { MyWindow } from '../../definitions/interfaces/MyWindow';
 import { UnfinishedBillBox } from '../../components/UnfinishedBillBox/UnfinishedBillBox';
 import './ProfilePage.css';
-
-interface MyWindow extends Window {
-  liff?: {
-     // tslint:disable-next-line: no-any
-    init: (data: any) => void;
-    getProfile: () => {
-      displayName: string,
-      pictureUrl: string,
-      statusMessage: string,
-      userId: string
-    };
-    closeWindow: () => void;
-     // tslint:disable-next-line: no-any
-    sendMessages: (data: any) => Promise<any>;
-  };
-}
 
 export class ProfilePage
     extends React.Component<object, ProfilePageState> {
@@ -63,11 +48,11 @@ export class ProfilePage
 
     render() {
       return (
-        <div className="Profile-page">
+        <div className="profile-page">
           <div className="title">
             <div className="title-text">รายการบิลที่มี</div>
           </div>
-          <div className="Profile-page_container">
+          <div className="profile-page_container">
             {
               this.state.isLoadingComplete ?
               this.renderUnfinishedBillBox(this.state.billInfo) :
