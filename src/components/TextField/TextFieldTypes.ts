@@ -8,4 +8,5 @@ export interface TextFieldProps {
   isValid?: boolean;
   className?: string;
   shadow: boolean;
+  isunderline: boolean;
 }
