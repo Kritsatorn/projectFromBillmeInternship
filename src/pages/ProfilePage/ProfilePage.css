@@ -49,15 +49,24 @@
   position: absolute;
   bottom: 0;
   margin-bottom: 22px;
-  width: 152px;
-  height: 64px;
-  padding: 10px 8.5px 8px 7.5px;
+  width: 136px;
+  height: 46px;
+  padding: 10px 8px 8px 8px;
   border-radius: 15px;
   border-bottom-right-radius: 20px;
 	border-bottom-left-radius: 20px;
   background-color: #f8f8f8;
   z-index: 2;
 }
+
+.footer .button {
+  width: 136px;
+  height: 46px;
+  border-radius: 15px;
+  box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ff6666;
+}
+
 .background-footer {
   position: absolute;
   height: 54px;
