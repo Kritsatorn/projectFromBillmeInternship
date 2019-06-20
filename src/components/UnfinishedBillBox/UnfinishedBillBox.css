@@ -3,18 +3,17 @@
 	display: flex;
   align-items: center;
   cursor: pointer;
-	width: 80%;
-  height: 30%;
+  max-width: 312px;
+  max-height: 100px;
+	width: 312px;
+  height: 100px;
   min-width: 312px;
-  min-height: 99px;
+  min-height: 100px;
   border-radius: 8.5px;
   box-shadow: 0 2.5px 3px 0 rgba(0, 0, 0, 0.16);
   background-color: #ffffff;
-  margin: 4px;
-  padding-bottom: 10px;
-  padding-top: 0px;
-  padding-right: 25px;
-  padding-left: 17.5px;
+  margin: 16px;
+  padding: 0;
 }
 
 .box_image {
@@ -28,12 +27,14 @@
   border: 1px solid #e5e5ea;
 	margin-right: 8.8px;
 	margin-top: 4.5px;
-	margin-bottom: 9px;
+  margin-bottom: 9px;
+  margin-left: 17.5px;
 	border-radius: 50%;
 }
 
 .box_info {
-	margin:auto;
+  margin-left: 16px;
+  text-align: left;
 }
 
 .bill-name {
@@ -42,7 +43,7 @@
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
-  /* line-height: 1.5; */
+  line-height: 1.5;
   letter-spacing: normal;
   text-align: left;
   color: #464646;
@@ -51,12 +52,13 @@
 
 .bill-detail {
   font-family: Kanit;
-  font-size: 15px;
+  font-size: 10px;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
-  /* line-height: 1.5; */
+  line-height: 1.5;
   letter-spacing: normal;
   text-align: left;
   color: #464646;
+  margin-left: 4px;
 }
