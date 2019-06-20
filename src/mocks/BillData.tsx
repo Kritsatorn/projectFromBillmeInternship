@@ -1,5 +1,5 @@
 export const data = {
-  quotations : [
+  quotations: [
     {
       id: 'F9961d0b6ead915abb46e03c67c20817',
       status: false,
