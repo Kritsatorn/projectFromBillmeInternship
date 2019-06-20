@@ -100,9 +100,9 @@ export class ProfilePage
         return(
           <div key={`unfinish-bill--${index}`}>
             <UnfinishedBillBox
-              bill_name={result.billName}
-              bill_owner={result.billOwner}
-              publish_date={result.publishDate}
+              billName={result.billName}
+              billOwner={result.billOwner}
+              publishDate={result.publishDate}
               status={result.billStatus}
               image={result.image}
             />

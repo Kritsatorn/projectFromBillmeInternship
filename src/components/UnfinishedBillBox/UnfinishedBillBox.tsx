@@ -6,18 +6,18 @@ export class UnfinishedBillBox
   extends React.Component<UnfinishedBillBoxProps> {
 
   render() {
-    const { bill_name , bill_owner , publish_date, image } = this.props;
+    const { billName, billOwner, publishDate, image } = this.props;
 
     return (
       <div className="box">
         <img
-          className="bill-image"
+          className="box_image"
           src={image}
           alt=""
         />
         <div className="box_info">
-          <div className="bill-name">{bill_name}</div>
-          <div className="bill-detail">{bill_owner}<br/>{publish_date}</div>
+          <div className="bill-name">{billName}</div>
+          <div className="bill-detail">{billOwner}<br/>{publishDate}</div>
         </div>
       </div>
     );
