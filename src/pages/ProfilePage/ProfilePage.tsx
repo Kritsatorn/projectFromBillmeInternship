@@ -52,7 +52,7 @@ export class ProfilePage
           <div className="title">
             <div className="title-text">รายการบิลที่มี</div>
           </div>
-          <div className="profile-page_container">
+          <div className="profile-page__container">
             {
               this.state.isLoadingComplete ?
               this.renderUnfinishedBillBox(this.state.billInfo) :
