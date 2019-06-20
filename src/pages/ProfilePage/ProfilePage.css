@@ -6,7 +6,7 @@
   min-width: 375px;
 }
 
-.profile-page_container {
+.profile-page__container {
   height: 100%;
   min-height: 100vh;
   margin: auto;
