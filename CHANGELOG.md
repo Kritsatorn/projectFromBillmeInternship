@@ -1,5 +1,20 @@
 # Changelog
 
+## [V0.0.4] - 2019-06-20
+## Updated
+- Updated underline and shadow Textfield Style
+- Updated Optional Payment Section Proportion
+- Added Service Charge Field
+- Added Summary Section
+
+## [V0.0.2] - 2019-06-19
+## Updated
+- Added Checkbox Component
+- Added Stepper Component
+- Added Textfield Component
+- Added Button Component
+- Added Create Bill Page
+
 ## [V0.0.1] - 2019-06-18
 
 ## Initial Project.

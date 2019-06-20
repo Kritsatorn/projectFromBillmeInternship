@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { CreateBillState } from './CreateBillPageTypes';
 import { Button } from '../../components/Button/Button';
 import { Stepper } from '../../components/Stepper/Stepper';
 import { Checkbox } from '../../components/Checkbox/Checkbox';
@@ -7,7 +8,13 @@ import { BillingStep } from '../../definitions/enum/BillingStep';
 import './CreateBillPage.css';
 
 export class CreateBillPage
-  extends React.Component {
+  extends React.Component<{}, CreateBillState> {
+
+  constructor(props: {}) {
+    super(props);
+
+    this.state = { totalprice: 107.1 };
+  }
 
   render() {
     return (
@@ -62,12 +69,12 @@ export class CreateBillPage
               className="cancel-button"
               disabled={false}
             >
-              X
+              x
             </button>
           </div>
           <div className="add-button-size">
             <Button
-              title="เพิ่มรายการในบิล"
+              title="+ เพิ่มรายการในบิล"
               type="addlist"
               disable={false}
             />
@@ -96,12 +103,25 @@ export class CreateBillPage
             </div>
           </div>
         </div>
-        <div>
-          <Button
-            title="ถัดไป"
-            type=""
-            disable={false}
-          />
+        <div className="summary-section">
+          <div className="summary-section__row">
+            <div className="summary-section__text">
+              ยอดรวม
+              <span className="summary-section__text--price">
+                {this.state.totalprice}
+              </span>
+              บาท
+            </div>
+          </div>
+          <div className="summary-section__row">
+            <div className="next-button-size">
+              <Button
+                title="ถัดไป"
+                type=""
+                disable={false}
+              />
+            </div>
+          </div>
         </div>
       </div>
     );

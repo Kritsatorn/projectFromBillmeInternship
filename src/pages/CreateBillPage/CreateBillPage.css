@@ -1,23 +1,24 @@
 .bg {
-  background-color: #00ace1;
-  min-height: 100vh;
   height: 100%;
+  position: fixed;
+  min-height: 100vh;
   padding-top: 16px;
+  background-image: url('../../assets/background.svg');
 }
 
 .top-stepper {
-  display: flex;
-  justify-content: center;
   width: 100vm;
+  display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .bill-title {
   width: 100vw;
   margin-top: 12px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .bill-title-size {
@@ -26,12 +27,12 @@
 }
 
 .bill-box {
+  margin: auto;
   width: 351px;
   height: 307px;
+  margin-top: 20px;
   border-radius: 30px;
   background-color: #f2f2f2;
-  margin: auto;
-  margin-top: 20px;
 }
 
 .top-row {
@@ -42,8 +43,8 @@
 .row {
   display: flex;
   margin-top: 8px;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-around;
 }
 
 .column-title {
@@ -68,13 +69,14 @@
 
 .cancel-button {
   width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  background-color: #ff6666;
-  color: white;
   margin: 0px;
+  height: 28px;
   border: none;
+  outline: none;
+  color: white;
+  border-radius: 50%;
+  background-color: #ff6666;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 }
 
 .add-button-size {
@@ -85,11 +87,12 @@
 }
 
 .optional {
-  margin-top: 4px;
   width: 100%;
   display: flex;
-  flex-direction: column;
+  margin-top: 4px;
   align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .optional__row {
@@ -99,8 +102,46 @@
 }
 
 .service-charge-textfield {
-  height: 16px;
   width: 24px;
+  height: 16px;
   margin-left: 8px;
   margin-right: 8px;
+}
+
+.next-button-size {
+  width: 122px;
+  height: 41px;
+  margin-top: 4px;
+}
+
+.summary-section {
+  bottom: 0;
+  width: 100%;
+  height: 128px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  flex-direction: column;
+  background-color: #00ace1;
+}
+
+.summary-section__row {
+  display: flex;
+  width: 351px;
+  justify-content: flex-end;
+}
+
+.summary-section__text {
+  margin-top: 12px;
+  color: white;
+  font-size: 1.7em;
+  font-weight: 500;
+  padding-right: 5%;
+}
+
+.summary-section__text--price {
+  font-weight: 600;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-decoration: underline;
 }
