@@ -37,7 +37,8 @@
   },
   "resolutions": {
     "browserslist": "4.6.2",
-    "caniuse-lite": "1.0.30000974"
+    "caniuse-lite": "1.0.30000974",
+    "react-scripts-ts": "4.0.8"
   },
   "browserslist": [
     ">0.2%",
