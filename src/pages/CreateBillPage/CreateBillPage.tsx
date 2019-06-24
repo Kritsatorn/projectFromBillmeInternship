@@ -172,14 +172,16 @@ export class CreateBillPage
   }
 
   addList() {
-    const item = this.state.items;
+    const items = this.state.items;
 
-    item.push({
+    items.push({
       detail: '',
       price: 0
     });
 
-    this.setState({ items: item });
+    this.setState({
+      items
+    });
   }
 
   removeItemRow(index: number) {
@@ -226,6 +228,8 @@ export class CreateBillPage
       totalPrice += item.price;
     });
     totalPrice *= this.state.vat ? 1.07 : 1;
-    this.setState({ totalPrice });
+    this.setState({
+      totalPrice
+    });
   }
 }
