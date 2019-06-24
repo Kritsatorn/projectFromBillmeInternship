@@ -1,8 +1,9 @@
 # Changelog
 ## [V0.0.9] - 2019-06-24
 ## Updated
-- Added price and detail to state
-- Added calculation function
+- Added price and detail information to state in Create Bill Page.
+- Added calculation function to Create Bill page.
+- Added value and onChange parameter to Textfield component.
 
 ## [V0.0.8] - 2019-06-20
 ## Updated
