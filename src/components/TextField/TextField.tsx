@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { TextFieldProps } from './TextFieldTypes';
+import { TextFieldProps, TextFieldState } from './TextFieldTypes';
 import './TextField.css';
 
 export class TextField
-  extends React.Component<TextFieldProps> {
+  extends React.Component<TextFieldProps, TextFieldState> {
 
   render() {
     const {
-      name, id, disabled = false,
+      name, id, disabled = false, onChange,
       required = false, placeHolder = '',
-      type, shadow = false, isunderline = false
+      type = '', shadow = false, isUnderline = false, value
     } = this.props;
 
     return (
@@ -17,16 +17,18 @@ export class TextField
         name={name}
         id={id}
         type={type}
-        className={this.stylingField(shadow, isunderline)}
+        className={this.stylingField(shadow, isUnderline)}
         required={required}
         placeholder={placeHolder}
         disabled={disabled}
+        onChange={onChange}
+        value={value}
       />
     );
   }
 
-  stylingField(shadow: boolean, isunderline: boolean) {
-    if (isunderline) {
+  stylingField(shadow: boolean, isUnderline: boolean) {
+    if (isUnderline) {
       return 'text-field__input-underline';
     } else if (shadow) {
       return 'text-field__input shadow';
