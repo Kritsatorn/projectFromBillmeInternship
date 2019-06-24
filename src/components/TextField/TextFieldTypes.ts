@@ -14,5 +14,5 @@ export interface TextFieldProps {
   shadow?: boolean;
   isunderline?: boolean;
   value?: string | number;
-  onchange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
