@@ -9,7 +9,7 @@ export class TextField
     const {
       name, id, disabled = false, onChange,
       required = false, placeHolder = '',
-      type = '', shadow = false, isunderline = false, value
+      type = '', shadow = false, isUnderline = false, value
     } = this.props;
 
     return (
@@ -17,7 +17,7 @@ export class TextField
         name={name}
         id={id}
         type={type}
-        className={this.stylingField(shadow, isunderline)}
+        className={this.stylingField(shadow, isUnderline)}
         required={required}
         placeholder={placeHolder}
         disabled={disabled}
@@ -27,8 +27,8 @@ export class TextField
     );
   }
 
-  stylingField(shadow: boolean, isunderline: boolean) {
-    if (isunderline) {
+  stylingField(shadow: boolean, isUnderline: boolean) {
+    if (isUnderline) {
       return 'text-field__input-underline';
     } else if (shadow) {
       return 'text-field__input shadow';
