@@ -1,3 +1,8 @@
+import * as React from 'react';
+
+export interface TextFieldState {
+  type?: string;
+}
 export interface TextFieldProps {
   name: string;
   id: string;
@@ -8,4 +13,6 @@ export interface TextFieldProps {
   isValid?: boolean;
   shadow?: boolean;
   isunderline?: boolean;
+  value?: string | number;
+  onchange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
