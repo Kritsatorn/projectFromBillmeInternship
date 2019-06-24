@@ -86,7 +86,7 @@ export class CreateBillPage
                 name="servicecharge"
                 id="2"
                 type="number"
-                isunderline={true}
+                isUnderline={true}
               />
             </div>
             <div>
