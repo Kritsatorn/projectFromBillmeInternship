@@ -12,7 +12,7 @@ export interface TextFieldProps {
   type?: string;
   isValid?: boolean;
   shadow?: boolean;
-  isunderline?: boolean;
+  isUnderline?: boolean;
   value?: string | number;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
