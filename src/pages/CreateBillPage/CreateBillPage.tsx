@@ -14,11 +14,19 @@ export class CreateBillPage
     super(props);
 
     this.state = {
-      items: [],
-      totalPrice: 0
+      items: [
+        {
+          detail: '',
+          price: 0
+        }
+      ],
+      totalPrice: 0,
+      vat: false,
+      serviceCharge: false,
     };
 
     this.addList = this.addList.bind(this);
+    this.updateDetail = this.updateDetail.bind(this);
   }
 
   render() {
@@ -129,6 +137,10 @@ export class CreateBillPage
             placeHolder="รายการ"
             id={index + 'detail'}
             type="text"
+            value={item.detail}
+            onChange={(event) => {
+              this.updateDetail(event, index);
+            }}
           />
         </div>
         <div className="column-right">
@@ -137,6 +149,10 @@ export class CreateBillPage
             placeHolder="0.0"
             id={index + 'price'}
             type="number"
+            value={item.price ? item.price : ''}
+            onChange={(event) => {
+              this.updatePrice(event, index);
+            }}
           />
         </div>
         {
@@ -172,7 +188,42 @@ export class CreateBillPage
     items.splice(index, 1);
 
     this.setState({
-      items: items
+      items
     });
+    this.updateTotalprice();
+  }
+
+  updateDetail(event: React.ChangeEvent<HTMLInputElement>, index: number) {
+    const text = event.target.value;
+    const items = this.state.items;
+    const item = this.state.items[index];
+
+    item.detail = text;
+    items[index] = item;
+
+    this.setState({
+      items
+    });
+  }
+
+  updatePrice(event: React.ChangeEvent<HTMLInputElement>, index: number) {
+    const price = Number(event.target.value);
+    const items = this.state.items;
+    const item = this.state.items[index];
+
+    item.price = price;
+    items[index] = item;
+
+    this.setState({
+      items
+    });
+    this.updateTotalprice();
+  }
+
+  updateTotalprice() {
+    let totalPrice = 0;
+    this.state.items.forEach((item) => { totalPrice += item.price; });
+    totalPrice *= this.state.vat ? 1.07 : 1;
+    this.setState({ totalPrice });
   }
 }
