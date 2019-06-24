@@ -1,4 +1,9 @@
 # Changelog
+## [V0.0.9] - 2019-06-24
+## Updated
+- Added price and detail to state
+- Added calculation function
+
 ## [V0.0.8] - 2019-06-20
 ## Updated
 - Added removelist method for Create Bill Page.
