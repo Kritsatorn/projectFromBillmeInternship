@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { TextFieldProps } from './TextFieldTypes';
+import { TextFieldProps, TextFieldState } from './TextFieldTypes';
 import './TextField.css';
 
 export class TextField
-  extends React.Component<TextFieldProps> {
+  extends React.Component<TextFieldProps, TextFieldState> {
 
   render() {
     const {
-      name, id, disabled = false,
+      name, id, disabled = false, onChange,
       required = false, placeHolder = '',
-      type, shadow = false, isunderline = false
+      type = '', shadow = false, isunderline = false, value
     } = this.props;
 
     return (
@@ -21,6 +21,8 @@ export class TextField
         required={required}
         placeholder={placeHolder}
         disabled={disabled}
+        onChange={onChange}
+        value={value}
       />
     );
   }
