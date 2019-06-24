@@ -222,7 +222,9 @@ export class CreateBillPage
 
   updateTotalprice() {
     let totalPrice = 0;
-    this.state.items.forEach((item) => { totalPrice += item.price; });
+    this.state.items.forEach((item) => {
+      totalPrice += item.price;
+    });
     totalPrice *= this.state.vat ? 1.07 : 1;
     this.setState({ totalPrice });
   }
