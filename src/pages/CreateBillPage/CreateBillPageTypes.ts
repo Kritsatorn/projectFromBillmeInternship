@@ -2,7 +2,8 @@ export interface CreateBillState {
   totalPrice: number;
   items: Item[];
   vat: boolean;
-  serviceCharge: boolean;
+  serviceCharge: number;
+  serviceChargeStatus: boolean;
 }
 
 export interface Item {
