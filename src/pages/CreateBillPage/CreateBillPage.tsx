@@ -192,7 +192,7 @@ export class CreateBillPage
     this.setState({
       items
     });
-    this.updateTotalprice();
+    this.updateTotalPrice();
   }
 
   updateDetail(event: React.ChangeEvent<HTMLInputElement>, index: number) {
@@ -219,10 +219,10 @@ export class CreateBillPage
     this.setState({
       items
     });
-    this.updateTotalprice();
+    this.updateTotalPrice();
   }
 
-  updateTotalprice() {
+  updateTotalPrice() {
     let totalPrice = 0;
     this.state.items.forEach((item) => {
       totalPrice += item.price;
