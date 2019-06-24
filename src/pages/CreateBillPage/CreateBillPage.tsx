@@ -22,7 +22,8 @@ export class CreateBillPage
       ],
       totalPrice: 0,
       vat: false,
-      serviceCharge: false,
+      serviceCharge: 10,
+      serviceChargeStatus: false
     };
 
     this.addList = this.addList.bind(this);
@@ -73,24 +74,49 @@ export class CreateBillPage
         </div>
         <div className="optional">
           <div className="optional__row">
-            <Checkbox
-              title="VAT"
-            />
-          </div>
-          <div className="optional__row">
-            <Checkbox
-              title="Service Charge"
-            />
-            <div className="service-charge-textfield">
-              <TextField
-                name="servicecharge"
-                id="2"
-                type="number"
-                isUnderline={true}
+            <div className="checkbox-list">
+              <Checkbox
+                title="VAT"
+                onChange={(checked) => {
+                  this.setState({
+                    vat: checked,
+                    totalPrice: this.calculateTotalPrice(checked, this.state.serviceChargeStatus)
+                  });
+                }}
               />
             </div>
             <div>
-              %
+              {this.state.totalPrice * 0.07}
+            </div>
+          </div>
+          <div className="optional__row">
+            <div className="checkbox-list">
+              <Checkbox
+                title="Service Charge"
+                checked={this.state.serviceChargeStatus}
+                onChange={checked => {
+                  this.setState({
+                    serviceChargeStatus: checked,
+                    totalPrice: this.calculateTotalPrice(this.state.vat, checked, this.state.serviceCharge)
+                  });
+                }}
+              />
+              <div className="service-charge-textfield">
+                <TextField
+                  name="servicecharge"
+                  id="2"
+                  type="number"
+                  isUnderline={true}
+                  onChange={(event) => this.updateService(event)}
+                  value={this.state.serviceCharge ? this.state.serviceCharge : ''}
+                />
+              </div>
+              <div>
+                %
+              </div>
+            </div>
+            <div>
+              {this.state.totalPrice * 0.07}
             </div>
           </div>
         </div>
@@ -190,9 +216,9 @@ export class CreateBillPage
     items.splice(index, 1);
 
     this.setState({
-      items
+      items,
+      totalPrice: this.calculateTotalPrice(this.state.vat, this.state.serviceChargeStatus)
     });
-    this.updateTotalPrice();
   }
 
   updateDetail(event: React.ChangeEvent<HTMLInputElement>, index: number) {
@@ -204,7 +230,8 @@ export class CreateBillPage
     items[index] = item;
 
     this.setState({
-      items
+      items,
+      totalPrice: this.calculateTotalPrice(this.state.vat, this.state.serviceChargeStatus)
     });
   }
 
@@ -217,19 +244,30 @@ export class CreateBillPage
     items[index] = item;
 
     this.setState({
-      items
+      items,
+      totalPrice: this.calculateTotalPrice(this.state.vat, this.state.serviceChargeStatus)
     });
-    this.updateTotalPrice();
   }
 
-  updateTotalPrice() {
-    let totalPrice = 0;
-    this.state.items.forEach((item) => {
-      totalPrice += item.price;
-    });
-    totalPrice *= this.state.vat ? 1.07 : 1;
+  calculateTotalPrice(vat: boolean, serviceCharge: boolean, serviceChargeAmount?: number) {
+    let totalPrice = this.state.items
+      .map((item) => item.price)
+      .reduce((val, cur) => val + cur);
+
+    const totalVat = totalPrice * (vat ? 0.07 : 0);
+    return totalPrice + totalVat + this.calculateServiceCharge(serviceCharge, totalPrice, serviceChargeAmount);
+  }
+
+  calculateServiceCharge(serviceCharge: boolean, totalPrice: number, serviceChargeAmount?: number) {
+    const amount = serviceChargeAmount ? serviceChargeAmount : this.state.serviceCharge;
+    return serviceCharge ? totalPrice * (amount / 100) : 0;
+  }
+
+  updateService(event: React.ChangeEvent<HTMLInputElement>) {
+    let serviceCharge = Number(event.target.value);
     this.setState({
-      totalPrice
+      serviceCharge,
+      totalPrice: this.calculateTotalPrice(this.state.vat, this.state.serviceChargeStatus, serviceCharge)
     });
   }
 }
