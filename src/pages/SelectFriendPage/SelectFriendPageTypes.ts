@@ -1,4 +1,4 @@
-export interface AddFriendState {
+export interface SelectFriendState {
   billName: string;
   friends: Friend[];
   selectedFriend: number;
