@@ -38,7 +38,7 @@
 
 .top-row {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .row {
@@ -58,6 +58,21 @@
   align-items: center;
   justify-content: center;
   background-color: #21343a;
+}
+
+.all-button {
+  min-width: 48px;
+}
+
+.select-number {
+  width: 25px;
+  height: 19px;
+  border-radius: 16px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .next-button-size {
