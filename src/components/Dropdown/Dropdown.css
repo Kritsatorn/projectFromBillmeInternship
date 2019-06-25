@@ -1,10 +1,68 @@
 .dropdown {
-  width: 200px;
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
 }
 
-.bank__image {
+.buttonDropdown {
+  width: 132px;
+  height: 50px;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.buttonDropdownClicked {
+  width: 132px;
+  height: 50px;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.titleDropdown {
+  padding-left: 9px;
+  font-family: Kanit;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.53;
+  letter-spacing: normal;
+  text-align: left;
+  color: #494949;
+  align-items: center;
+  justify-content: left;
+}
+
+.dropdown-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 12px;
+  margin-top: 12px;
+}
+
+.bankDropdown__image {
   width: 26px;
   height: 26px;
+  margin-left: 8px;
+}
+
+.bankDropdown__name {
+  font-family: Kanit;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.53;
+  letter-spacing: normal;
+  text-align: left;
+  color: #494949;
+  margin-left: 8px;
 }

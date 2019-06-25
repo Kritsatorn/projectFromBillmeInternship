@@ -11,7 +11,10 @@ export class Dropdown
 
       this.state = {
         displayMenu: false,
-        bankInfo: []
+        bankInfo: [],
+        paymentIsSelected: false,
+        selectedName: '',
+        selectedLogo: ''
       };
 
       const bankList = BankFacade.getBankList();
@@ -22,11 +25,36 @@ export class Dropdown
         });
       });
 
+      this.paymentSelected = this.paymentSelected.bind(this);
       this.showDropdownMenu = this.showDropdownMenu.bind(this);
       this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
     }
 
-    showDropdownMenu(event: React.MouseEvent<HTMLDivElement> ) {
+    render() {
+      const { title } = this.props;
+
+      return (
+        <div className="dropdown">
+          <div
+            className={this.selectStyle(this.state.displayMenu)}
+            onClick={event => this.showDropdownMenu(event)}
+          >
+          {
+            this.state.paymentIsSelected ?
+            this.render1bank() :
+            <div className="titleDropdown">{title}</div>
+          }
+          </div>
+          {
+            this.state.displayMenu ?
+            this.renderDropdownBank(this.state.bankInfo) :
+            null
+          }
+        </div>
+      );
+    }
+
+    showDropdownMenu(event: React.MouseEvent<HTMLDivElement>) {
       event.preventDefault();
       this.setState({ displayMenu: true }, () => {
         document.addEventListener('click', this.hideDropdownMenu);
@@ -39,24 +67,12 @@ export class Dropdown
       });
     }
 
-    render() {
-      const { title } = this.props;
-
-      return (
-        <div className="dropdown">
-          <div
-            className="button"
-            onClick={event => this.showDropdownMenu(event)}
-          >
-            {title}
-          </div>
-          {
-            this.state.displayMenu ?
-            this.renderDropdownBank(this.state.bankInfo) :
-            null
-          }
-        </div>
-      );
+    paymentSelected(name?: string, logo?: string) {
+      this.setState({
+        paymentIsSelected: true,
+        selectedName: name,
+        selectedLogo: logo
+      });
     }
 
     renderDropdownBank(
@@ -70,15 +86,38 @@ export class Dropdown
           <div
             className="dropdown-container"
             key={`bank-${index}`}
+            onClick={
+              () => this.paymentSelected(
+                result.name,
+                result.logo
+              )
+            }
           >
             <img
-              className="bank__image"
+              className="bankDropdown__image"
               src={result.logo}
               alt=""
             />
-            <div className="bank__name">{result.name}</div>
+            <div className="bankDropdown__name">{result.name}</div>
           </div>
         );
       });
+    }
+
+    selectStyle(displayMenu?: boolean) {
+      return displayMenu ? 'buttonDropdownClicked' : 'buttonDropdown';
+    }
+
+    render1bank() {
+      return(
+        <div className="dropdown-container">
+            <img
+              className="bankDropdown__image"
+              src={this.state.selectedLogo}
+              alt=""
+            />
+            <div className="bankDropdown__name">{this.state.selectedName}</div>
+          </div>
+      );
     }
 }

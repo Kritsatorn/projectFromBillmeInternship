@@ -6,3 +6,10 @@ export interface BillDataAPI {
   bill_status: boolean;
   bill_image: string;
 }
+
+export interface BankData {
+  id: string;
+  name: string;
+  logo: string;
+  format: string;
+}

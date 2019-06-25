@@ -8,4 +8,7 @@ export interface DropdownState {
     name?: string;
     logo?: string;
   }[];
+  paymentIsSelected?: boolean;
+  selectedName?: string;
+  selectedLogo?: string;
 }
