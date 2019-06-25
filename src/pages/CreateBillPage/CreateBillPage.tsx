@@ -20,9 +20,12 @@ export class CreateBillPage
           price: 0
         }
       ],
+      totalBillPrice: 0,
       totalPrice: 0,
       vat: false,
+      vatPrice: 0,
       serviceCharge: 10,
+      serviceChargePrice: 0,
       serviceChargeStatus: false
     };
 
@@ -80,13 +83,13 @@ export class CreateBillPage
                 onChange={(checked) => {
                   this.setState({
                     vat: checked,
-                    totalPrice: this.calculateTotalPrice(checked, this.state.serviceChargeStatus)
+                    totalBillPrice: this.calculateTotalBillPrice(checked, this.state.serviceChargeStatus)
                   });
                 }}
               />
             </div>
             <div>
-              {this.state.totalPrice * 0.07}
+              {this.state.vat ? (this.state.totalPrice * 0.07).toFixed(2) : ''}
             </div>
           </div>
           <div className="optional__row">
@@ -97,7 +100,7 @@ export class CreateBillPage
                 onChange={checked => {
                   this.setState({
                     serviceChargeStatus: checked,
-                    totalPrice: this.calculateTotalPrice(this.state.vat, checked, this.state.serviceCharge)
+                    totalBillPrice: this.calculateTotalBillPrice(this.state.vat, checked, this.state.serviceCharge)
                   });
                 }}
               />
@@ -116,7 +119,7 @@ export class CreateBillPage
               </div>
             </div>
             <div>
-              {this.state.totalPrice * 0.07}
+              {this.state.serviceChargeStatus ? (this.state.serviceChargePrice).toFixed(2) : ''}
             </div>
           </div>
         </div>
@@ -125,7 +128,7 @@ export class CreateBillPage
             <div className="summary-section__text">
               ยอดรวม
               <span className="summary-section__text--price">
-                {this.state.totalPrice}
+                {(this.state.totalBillPrice).toFixed(2)}
               </span>
               บาท
             </div>
@@ -135,7 +138,7 @@ export class CreateBillPage
               <Button
                 title="ถัดไป"
                 type=""
-                disable={false}
+                disable={this.state.totalBillPrice === 0 ? true : false}
               />
             </div>
           </div>
@@ -217,7 +220,7 @@ export class CreateBillPage
 
     this.setState({
       items,
-      totalPrice: this.calculateTotalPrice(this.state.vat, this.state.serviceChargeStatus)
+      totalPrice: this.calculateTotalBillPrice(this.state.vat, this.state.serviceChargeStatus)
     });
   }
 
@@ -231,7 +234,7 @@ export class CreateBillPage
 
     this.setState({
       items,
-      totalPrice: this.calculateTotalPrice(this.state.vat, this.state.serviceChargeStatus)
+      totalBillPrice: this.calculateTotalBillPrice(this.state.vat, this.state.serviceChargeStatus)
     });
   }
 
@@ -245,29 +248,46 @@ export class CreateBillPage
 
     this.setState({
       items,
-      totalPrice: this.calculateTotalPrice(this.state.vat, this.state.serviceChargeStatus)
+      totalBillPrice: this.calculateTotalBillPrice(this.state.vat, this.state.serviceChargeStatus)
     });
   }
 
-  calculateTotalPrice(vat: boolean, serviceCharge: boolean, serviceChargeAmount?: number) {
+  calculateTotalPrice() {
     let totalPrice = this.state.items
       .map((item) => item.price)
       .reduce((val, cur) => val + cur);
 
-    const totalVat = totalPrice * (vat ? 0.07 : 0);
-    return totalPrice + totalVat + this.calculateServiceCharge(serviceCharge, totalPrice, serviceChargeAmount);
+    this.setState({
+      totalPrice
+    });
+
+    return totalPrice;
   }
 
   calculateServiceCharge(serviceCharge: boolean, totalPrice: number, serviceChargeAmount?: number) {
     const amount = serviceChargeAmount ? serviceChargeAmount : this.state.serviceCharge;
-    return serviceCharge ? totalPrice * (amount / 100) : 0;
+    const decimalDigits = serviceCharge ? totalPrice * (amount / 100) : 0;
+
+    this.setState({
+      serviceChargePrice: Number(decimalDigits.toFixed(2))
+    });
+
+    return Number(decimalDigits.toFixed(2));
   }
 
   updateService(event: React.ChangeEvent<HTMLInputElement>) {
     let serviceCharge = Number(event.target.value);
     this.setState({
       serviceCharge,
-      totalPrice: this.calculateTotalPrice(this.state.vat, this.state.serviceChargeStatus, serviceCharge)
+      totalBillPrice: this.calculateTotalBillPrice(this.state.vat, this.state.serviceChargeStatus, serviceCharge)
     });
+  }
+
+  calculateTotalBillPrice(vat: boolean, serviceCharge: boolean, serviceChargeAmount?: number) {
+    const totalPrice = this.calculateTotalPrice();
+    const totalVat = (totalPrice
+      + this.calculateServiceCharge(serviceCharge, totalPrice, serviceChargeAmount))
+      * (vat ? 0.07 : 0);
+    return totalPrice + totalVat + this.calculateServiceCharge(serviceCharge, totalPrice, serviceChargeAmount);
   }
 }
