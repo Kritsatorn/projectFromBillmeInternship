@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { BankFacade } from '../../facades/BankFacade';
+import { Banklist } from '../../definitions/types/Banklist';
 import { DropdownProps , DropdownState } from './DropdownTypes';
 import './Dropdown.css';
 
@@ -25,6 +26,8 @@ export class Dropdown
         });
       });
 
+      this.addListener = this.addListener.bind(this);
+      this.removeListener = this.removeListener.bind(this);
       this.paymentSelected = this.paymentSelected.bind(this);
       this.showDropdownMenu = this.showDropdownMenu.bind(this);
       this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
@@ -42,7 +45,7 @@ export class Dropdown
           {
             this.state.paymentIsSelected ?
             this.render1bank() :
-            <div className="titleDropdown">{title}</div>
+            <div className="title__dropdown">{title}</div>
           }
           </div>
           {
@@ -56,15 +59,26 @@ export class Dropdown
 
     showDropdownMenu(event: React.MouseEvent<HTMLDivElement>) {
       event.preventDefault();
-      this.setState({ displayMenu: true }, () => {
-        document.addEventListener('click', this.hideDropdownMenu);
-      });
+
+      this.setState(
+        {displayMenu: true},
+        this.addListener
+      );
     }
 
     hideDropdownMenu() {
-      this.setState({ displayMenu: false }, () => {
-        document.removeEventListener('click', this.hideDropdownMenu);
-      });
+      this.setState(
+        {displayMenu: false },
+        this.removeListener
+      );
+    }
+
+    addListener() {
+      document.addEventListener('click', this.hideDropdownMenu);
+    }
+
+    removeListener() {
+      document.removeEventListener('click', this.hideDropdownMenu);
     }
 
     paymentSelected(name?: string, logo?: string) {
@@ -75,12 +89,7 @@ export class Dropdown
       });
     }
 
-    renderDropdownBank(
-      banklist: {
-        name?: string;
-        logo?: string;
-      }[]
-    ) {
+    renderDropdownBank(banklist: Banklist[]) {
       return banklist.map((result, index) => {
         return(
           <div
@@ -105,7 +114,7 @@ export class Dropdown
     }
 
     selectStyle(displayMenu?: boolean) {
-      return displayMenu ? 'buttonDropdownClicked' : 'buttonDropdown';
+      return displayMenu ? 'button__dropdown-clicked' : 'button__dropdown';
     }
 
     render1bank() {

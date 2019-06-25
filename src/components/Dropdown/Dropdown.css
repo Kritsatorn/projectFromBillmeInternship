@@ -4,7 +4,7 @@
   flex-direction: column;
 }
 
-.buttonDropdown {
+.button__dropdown {
   width: 132px;
   height: 50px;
   border-radius: 8px;
@@ -15,7 +15,7 @@
   justify-content: left;
 }
 
-.buttonDropdownClicked {
+.button__dropdown-clicked {
   width: 132px;
   height: 50px;
   border-radius: 8px;
@@ -26,7 +26,7 @@
   justify-content: left;
 }
 
-.titleDropdown {
+.title__dropdown {
   padding-left: 9px;
   font-family: Kanit;
   font-size: 15px;
