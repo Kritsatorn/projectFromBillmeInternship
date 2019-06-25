@@ -1,5 +1,9 @@
 # Changelog
 
+## [V0.0.11] - 2019-06-25
+## Updated
+- Added Select Friend Page template.
+
 ## [V0.0.10] - 2019-06-25
 ## Updated
 - Added vat and service charge calculation function to Create Bill Page.
