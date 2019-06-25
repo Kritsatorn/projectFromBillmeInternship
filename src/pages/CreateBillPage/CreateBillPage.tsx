@@ -20,13 +20,14 @@ export class CreateBillPage
           price: 0
         }
       ],
-      totalBillPrice: 0,
-      totalPrice: 0,
-      vat: false,
+      vat: 7,
+      vatStatus: false,
       vatPrice: 0,
       serviceCharge: 10,
       serviceChargePrice: 0,
-      serviceChargeStatus: false
+      serviceChargeStatus: false,
+      totalPrice: 0,
+      totalBillPrice: 0,
     };
 
     this.addList = this.addList.bind(this);
@@ -38,7 +39,7 @@ export class CreateBillPage
       <div className="bg">
         <div className="top-stepper">
           <Stepper
-            step={BillingStep.ADD_FRIENDS}
+            step={BillingStep.CREATE_BILL}
             step1="ใส่รายการ"
             step2="เลือกเพื่อน"
             step3="ช่องทางการชำระเงิน"
@@ -82,14 +83,14 @@ export class CreateBillPage
                 title="VAT"
                 onChange={(checked) => {
                   this.setState({
-                    vat: checked,
+                    vatStatus: checked,
                     totalBillPrice: this.calculateTotalBillPrice(checked, this.state.serviceChargeStatus)
                   });
                 }}
               />
             </div>
             <div>
-              {this.state.vat ? (this.state.totalPrice * 0.07).toFixed(2) : ''}
+              {this.state.vatStatus ? (this.state.vatPrice).toFixed(2) : ''}
             </div>
           </div>
           <div className="optional__row">
@@ -100,7 +101,11 @@ export class CreateBillPage
                 onChange={checked => {
                   this.setState({
                     serviceChargeStatus: checked,
-                    totalBillPrice: this.calculateTotalBillPrice(this.state.vat, checked, this.state.serviceCharge)
+                    totalBillPrice: this.calculateTotalBillPrice(
+                        this.state.vatStatus,
+                        checked,
+                        this.state.serviceCharge
+                      )
                   });
                 }}
               />
@@ -220,7 +225,7 @@ export class CreateBillPage
 
     this.setState({
       items,
-      totalPrice: this.calculateTotalBillPrice(this.state.vat, this.state.serviceChargeStatus)
+      totalBillPrice: this.calculateTotalBillPrice(this.state.vatStatus, this.state.serviceChargeStatus)
     });
   }
 
@@ -234,7 +239,7 @@ export class CreateBillPage
 
     this.setState({
       items,
-      totalBillPrice: this.calculateTotalBillPrice(this.state.vat, this.state.serviceChargeStatus)
+      totalBillPrice: this.calculateTotalBillPrice(this.state.vatStatus, this.state.serviceChargeStatus)
     });
   }
 
@@ -248,7 +253,7 @@ export class CreateBillPage
 
     this.setState({
       items,
-      totalBillPrice: this.calculateTotalBillPrice(this.state.vat, this.state.serviceChargeStatus)
+      totalBillPrice: this.calculateTotalBillPrice(this.state.vatStatus, this.state.serviceChargeStatus)
     });
   }
 
@@ -279,15 +284,18 @@ export class CreateBillPage
     let serviceCharge = Number(event.target.value);
     this.setState({
       serviceCharge,
-      totalBillPrice: this.calculateTotalBillPrice(this.state.vat, this.state.serviceChargeStatus, serviceCharge)
+      totalBillPrice: this.calculateTotalBillPrice(this.state.vatStatus, this.state.serviceChargeStatus, serviceCharge)
     });
   }
 
   calculateTotalBillPrice(vat: boolean, serviceCharge: boolean, serviceChargeAmount?: number) {
     const totalPrice = this.calculateTotalPrice();
-    const totalVat = (totalPrice
+    const vatPrice = (totalPrice
       + this.calculateServiceCharge(serviceCharge, totalPrice, serviceChargeAmount))
-      * (vat ? 0.07 : 0);
-    return totalPrice + totalVat + this.calculateServiceCharge(serviceCharge, totalPrice, serviceChargeAmount);
+      * (vat ? (this.state.vat / 100) : 0);
+    this.setState({
+      vatPrice
+    });
+    return totalPrice + vatPrice + this.calculateServiceCharge(serviceCharge, totalPrice, serviceChargeAmount);
   }
 }
