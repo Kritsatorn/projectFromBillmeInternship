@@ -106,7 +106,7 @@ export class CreateBillPage
               />
               <div className="service-charge-textfield">
                 <TextField
-                  name="servicecharge"
+                  name="serviceCharge"
                   id="2"
                   type="number"
                   isUnderline={true}
@@ -255,7 +255,7 @@ export class CreateBillPage
   calculateTotalPrice() {
     let totalPrice = this.state.items
       .map((item) => item.price)
-      .reduce((val, cur) => val + cur);
+      .reduce((itemPrice, total) => itemPrice + total);
 
     this.setState({
       totalPrice
