@@ -26,19 +26,20 @@
   height: 44px;
 }
 
-.bill-box {
+.friend-box {
   margin: auto;
   width: 351px;
-  height: 307px;
+  height: 60%;
   margin-top: 20px;
   border-radius: 30px;
   background-color: #f2f2f2;
-  overflow-x: scroll;
 }
 
-.top-row {
+.friend-top-row {
   display: flex;
   justify-content: space-evenly;
+  border-bottom: #afafaf 1px solid;
+  padding-top: 8px;
 }
 
 .row {
@@ -48,7 +49,13 @@
   justify-content: space-around;
 }
 
-.column-title {
+.friend__column-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.friend__column-title {
   height: 32px;
   display: flex;
   color: white;
@@ -62,17 +69,51 @@
 
 .all-button {
   min-width: 48px;
+  height: 32px;
+  margin-bottom: 10px;
 }
 
 .select-number {
-  width: 25px;
-  height: 19px;
-  border-radius: 16px;
-  background-color: #ffffff;
+  width: 28px;
+  height: 28px;
   display: flex;
-  justify-content: center;
+  margin-left: 8px;
+  margin-bottom: 10px;
+  border-radius: 16px;
   align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
 
+.profile-picture {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+.friend-list {
+  overflow-x: scroll;
+  height: 87%;
+}
+
+.friend-list__row {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 24px 10px 24px;
+}
+
+.name-box {
+  width: 100%;
+  display: flex;
+  margin-left: 20px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: #afafaf solid 1px;
+}
+
+.display-name {
+  color: #494949
 }
 
 .next-button-size {

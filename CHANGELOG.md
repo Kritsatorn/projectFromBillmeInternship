@@ -1,5 +1,9 @@
 # Changelog
 
+## [V0.0.12] - 2019-06-25
+## Updated
+- Added Friend list template.
+
 ## [V0.0.11] - 2019-06-25
 ## Updated
 - Added Select Friend Page template.
