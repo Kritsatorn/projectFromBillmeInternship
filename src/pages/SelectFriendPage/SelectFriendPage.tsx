@@ -53,6 +53,18 @@ export class SelectFriendPage
             <div className="column-title column-left row">
               ใครอยู่ในบิลนี้บ้าง ?
             </div>
+            <div className="column-right row">
+              <div className="all-button">
+                <Button
+                  title="All"
+                  type=""
+                  disable={false}
+                />
+              </div>
+              <div className="select-number">
+                {this.state.selectedFriend}
+              </div>
+            </div>
             <div style={{ width: '28px' }} />
           </div>
           {this.mappingItems()}
