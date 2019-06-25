@@ -98,10 +98,11 @@ export class CreateBillPage
               <Checkbox
                 title="Service Charge"
                 checked={this.state.serviceChargeStatus}
-                onChange={checked => {
+                onChange={(checked) => {
                   this.setState({
                     serviceChargeStatus: checked,
-                    totalBillPrice: this.calculateTotalBillPrice(
+                    totalBillPrice:
+                      this.calculateTotalBillPrice(
                         this.state.vatStatus,
                         checked,
                         this.state.serviceCharge
@@ -282,6 +283,7 @@ export class CreateBillPage
 
   updateService(event: React.ChangeEvent<HTMLInputElement>) {
     let serviceCharge = Number(event.target.value);
+
     this.setState({
       serviceCharge,
       totalBillPrice: this.calculateTotalBillPrice(this.state.vatStatus, this.state.serviceChargeStatus, serviceCharge)
@@ -293,9 +295,11 @@ export class CreateBillPage
     const vatPrice = (totalPrice
       + this.calculateServiceCharge(serviceCharge, totalPrice, serviceChargeAmount))
       * (vat ? (this.state.vat / 100) : 0);
+
     this.setState({
       vatPrice
     });
+
     return totalPrice + vatPrice + this.calculateServiceCharge(serviceCharge, totalPrice, serviceChargeAmount);
   }
 }
