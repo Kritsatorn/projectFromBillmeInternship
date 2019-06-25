@@ -100,7 +100,7 @@ export class SelectFriendPage
     return (
       <div key={index} className="row">
         <div className="column-left">
-          Firends
+          Friends
         </div>
         <div className="column-right">
           friend
