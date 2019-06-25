@@ -59,7 +59,6 @@ export class SelectFriendPage
                 {this.state.selectedFriend}
               </div>
             </div>
-            <div style={{ width: '28px' }} />
           </div>
           {this.mappingItems()}
         </div>
