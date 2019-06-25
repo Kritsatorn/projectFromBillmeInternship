@@ -4,7 +4,7 @@ import { DropdownProps , DropdownState } from './DropdownTypes';
 import './Dropdown.css';
 
 export class Dropdown
-  extends React.Component<DropdownProps , DropdownState> {
+  extends React.Component<DropdownProps, DropdownState> {
 
     constructor(props: DropdownProps) {
       super(props);
@@ -41,6 +41,7 @@ export class Dropdown
 
     render() {
       const { title } = this.props;
+
       return (
         <div className="dropdown">
           <div
@@ -49,23 +50,27 @@ export class Dropdown
           >
             {title}
           </div>
-          { this.state.displayMenu ? (
-            this.renderDropdownBank(this.state.bankInfo)
-            ) : (null)
+          {
+            this.state.displayMenu ?
+            this.renderDropdownBank(this.state.bankInfo) :
+            null
           }
         </div>
       );
     }
 
     renderDropdownBank(
-      data2: {
+      banklist: {
         name?: string;
         logo?: string;
       }[]
     ) {
-      return data2.map((result, index) => {
+      return banklist.map((result, index) => {
         return(
-          <div key={`bank-${index}`}>
+          <div
+            className="dropdown-container"
+            key={`bank-${index}`}
+          >
             <img
               className="bank__image"
               src={result.logo}
