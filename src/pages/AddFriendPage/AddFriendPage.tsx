@@ -100,9 +100,6 @@ export class AddFriendPage
         <div className="column-right">
           friend
         </div>
-        {
-          // TODO: X represent remove icon for remove button will change later
-        }
       </div>
     );
   }
