@@ -3,3 +3,8 @@
   position: relative;
   display: inline-block;
 }
+
+.bank__image {
+  width: 26px;
+  height: 26px;
+}

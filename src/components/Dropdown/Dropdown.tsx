@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { BankFacade } from '../../facades/BankFacade';
 import { DropdownProps , DropdownState } from './DropdownTypes';
 import './Dropdown.css';
 
@@ -12,6 +13,14 @@ export class Dropdown
         displayMenu: false,
         bankInfo: []
       };
+
+      const bankList = BankFacade.getBankList();
+
+      bankList.then(result => {
+        this.setState({
+          bankInfo: result.bankList
+        });
+      });
 
       this.showDropdownMenu = this.showDropdownMenu.bind(this);
       this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
@@ -41,16 +50,30 @@ export class Dropdown
             {title}
           </div>
           { this.state.displayMenu ? (
-            <ul>
-              <li>Test1</li>
-              <li>Test2</li>
-              <li>Test3</li>
-              <li>Test4</li>
-              <li>Test5</li>
-            </ul>
+            this.renderDropdownBank(this.state.bankInfo)
             ) : (null)
           }
         </div>
       );
+    }
+
+    renderDropdownBank(
+      data2: {
+        name?: string;
+        logo?: string;
+      }[]
+    ) {
+      return data2.map((result, index) => {
+        return(
+          <div key={`bank-${index}`}>
+            <img
+              className="bank__image"
+              src={result.logo}
+              alt=""
+            />
+            <div className="bank__name">{result.name}</div>
+          </div>
+        );
+      });
     }
 }

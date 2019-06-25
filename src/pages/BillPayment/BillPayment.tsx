@@ -6,7 +6,9 @@ export class BillPayment
     render() {
       return (
         <div>
-          <Dropdown />
+          <Dropdown
+            title="hello"
+          />
         </div>
       );
     }
