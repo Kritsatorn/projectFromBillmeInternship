@@ -22,7 +22,7 @@ export class SelectFriendPage
 
   render() {
     return (
-      <div className="bg">
+      <div className="background">
         <div className="top-stepper">
           <Stepper
             step={BillingStep.ADD_FRIENDS}
