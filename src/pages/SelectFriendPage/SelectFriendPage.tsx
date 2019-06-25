@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Button } from '../../components/Button/Button';
 import { Stepper } from '../../components/Stepper/Stepper';
-import { SelectFriendState, Friend } from './SelectFriendPageTypes';
 import { TextField } from '../../components/TextField/TextField';
 import { BillingStep } from '../../definitions/enum/BillingStep';
+import { SelectFriendState, Friend } from './SelectFriendPageTypes';
 import './SelectFriendPage.css';
 
 export class SelectFriendPage
@@ -14,13 +14,7 @@ export class SelectFriendPage
 
     this.state = {
       billName: '',
-      friends: [
-        {
-          profilePic: '',
-          displayName: '',
-          isSelect: false,
-        }
-      ],
+      friends: [],
       selectedFriend: 0,
       totalBillPrice: 0
     };
