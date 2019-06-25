@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Button } from '../../components/Button/Button';
 import { Stepper } from '../../components/Stepper/Stepper';
-import { AddFriendState, Friend } from './AddFriendPageTypes';
+import { SelectFriendState, Friend } from './SelectFriendPageTypes';
 import { TextField } from '../../components/TextField/TextField';
 import { BillingStep } from '../../definitions/enum/BillingStep';
-import './AddFriendPage.css';
+import './SelectFriendPage.css';
 
-export class AddFriendPage
-  extends React.Component<{}, AddFriendState> {
+export class SelectFriendPage
+  extends React.Component<{}, SelectFriendState> {
 
   constructor(props: {}) {
     super(props);
