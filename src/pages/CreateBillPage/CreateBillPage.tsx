@@ -20,9 +20,14 @@ export class CreateBillPage
           price: 0
         }
       ],
+      vat: 7,
+      vatStatus: false,
+      vatPrice: 0,
+      serviceCharge: 10,
+      serviceChargePrice: 0,
+      serviceChargeStatus: false,
       totalPrice: 0,
-      vat: false,
-      serviceCharge: false,
+      totalBillPrice: 0,
     };
 
     this.addList = this.addList.bind(this);
@@ -34,7 +39,7 @@ export class CreateBillPage
       <div className="bg">
         <div className="top-stepper">
           <Stepper
-            step={BillingStep.ADD_FRIENDS}
+            step={BillingStep.CREATE_BILL}
             step1="ใส่รายการ"
             step2="เลือกเพื่อน"
             step3="ช่องทางการชำระเงิน"
@@ -73,24 +78,54 @@ export class CreateBillPage
         </div>
         <div className="optional">
           <div className="optional__row">
-            <Checkbox
-              title="VAT"
-            />
-          </div>
-          <div className="optional__row">
-            <Checkbox
-              title="Service Charge"
-            />
-            <div className="service-charge-textfield">
-              <TextField
-                name="servicecharge"
-                id="2"
-                type="number"
-                isUnderline={true}
+            <div className="checkbox-list">
+              <Checkbox
+                title="VAT"
+                onChange={(checked) => {
+                  this.setState({
+                    vatStatus: checked,
+                    totalBillPrice: this.calculateTotalBillPrice(checked, this.state.serviceChargeStatus)
+                  });
+                }}
               />
             </div>
             <div>
-              %
+              {this.state.vatStatus ? (this.state.vatPrice).toFixed(2) : ''}
+            </div>
+          </div>
+          <div className="optional__row">
+            <div className="checkbox-list">
+              <Checkbox
+                title="Service Charge"
+                checked={this.state.serviceChargeStatus}
+                onChange={(checked) => {
+                  this.setState({
+                    serviceChargeStatus: checked,
+                    totalBillPrice:
+                      this.calculateTotalBillPrice(
+                        this.state.vatStatus,
+                        checked,
+                        this.state.serviceCharge
+                      )
+                  });
+                }}
+              />
+              <div className="service-charge-textfield">
+                <TextField
+                  name="serviceCharge"
+                  id="2"
+                  type="number"
+                  isUnderline={true}
+                  onChange={(event) => this.updateService(event)}
+                  value={this.state.serviceCharge ? this.state.serviceCharge : ''}
+                />
+              </div>
+              <div>
+                %
+              </div>
+            </div>
+            <div>
+              {this.state.serviceChargeStatus ? (this.state.serviceChargePrice).toFixed(2) : ''}
             </div>
           </div>
         </div>
@@ -99,7 +134,7 @@ export class CreateBillPage
             <div className="summary-section__text">
               ยอดรวม
               <span className="summary-section__text--price">
-                {this.state.totalPrice}
+                {(this.state.totalBillPrice).toFixed(2)}
               </span>
               บาท
             </div>
@@ -109,7 +144,7 @@ export class CreateBillPage
               <Button
                 title="ถัดไป"
                 type=""
-                disable={false}
+                disable={this.state.totalBillPrice === 0 ? true : false}
               />
             </div>
           </div>
@@ -190,9 +225,9 @@ export class CreateBillPage
     items.splice(index, 1);
 
     this.setState({
-      items
+      items,
+      totalBillPrice: this.calculateTotalBillPrice(this.state.vatStatus, this.state.serviceChargeStatus)
     });
-    this.updateTotalPrice();
   }
 
   updateDetail(event: React.ChangeEvent<HTMLInputElement>, index: number) {
@@ -204,7 +239,8 @@ export class CreateBillPage
     items[index] = item;
 
     this.setState({
-      items
+      items,
+      totalBillPrice: this.calculateTotalBillPrice(this.state.vatStatus, this.state.serviceChargeStatus)
     });
   }
 
@@ -217,19 +253,53 @@ export class CreateBillPage
     items[index] = item;
 
     this.setState({
-      items
+      items,
+      totalBillPrice: this.calculateTotalBillPrice(this.state.vatStatus, this.state.serviceChargeStatus)
     });
-    this.updateTotalPrice();
   }
 
-  updateTotalPrice() {
-    let totalPrice = 0;
-    this.state.items.forEach((item) => {
-      totalPrice += item.price;
-    });
-    totalPrice *= this.state.vat ? 1.07 : 1;
+  calculateTotalPrice() {
+    let totalPrice = this.state.items
+      .map((item) => item.price)
+      .reduce((itemPrice, total) => itemPrice + total);
+
     this.setState({
       totalPrice
     });
+
+    return totalPrice;
+  }
+
+  calculateServiceCharge(serviceCharge: boolean, totalPrice: number, serviceChargeAmount?: number) {
+    const amount = serviceChargeAmount ? serviceChargeAmount : this.state.serviceCharge;
+    const decimalDigits = serviceCharge ? totalPrice * (amount / 100) : 0;
+
+    this.setState({
+      serviceChargePrice: Number(decimalDigits.toFixed(2))
+    });
+
+    return Number(decimalDigits.toFixed(2));
+  }
+
+  updateService(event: React.ChangeEvent<HTMLInputElement>) {
+    let serviceCharge = Number(event.target.value);
+
+    this.setState({
+      serviceCharge,
+      totalBillPrice: this.calculateTotalBillPrice(this.state.vatStatus, this.state.serviceChargeStatus, serviceCharge)
+    });
+  }
+
+  calculateTotalBillPrice(vat: boolean, serviceCharge: boolean, serviceChargeAmount?: number) {
+    const totalPrice = this.calculateTotalPrice();
+    const vatPrice = (totalPrice
+      + this.calculateServiceCharge(serviceCharge, totalPrice, serviceChargeAmount))
+      * (vat ? (this.state.vat / 100) : 0);
+
+    this.setState({
+      vatPrice
+    });
+
+    return totalPrice + vatPrice + this.calculateServiceCharge(serviceCharge, totalPrice, serviceChargeAmount);
   }
 }
