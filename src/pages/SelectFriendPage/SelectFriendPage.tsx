@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Button } from '../../components/Button/Button';
 import { Stepper } from '../../components/Stepper/Stepper';
+import { Checkbox } from '../../components/Checkbox/Checkbox';
 import { TextField } from '../../components/TextField/TextField';
 import { BillingStep } from '../../definitions/enum/BillingStep';
 import { SelectFriendState, Friend } from './SelectFriendPageTypes';
@@ -14,7 +15,38 @@ export class SelectFriendPage
 
     this.state = {
       billName: '',
-      friends: [],
+      friends: [
+        {
+          profilePic: 'https://bit.ly/2FwSc4j',
+          displayName: 'RawitSHIE',
+          isSelect: false,
+        },
+        {
+          profilePic: 'https://bit.ly/2J9C0Hv',
+          displayName: 'Wiput',
+          isSelect: false,
+        },
+        {
+          profilePic: 'https://bit.ly/2J9C0Hv',
+          displayName: 'RawitSHIE',
+          isSelect: false,
+        },
+        {
+          profilePic: 'https://bit.ly/2J9C0Hv',
+          displayName: 'RawitSHIE',
+          isSelect: false,
+        },
+        {
+          profilePic: 'https://bit.ly/2J9C0Hv',
+          displayName: 'RawitSHIE',
+          isSelect: false,
+        },
+        {
+          profilePic: 'https://bit.ly/2J9C0Hv',
+          displayName: 'RawitSHIE',
+          isSelect: false,
+        }
+      ],
       selectedFriend: 0,
       totalBillPrice: 0
     };
@@ -42,12 +74,12 @@ export class SelectFriendPage
             />
           </div>
         </div>
-        <div className="bill-box">
-          <div className="top-row">
-            <div className="column-title column-left row">
+        <div className="friend-box">
+          <div className="friend-top-row">
+            <div className="friend__column-title column-left">
               ใครอยู่ในบิลนี้บ้าง ?
             </div>
-            <div className="column-right row">
+            <div className="friend__column-right">
               <div className="all-button">
                 <Button
                   title="All"
@@ -60,7 +92,9 @@ export class SelectFriendPage
               </div>
             </div>
           </div>
-          {this.mappingItems()}
+          <div className="friend-list">
+            {this.mappingItems()}
+          </div>
         </div>
         <div className="summary-section">
           <div className="summary-section__row">
@@ -98,12 +132,17 @@ export class SelectFriendPage
 
   listItemRow(index: number, item: Friend) {
     return (
-      <div key={index} className="row">
-        <div className="column-left">
-          Friends
-        </div>
-        <div className="column-right">
-          friend
+      <div key={index} className="friend-list__row">
+        <img className="profile-picture" src={item.profilePic} alt={item.displayName + 'picture'} />
+        <div className="name-box">
+          <div className="display-name">
+            {item.displayName}
+          </div>
+          <div>
+            <Checkbox
+              title=""
+            />
+          </div>
         </div>
       </div>
     );
