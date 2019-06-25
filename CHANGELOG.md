@@ -1,4 +1,9 @@
 # Changelog
+
+## [V0.0.10] - 2019-06-25
+## Updated
+- Added vat and service charge calculation function to Create Bill Page.
+
 ## [V0.0.9] - 2019-06-24
 ## Updated
 - Added price and detail information to state in Create Bill Page.
