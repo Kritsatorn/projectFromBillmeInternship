@@ -17,38 +17,32 @@ export class SelectFriendPage
       billName: '',
       friends: [
         {
-          // tslint:disable-next-line:max-line-length
-          profilePic: 'https://scontent.fbkk5-3.fna.fbcdn.net/v/t1.0-9/40508783_2026063030794428_4624439051934498816_n.jpg?_nc_cat=105&_nc_oc=AQnYNi1q0KZRmV8OeCscE00wvvILORWTmbPRoIryBuNZzz5KAS2Grg2vs54n1SXekxY&_nc_ht=scontent.fbkk5-3.fna&oh=5f7f21d5822792a24e18587d170f7f61&oe=5DBF440E',
+          profilePic: 'https://bit.ly/2FwSc4j',
           displayName: 'RawitSHIE',
           isSelect: false,
         },
         {
-          // tslint:disable-next-line:max-line-length
-          profilePic: 'https://scontent.fbkk5-5.fna.fbcdn.net/v/t1.0-9/51525870_2817630218254708_3288520093335552000_o.jpg?_nc_cat=100&_nc_oc=AQkhd9_gpnjlUv_JQyo2DoqhANfkC5LP3skzCBaycfIHfCtZvYQAmMpYm1dX_ZFphHU&_nc_ht=scontent.fbkk5-5.fna&oh=76ef2ffb5147337a0eadb8095a80d315&oe=5D843F39',
+          profilePic: 'https://bit.ly/2J9C0Hv',
           displayName: 'Wiput',
           isSelect: false,
         },
         {
-          // tslint:disable-next-line:max-line-length
-          profilePic: 'https://scontent.fbkk5-3.fna.fbcdn.net/v/t1.0-9/40508783_2026063030794428_4624439051934498816_n.jpg?_nc_cat=105&_nc_oc=AQnYNi1q0KZRmV8OeCscE00wvvILORWTmbPRoIryBuNZzz5KAS2Grg2vs54n1SXekxY&_nc_ht=scontent.fbkk5-3.fna&oh=5f7f21d5822792a24e18587d170f7f61&oe=5DBF440E',
+          profilePic: 'https://bit.ly/2J9C0Hv',
           displayName: 'RawitSHIE',
           isSelect: false,
         },
         {
-          // tslint:disable-next-line:max-line-length
-          profilePic: 'https://scontent.fbkk5-3.fna.fbcdn.net/v/t1.0-9/40508783_2026063030794428_4624439051934498816_n.jpg?_nc_cat=105&_nc_oc=AQnYNi1q0KZRmV8OeCscE00wvvILORWTmbPRoIryBuNZzz5KAS2Grg2vs54n1SXekxY&_nc_ht=scontent.fbkk5-3.fna&oh=5f7f21d5822792a24e18587d170f7f61&oe=5DBF440E',
+          profilePic: 'https://bit.ly/2J9C0Hv',
           displayName: 'RawitSHIE',
           isSelect: false,
         },
         {
-          // tslint:disable-next-line:max-line-length
-          profilePic: 'https://scontent.fbkk5-3.fna.fbcdn.net/v/t1.0-9/40508783_2026063030794428_4624439051934498816_n.jpg?_nc_cat=105&_nc_oc=AQnYNi1q0KZRmV8OeCscE00wvvILORWTmbPRoIryBuNZzz5KAS2Grg2vs54n1SXekxY&_nc_ht=scontent.fbkk5-3.fna&oh=5f7f21d5822792a24e18587d170f7f61&oe=5DBF440E',
+          profilePic: 'https://bit.ly/2J9C0Hv',
           displayName: 'RawitSHIE',
           isSelect: false,
         },
         {
-          // tslint:disable-next-line:max-line-length
-          profilePic: 'https://scontent.fbkk5-3.fna.fbcdn.net/v/t1.0-9/40508783_2026063030794428_4624439051934498816_n.jpg?_nc_cat=105&_nc_oc=AQnYNi1q0KZRmV8OeCscE00wvvILORWTmbPRoIryBuNZzz5KAS2Grg2vs54n1SXekxY&_nc_ht=scontent.fbkk5-3.fna&oh=5f7f21d5822792a24e18587d170f7f61&oe=5DBF440E',
+          profilePic: 'https://bit.ly/2J9C0Hv',
           displayName: 'RawitSHIE',
           isSelect: false,
         }
