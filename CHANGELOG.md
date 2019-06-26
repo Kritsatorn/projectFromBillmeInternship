@@ -1,9 +1,13 @@
 # Changelog
 
-## [V0.0.13] - 2019-06-26
+## [V0.0.14] - 2019-06-26
 ## Updated
 - Added select friends calculation function.
 - Added select all button function.
+
+## [V0.0.13] - 2019-06-25
+## Updated
+- Added Dropdown Component.
 
 ## [V0.0.12] - 2019-06-25
 ## Updated

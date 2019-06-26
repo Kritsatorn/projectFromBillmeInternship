@@ -19,11 +19,11 @@ export class BillListModel {
     return datalist.map(data => {
       return {
         billId: data.id,
-        billName: data.name,
-        billOwner: data.owner_id,
-        publishDate: data.publish_date,
-        image: data.image,
-        billStatus: data.status
+        billName: data.bill_name,
+        billOwner: data.owner,
+        publishDate: data.published_date,
+        image: data.bill_image,
+        billStatus: data.bill_status
       };
     });
   }
