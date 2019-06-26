@@ -1,5 +1,10 @@
 # Changelog
 
+## [V0.0.13] - 2019-06-26
+## Updated
+- Added select friends calculation function.
+- Added select all button function.
+
 ## [V0.0.12] - 2019-06-25
 ## Updated
 - Added Friend list template.
