@@ -123,7 +123,7 @@ export class Dropdown
             <img
               className="bank__dropdown-image"
               src={this.state.selectedLogo}
-              alt=""
+              alt="image"
             />
             <div className="bank__dropdown-name">{this.state.selectedName}</div>
           </div>
