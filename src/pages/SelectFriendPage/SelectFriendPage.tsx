@@ -148,7 +148,7 @@ export class SelectFriendPage
                 friend.isSelect = checked;
                 let friends = this.state.friends;
                 friends[index] = friend;
-                const{selectedFriend, selectedFriendList} = this.updateSelected();
+                const { selectedFriend, selectedFriendList } = this.updateSelected();
                 this.setState({
                   friends,
                   selectedFriend,
@@ -167,7 +167,7 @@ export class SelectFriendPage
     const selectedFriendList = friends.filter((friend) => friend.isSelect);
     const selectedFriend = selectedFriendList.length;
 
-    return {selectedFriend, selectedFriendList};
+    return { selectedFriend, selectedFriendList };
   }
 
   selectAll() {
