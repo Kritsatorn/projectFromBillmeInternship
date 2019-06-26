@@ -1,6 +1,6 @@
 # Changelog
 
-## [V0.0.16] - 2019-06-26
+## [V0.0.15] - 2019-06-26
 ## Updated
 - Added Bill owner status.
 
