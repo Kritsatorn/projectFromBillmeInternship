@@ -34,7 +34,7 @@ export class SelectFriendPage
         {
           profilePic: 'https://bit.ly/2J9C0Hv',
           displayName: 'RawitSHIE',
-          isSelect: false,
+          isSelect: true,
         },
         {
           profilePic: 'https://bit.ly/2J9C0Hv',
@@ -47,9 +47,12 @@ export class SelectFriendPage
           isSelect: false,
         }
       ],
+      selectedFriendList: [],
       selectedFriend: 0,
       totalBillPrice: 0
     };
+
+    this.countSelected();
   }
 
   render() {
@@ -130,21 +133,40 @@ export class SelectFriendPage
     );
   }
 
-  listItemRow(index: number, item: Friend) {
+  listItemRow(index: number, friend: Friend) {
     return (
       <div key={index} className="friend-list__row">
-        <img className="profile-picture" src={item.profilePic} alt={item.displayName + 'picture'} />
+        <img className="profile-picture" src={friend.profilePic} alt={friend.displayName + 'picture'} />
         <div className="name-box">
           <div className="display-name">
-            {item.displayName}
+            {friend.displayName}
           </div>
           <div>
             <Checkbox
               title=""
+              checked={friend.isSelect}
+              onChange={(checked) => {
+                friend.isSelect = checked;
+                let friends = this.state.friends;
+                friends[index] = friend;
+                const{selectedFriend, selectedFriendList} = this.countSelected();
+                this.setState({
+                  friends,
+                  selectedFriend,
+                  selectedFriendList
+                });
+              }}
             />
           </div>
         </div>
       </div>
     );
+  }
+
+  countSelected() {
+    const friends = this.state.friends;
+    const selectedFriendList = friends.filter((friend) => friend.isSelect);
+    const selectedFriend = selectedFriendList.length;
+    return {selectedFriend, selectedFriendList};
   }
 }
