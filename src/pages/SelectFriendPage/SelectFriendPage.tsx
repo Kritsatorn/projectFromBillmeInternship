@@ -167,21 +167,23 @@ export class SelectFriendPage
                     />
                   </div>
                 ) :
-                (<Checkbox
-                  title=""
-                  checked={friend.isSelect}
-                  onChange={(checked) => {
-                    friend.isSelect = checked;
-                    let friends = this.state.friends;
-                    friends[index] = friend;
-                    const { selectedFriend, selectedFriendList } = this.updateSelected();
-                    this.setState({
-                      friends,
-                      selectedFriend,
-                      selectedFriendList
-                    });
-                  }}
-                />)
+                (
+                  <Checkbox
+                    title=""
+                    checked={friend.isSelect}
+                    onChange={(checked) => {
+                      friend.isSelect = checked;
+                      let friends = this.state.friends;
+                      friends[index] = friend;
+                      const { selectedFriend, selectedFriendList } = this.updateSelected();
+                      this.setState({
+                        friends,
+                        selectedFriend,
+                        selectedFriendList
+                      });
+                    }}
+                  />
+                )
             }
           </div>
         </div>
