@@ -103,11 +103,11 @@ export class Dropdown
             }
           >
             <img
-              className="bankDropdown__image"
+              className="bank__dropdown-image"
               src={result.logo}
-              alt=""
+              alt="image"
             />
-            <div className="bankDropdown__name">{result.name}</div>
+            <div className="bank__dropdown-name">{result.name}</div>
           </div>
         );
       });
@@ -121,9 +121,9 @@ export class Dropdown
       return(
         <div className="dropdown-container">
             <img
-              className="bank__dropdown-image "
+              className="bank__dropdown-image"
               src={this.state.selectedLogo}
-              alt="image"
+              alt=""
             />
             <div className="bank__dropdown-name">{this.state.selectedName}</div>
           </div>
