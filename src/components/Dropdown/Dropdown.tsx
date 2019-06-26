@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { BankFacade } from '../../facades/BankFacade';
-import { Banklist } from '../../definitions/types/Banklist';
+import { Bank } from '../../definitions/types/Banklist';
 import { DropdownProps , DropdownState } from './DropdownTypes';
 import './Dropdown.css';
 
@@ -68,7 +68,7 @@ export class Dropdown
 
     hideDropdownMenu() {
       this.setState(
-        {displayMenu: false },
+        {displayMenu: false},
         this.removeListener
       );
     }
@@ -89,7 +89,7 @@ export class Dropdown
       });
     }
 
-    renderDropdownBank(banklist: Banklist[]) {
+    renderDropdownBank(banklist: Bank[]) {
       return banklist.map((result, index) => {
         return(
           <div
@@ -121,11 +121,11 @@ export class Dropdown
       return(
         <div className="dropdown-container">
             <img
-              className="bankDropdown__image"
+              className="bank__dropdown-image "
               src={this.state.selectedLogo}
               alt="image"
             />
-            <div className="bankDropdown__name">{this.state.selectedName}</div>
+            <div className="bank__dropdown-name">{this.state.selectedName}</div>
           </div>
       );
     }
