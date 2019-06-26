@@ -1,5 +1,6 @@
 export interface DropdownProps {
   title?: string;
+  onChange: (value: string) => void;
 }
 
 export interface DropdownState {
@@ -8,7 +9,7 @@ export interface DropdownState {
     name?: string;
     logo?: string;
   }[];
-  paymentIsSelected?: boolean;
+  IsPaymentSelected?: boolean;
   selectedName?: string;
   selectedLogo?: string;
 }

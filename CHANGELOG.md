@@ -2,7 +2,7 @@
 
 ## [V0.0.13] - 2019-06-25
 ## Updated
-- Added Dropdown Component
+- Added Dropdown Component.
 
 ## [V0.0.12] - 2019-06-25
 ## Updated

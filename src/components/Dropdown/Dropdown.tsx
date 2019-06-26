@@ -13,7 +13,7 @@ export class Dropdown
       this.state = {
         displayMenu: false,
         bankInfo: [],
-        paymentIsSelected: false,
+        IsPaymentSelected: false,
         selectedName: '',
         selectedLogo: ''
       };
@@ -43,8 +43,8 @@ export class Dropdown
             onClick={event => this.showDropdownMenu(event)}
           >
           {
-            this.state.paymentIsSelected ?
-            this.render1bank() :
+            this.state.IsPaymentSelected ?
+            this.renderSelectedBank() :
             <div className="title__dropdown">{title}</div>
           }
           </div>
@@ -83,10 +83,11 @@ export class Dropdown
 
     paymentSelected(name?: string, logo?: string) {
       this.setState({
-        paymentIsSelected: true,
+        IsPaymentSelected: true,
         selectedName: name,
         selectedLogo: logo
       });
+      this.props.onChange(name!);
     }
 
     renderDropdownBank(banklist: Bank[]) {
@@ -117,7 +118,7 @@ export class Dropdown
       return displayMenu ? 'button__dropdown-clicked' : 'button__dropdown';
     }
 
-    render1bank() {
+    renderSelectedBank() {
       return(
         <div className="dropdown-container">
             <img
