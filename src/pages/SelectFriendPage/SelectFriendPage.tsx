@@ -51,8 +51,6 @@ export class SelectFriendPage
       selectedFriend: 0,
       totalBillPrice: 0
     };
-
-    this.countSelected();
   }
 
   render() {
@@ -88,6 +86,7 @@ export class SelectFriendPage
                   title="All"
                   type=""
                   disable={false}
+                  onclick={() => this.selectAll()}
                 />
               </div>
               <div className="select-number">
@@ -149,7 +148,7 @@ export class SelectFriendPage
                 friend.isSelect = checked;
                 let friends = this.state.friends;
                 friends[index] = friend;
-                const{selectedFriend, selectedFriendList} = this.countSelected();
+                const{selectedFriend, selectedFriendList} = this.updateSelected();
                 this.setState({
                   friends,
                   selectedFriend,
@@ -163,10 +162,25 @@ export class SelectFriendPage
     );
   }
 
-  countSelected() {
+  updateSelected() {
     const friends = this.state.friends;
     const selectedFriendList = friends.filter((friend) => friend.isSelect);
     const selectedFriend = selectedFriendList.length;
+
     return {selectedFriend, selectedFriendList};
+  }
+
+  selectAll() {
+    let friends = this.state.friends;
+
+    friends.forEach((friend) => {
+      friend.isSelect = true;
+    });
+
+    this.setState({
+      friends,
+      selectedFriend: friends.length,
+      selectedFriendList: friends
+    });
   }
 }
