@@ -34,7 +34,7 @@ export class SelectFriendPage
         {
           profilePic: 'https://bit.ly/2J9C0Hv',
           displayName: 'RawitSHIE',
-          isSelect: true,
+          isSelect: false,
         },
         {
           profilePic: 'https://bit.ly/2J9C0Hv',
