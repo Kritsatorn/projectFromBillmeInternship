@@ -1,4 +1,4 @@
-export interface Banklist {
+export interface Bank {
   name?: string;
   logo?: string;
 }
