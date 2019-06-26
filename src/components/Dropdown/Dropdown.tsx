@@ -42,11 +42,11 @@ export class Dropdown
             className={this.selectStyle(this.state.displayMenu)}
             onClick={event => this.showDropdownMenu(event)}
           >
-          {
-            this.state.isPaymentSelected ?
-            this.renderSelectedBank() :
-            <div className="title__dropdown">{title}</div>
-          }
+            {
+              this.state.isPaymentSelected ?
+              this.renderSelectedBank() :
+              <div className="title__dropdown">{title}</div>
+            }
           </div>
           {
             this.state.displayMenu ?
