@@ -48,13 +48,13 @@
   margin-top: 12px;
 }
 
-.bankDropdown__image {
+.bank__dropdown-image {
   width: 26px;
   height: 26px;
   margin-left: 8px;
 }
 
-.bankDropdown__name {
+.bank__dropdown-name {
   font-family: Kanit;
   font-size: 15px;
   font-weight: normal;
