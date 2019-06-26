@@ -13,7 +13,7 @@ export class Dropdown
       this.state = {
         displayMenu: false,
         bankInfo: [],
-        IsPaymentSelected: false,
+        isPaymentSelected: false,
         selectedName: '',
         selectedLogo: ''
       };
@@ -43,7 +43,7 @@ export class Dropdown
             onClick={event => this.showDropdownMenu(event)}
           >
           {
-            this.state.IsPaymentSelected ?
+            this.state.isPaymentSelected ?
             this.renderSelectedBank() :
             <div className="title__dropdown">{title}</div>
           }
@@ -83,7 +83,7 @@ export class Dropdown
 
     paymentSelected(name?: string, logo?: string) {
       this.setState({
-        IsPaymentSelected: true,
+        isPaymentSelected: true,
         selectedName: name,
         selectedLogo: logo
       });
