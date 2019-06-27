@@ -4,8 +4,8 @@ import { createBrowserHistory } from 'history';
 import { Route, Switch, Router } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 import { ProfilePage } from './pages/ProfilePage/ProfilePage';
-import { BillPaymentPage } from './pages/BillPaymentPage/BillPaymentPage';
 import { CreateBillPage } from './pages/CreateBillPage/CreateBillPage';
+import { BillPaymentPage } from './pages/BillPaymentPage/BillPaymentPage';
 import { SelectFriendPage } from './pages/SelectFriendPage/SelectFriendPage';
 import './styles/index.css';
 
