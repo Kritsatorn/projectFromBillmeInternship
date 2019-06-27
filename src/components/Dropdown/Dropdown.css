@@ -1,7 +1,8 @@
 .dropdown {
-  position: relative;
+  position: absolute;
   display: inline-flex;
   flex-direction: column;
+  background-color: #ffffff;
 }
 
 .button__dropdown {
@@ -46,6 +47,7 @@
   flex-direction: row;
   margin-bottom: 12px;
   margin-top: 12px;
+  background-color: #ffffff;
 }
 
 .bank__dropdown-image {
