@@ -10,6 +10,8 @@ import './CreateBillPage.css';
 export class CreateBillPage
   extends React.Component<{}, CreateBillState> {
 
+  box: HTMLElement | null;
+
   constructor(props: {}) {
     super(props);
 
@@ -29,7 +31,8 @@ export class CreateBillPage
       serviceChargeStatus: false,
       totalPrice: 0,
       totalBillPrice: 0,
-      selectedFriendList: []
+      selectedFriendList: [],
+      boxHeight: 240
     };
 
     this.addList = this.addList.bind(this);
@@ -37,6 +40,8 @@ export class CreateBillPage
   }
 
   componentDidMount() {
+    window.addEventListener('load', (e) => this.setState({ boxHeight: this.box!.clientHeight }));
+
     if (history.state !== null) {
       const { billName, selectedFriendList, items,
         vatStatus, vatPrice,
@@ -57,125 +62,133 @@ export class CreateBillPage
     }
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('load', () => null);
+  }
+
   render() {
     return (
-      <div className="bg">
-        <div className="top-stepper">
-          <Stepper
-            step={BillingStep.CREATE_BILL}
-            step1="ใส่รายการ"
-            step2="เลือกเพื่อน"
-            step3="เรียกเก็บเงิน"
-          />
-        </div>
-        <div className="bill-title">
-          <div className="bill-title-size">
-            <TextField
-              name="ใส่ชื่อบิล"
-              placeHolder="ใส่ชื่อบิล"
-              id="1"
-              type=""
-              shadow={true}
-              value={this.state.billName}
-              onChange={(event => this.updateBillName(event))}
+      <div className="background">
+        <div className="content">
+          <div className="top-stepper">
+            <Stepper
+              step={BillingStep.CREATE_BILL}
+              step1="ใส่รายการ"
+              step2="เลือกเพื่อน"
+              step3="เรียกเก็บเงิน"
             />
           </div>
-        </div>
-        <div className="bill-box">
-          <div className="top-row">
-            <div className="column-title column-left row">
-              รายการ
-            </div>
-            <div className="column-title column-right row">
-              ราคา
-            </div>
-            <div style={{ width: '28px' }} />
-          </div>
-          {this.mappingItems()}
-          <div className="add-button-size">
-            <Button
-              title="+ เพิ่มรายการในบิล"
-              type="addlist"
-              onClick={() => this.addList()}
-              disable={false}
-            />
-          </div>
-        </div>
-        <div className="optional">
-          <div className="optional__row">
-            <div className="checkbox-list">
-              <Checkbox
-                title="VAT"
-                checked={this.state.vatStatus}
-                onChange={(checked) => {
-                  this.setState({
-                    vatStatus: checked,
-                    totalBillPrice: this.calculateTotalBillPrice(checked, this.state.serviceChargeStatus)
-                  });
-                }}
+          <div className="bill-title">
+            <div className="bill-title-size">
+              <TextField
+                name="ใส่ชื่อบิล"
+                placeHolder="ใส่ชื่อบิล"
+                id="1"
+                type=""
+                shadow={true}
+                value={this.state.billName}
+                onChange={(event => this.updateBillName(event))}
               />
             </div>
-            <div>
-              {this.state.vatStatus ? (this.state.vatPrice).toFixed(2) : ''}
+          </div>
+          <div className="bill-box" ref={e => this.box = e}>
+            <div className="top-row">
+              <div className="column-title column-left row">
+                รายการ
+            </div>
+              <div className="column-title column-right row">
+                ราคา
+            </div>
+              <div style={{ width: '28px' }} />
+            </div>
+            {this.mappingItems()}
+            <div className="add-button-size">
+              <Button
+                title="+ เพิ่มรายการในบิล"
+                type="addlist"
+                onClick={() => this.addList()}
+                disable={false}
+              />
             </div>
           </div>
-          <div className="optional__row">
-            <div className="checkbox-list">
-              <Checkbox
-                title="Service Charge"
-                checked={this.state.serviceChargeStatus}
-                onChange={(checked) => {
-                  this.setState({
-                    serviceChargeStatus: checked,
-                    totalBillPrice:
-                      this.calculateTotalBillPrice(
-                        this.state.vatStatus,
-                        checked,
-                        this.state.serviceCharge
-                      )
-                  });
-                }}
-              />
-              <div className="service-charge-textfield">
-                <TextField
-                  name="serviceCharge"
-                  id="2"
-                  type="number"
-                  isUnderline={true}
-                  onChange={(event) => this.updateService(event)}
-                  value={this.state.serviceCharge ? this.state.serviceCharge : ''}
+          <div className="optional">
+            <div className="optional__row">
+              <div className="checkbox-list">
+                <Checkbox
+                  title="VAT"
+                  checked={this.state.vatStatus}
+                  onChange={(checked) => {
+                    this.setState({
+                      vatStatus: checked,
+                      totalBillPrice: this.calculateTotalBillPrice(checked, this.state.serviceChargeStatus)
+                    });
+                  }}
                 />
               </div>
               <div>
-                %
+                {this.state.vatStatus ? (this.state.vatPrice).toFixed(2) : ''}
               </div>
             </div>
-            <div>
-              {this.state.serviceChargeStatus ? (this.state.serviceChargePrice).toFixed(2) : ''}
+            <div className="optional__row">
+              <div className="checkbox-list">
+                <Checkbox
+                  title="Service Charge"
+                  checked={this.state.serviceChargeStatus}
+                  onChange={(checked) => {
+                    this.setState({
+                      serviceChargeStatus: checked,
+                      totalBillPrice:
+                        this.calculateTotalBillPrice(
+                          this.state.vatStatus,
+                          checked,
+                          this.state.serviceCharge
+                        )
+                    });
+                  }}
+                />
+                <div className="service-charge-textfield">
+                  <TextField
+                    name="serviceCharge"
+                    id="2"
+                    type="number"
+                    isUnderline={true}
+                    onChange={(event) => this.updateService(event)}
+                    value={this.state.serviceCharge ? this.state.serviceCharge : ''}
+                  />
+                </div>
+                <div>
+                  %
+              </div>
+              </div>
+              <div>
+                {this.state.serviceChargeStatus ? (this.state.serviceChargePrice).toFixed(2) : ''}
+              </div>
             </div>
           </div>
-        </div>
-        <div className="summary-section">
-          <div className="summary-section__row">
-            <div className="summary-section__text">
-              ยอดรวม
-              <span className="summary-section__text--price">
-                {(this.state.totalBillPrice).toFixed(2)}
-              </span>
-              บาท
-            </div>
-          </div>
-          <div className="summary-section__row">
-            <div className="next-button-size">
-              <Button
-                title="ถัดไป"
-                type=""
-                disable={this.state.totalBillPrice === 0 ? true : false}
-                onClick={() => {
-                  history.pushState(this.state, '', '/select');
-                  history.go();
-                }}
-              />
+          <div className="auto-adjust" style={{ height: `Calc(100% - ${this.state.boxHeight + 193}px)` }}>
+            <div className="summary-section">
+              <div className="summary-section__row">
+                <div className="summary-section__text">
+                  ยอดรวม
+                <span className="summary-section__text--price">
+                    {(this.state.totalBillPrice).toFixed(2)}
+                  </span>
+                  บาท
+              </div>
+              </div>
+              <div className="summary-section__row">
+                <div className="next-button-size">
+                  <Button
+                    title="ถัดไป"
+                    type=""
+                    disable={this.state.totalBillPrice === 0 ? true : false}
+                    onClick={() => {
+                      history.pushState(this.state, '', '/select');
+                      history.go();
+                    }}
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>

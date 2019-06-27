@@ -12,6 +12,8 @@ export class SelectFriendPage
 
   private static ownerSymbol = require('../../assets/crown.png');
 
+  box: HTMLElement | null;
+
   constructor(props: {}) {
     super(props);
 
@@ -77,6 +79,7 @@ export class SelectFriendPage
       ],
       selectedFriendList: [],
       selectedFriend: 1,
+      boxHeight: 240
     };
   }
 
@@ -86,6 +89,8 @@ export class SelectFriendPage
       vat, vatStatus, vatPrice,
       serviceCharge, serviceChargeStatus, serviceChargePrice,
       totalBillPrice } = history.state;
+
+    window.addEventListener('load', (e) => this.setState({ boxHeight: this.box!.clientHeight }));
 
     this.setState({
       billName,
@@ -103,76 +108,84 @@ export class SelectFriendPage
     });
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('load', () => null);
+  }
+
   render() {
     return (
       <div className="background">
-        <div className="top-stepper">
-          <Stepper
-            step={BillingStep.ADD_FRIENDS}
-            step1=" ใส่รายการ "
-            step2=" เลือกเพื่อน "
-            step3="เรียกเก็บเงิน"
-          />
-        </div>
-        <div className="bill-title">
-          <div className="bill-title-size">
-            <TextField
-              name="ใส่ชื่อบิล"
-              placeHolder="ใส่ชื่อบิล"
-              id="1"
-              type=""
-              shadow={true}
-              onChange={(event) => this.updateBillName(event)}
-              value={this.state.billName}
+        <div className="content">
+          <div className="top-stepper">
+            <Stepper
+              step={BillingStep.ADD_FRIENDS}
+              step1=" ใส่รายการ "
+              step2=" เลือกเพื่อน "
+              step3="เรียกเก็บเงิน"
             />
           </div>
-        </div>
-        <div className="friend-box">
-          <div className="friend-top-row">
-            <div className="friend__column-title column-left">
-              ใครอยู่ในบิลนี้บ้าง ?
-            </div>
-            <div className="friend__column-right">
-              <div className="all-button">
-                <Button
-                  title="All"
-                  type=""
-                  disable={this.state.selectedFriend === this.state.friends.length}
-                  onClick={() => this.selectAll()}
-                />
-              </div>
-              <div className="select-number">
-                {this.state.selectedFriend}
-              </div>
-            </div>
-          </div>
-          <div className="friend-list">
-            {this.mappingItems()}
-          </div>
-        </div>
-        <div className="summary-section">
-          <div className="summary-section__row">
-            <div className="summary-section__text">
-              ยอดรวม
-              <span className="summary-section__text--price">
-                {(this.state.totalBillPrice).toFixed(2)}
-              </span>
-              บาท
-            </div>
-          </div>
-          <div className="summary-section__row">
-            <div className="next-button-size">
-              <Button
-                title="ถัดไป"
+          <div className="bill-title">
+            <div className="bill-title-size">
+              <TextField
+                name="ใส่ชื่อบิล"
+                placeHolder="ใส่ชื่อบิล"
+                id="1"
                 type=""
-                disable={false}
-                onClick={
-                  () => {
-                    history.pushState(this.stateInfomation(), '', '/summary');
-                    history.go();
-                  }
-                }
+                shadow={true}
+                onChange={(event) => this.updateBillName(event)}
+                value={this.state.billName}
               />
+            </div>
+          </div>
+          <div className="friend-box" ref={e => this.box = e}>
+            <div className="friend-top-row">
+              <div className="friend__column-title column-left">
+                ใครอยู่ในบิลนี้บ้าง ?
+            </div>
+              <div className="friend__column-right">
+                <div className="all-button">
+                  <Button
+                    title="All"
+                    type=""
+                    disable={this.state.selectedFriend === this.state.friends.length}
+                    onClick={() => this.selectAll()}
+                  />
+                </div>
+                <div className="select-number">
+                  {this.state.selectedFriend}
+                </div>
+              </div>
+            </div>
+            <div className="friend-list">
+              {this.mappingItems()}
+            </div>
+          </div>
+          <div className="auto-adjust" style={{ height: `Calc(100% - ${this.state.boxHeight + 193 - 63}px)` }}>
+            <div className="summary-section">
+              <div className="summary-section__row">
+                <div className="summary-section__text">
+                  ยอดรวม
+                  <span className="summary-section__text--price">
+                    {(this.state.totalBillPrice).toFixed(2)}
+                  </span>
+                  บาท
+            </div>
+              </div>
+              <div className="summary-section__row">
+                <div className="next-button-size">
+                  <Button
+                    title="ถัดไป"
+                    type=""
+                    disable={false}
+                    onClick={
+                      () => {
+                        history.pushState(this.stateInfomation(), '', '/summary');
+                        history.go();
+                      }
+                    }
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
