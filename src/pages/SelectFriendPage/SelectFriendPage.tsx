@@ -15,7 +15,6 @@ export class SelectFriendPage
   constructor(props: {}) {
     super(props);
 
-    // tslint:disable-next-line:no-console
     window.onpopstate = () => {
       history.pushState(this.stateInfomation(), '', '/create');
       history.go();
@@ -82,7 +81,8 @@ export class SelectFriendPage
   }
 
   componentDidMount() {
-    const { billName, totalPrice, items,
+    const { billName, selectedFriendList,
+      totalPrice, items,
       vat, vatStatus, vatPrice,
       serviceCharge, serviceChargeStatus, serviceChargePrice,
       totalBillPrice } = history.state;
@@ -97,7 +97,9 @@ export class SelectFriendPage
         serviceCharge,
         serviceChargeStatus,
         serviceChargePrice,
-        totalBillPrice
+        totalBillPrice,
+        selectedFriendList: selectedFriendList === null ? [] : this.addIsSelect(selectedFriendList),
+        friends: this.mapFriends(selectedFriendList)
     });
   }
 
@@ -271,7 +273,7 @@ export class SelectFriendPage
   stateInfomation() {
    const state = {
     billName: this.state.billName,
-    selectedFriendList: this.state.selectedFriendList,
+    selectedFriendList: this.removeIsSelect(this.state.selectedFriendList),
     items: this.state.items,
     vat: this.state.vat,
     vatStatus: this.state.vatStatus,
@@ -280,12 +282,53 @@ export class SelectFriendPage
     serviceChargeStatus: this.state.serviceChargeStatus,
     serviceChargePrice: this.state.serviceChargePrice,
     totalPrice: this.state.totalPrice,
-    totalBillPrice: this.state.totalBillPrice
+    totalBillPrice: this.state.totalBillPrice,
    };
 
-   // tslint:disable-next-line:no-console
-   console.log(state);
    return state;
+  }
+
+  removeIsSelect(friends: Friend[]) {
+    return friends.map(friend => {
+      const newFriend = {
+        userId: friend.userId,
+        profilePic: friend.profilePic,
+        displayName: friend.displayName,
+        owner: friend.owner,
+      };
+
+      return newFriend;
+    });
+  }
+
+  addIsSelect(friends: Friend[]) {
+    friends.map(friend => {
+      const newFriend = {
+        userId: friend.userId,
+        profilePic: friend.profilePic,
+        displayName: friend.displayName,
+        owner: friend.owner,
+        isSelect: true
+      };
+
+      return newFriend;
+    });
+
+    return friends;
+  }
+
+  mapFriends(friends: Friend[]) {
+    let allFriends = this.state.friends;
+
+    for (let i = 0; i < allFriends.length; i ++) {
+      for (let j = 0; j < friends.length; j++) {
+        if (friends[j].userId === allFriends[i].userId) {
+          allFriends[i].isSelect = true;
+        }
+      }
+    }
+
+    return allFriends;
   }
 
 }
