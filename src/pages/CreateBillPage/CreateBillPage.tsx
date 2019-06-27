@@ -20,6 +20,7 @@ export class CreateBillPage
           price: 0
         }
       ],
+      billName: '',
       vat: 7,
       vatStatus: false,
       vatPrice: 0,
@@ -53,6 +54,8 @@ export class CreateBillPage
               id="1"
               type=""
               shadow={true}
+              value={this.state.billName}
+              onChange={(event => this.updateBillName(event))}
             />
           </div>
         </div>
@@ -227,6 +230,14 @@ export class CreateBillPage
     this.setState({
       items,
       totalBillPrice: this.calculateTotalBillPrice(this.state.vatStatus, this.state.serviceChargeStatus)
+    });
+  }
+
+  updateBillName(event: React.ChangeEvent<HTMLInputElement>) {
+    const billName = event.target.value;
+
+    this.setState({
+      billName
     });
   }
 
