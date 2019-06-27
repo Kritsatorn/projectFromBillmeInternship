@@ -88,8 +88,8 @@ export class BillPaymentPage
         </div>
         <div className="bank-number">
           <TextField
-            name={index + 'bank-number'}
-            id={index + 'bank-number'}
+            name="bank-number"
+            id={`bank-number__${index}`}
             value={cards.value}
             isUnderline={true}
             onChange={(event) => {
