@@ -9,20 +9,20 @@ export class SummaryPage
       super(props);
 
       this.state = {
-        bill : {
-            billImage: '',
-            billName: 'ค่าข้าวเที่ยงร้านเฮลโล่ว',
-            billDate: '18 มิ.ย. 2562',
-            billOwnerName: 'Tangkwa',
-            billOwnerImage: 'https://bit.ly/2J9C0Hv'
-          }
+        bill: {
+          billImage: '',
+          billName: 'ค่าข้าวเที่ยงร้านเฮลโล่ว',
+          billDate: '18 มิ.ย. 2562',
+          billOwnerName: 'Tangkwa',
+          billOwnerImage: 'https://bit.ly/2J9C0Hv'
+        }
       };
     }
 
     render() {
       return (
-        <div className="bg">
-          <div className="header-bg">
+        <div className="summary__background">
+          <div className="header__background">
             <img className="bill-image" src={require('../../assets/upload__picture.jpg')}/>
             <div className="bill-detail">
               <div className="bill-name">{this.state.bill.billName}</div>
