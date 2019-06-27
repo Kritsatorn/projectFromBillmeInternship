@@ -15,40 +15,60 @@ export class SelectFriendPage
   constructor(props: {}) {
     super(props);
 
+    window.onpopstate = () => {
+      history.pushState(this.stateInfomation(), '', '/create');
+      history.go();
+    };
+
     this.state = {
       billName: '',
+      items: [],
+      vat: 7,
+      vatStatus: false,
+      vatPrice: 0,
+      serviceCharge: 10,
+      serviceChargePrice: 0,
+      serviceChargeStatus: false,
+      totalPrice: 0,
+      totalBillPrice: 0,
       friends: [
         {
+          userId: '1',
           profilePic: 'https://bit.ly/2FwSc4j',
           displayName: 'RawitSHIE',
           isSelect: true,
           owner: true
         },
         {
+          userId: '2',
           profilePic: 'https://bit.ly/2J9C0Hv',
           displayName: 'Wiput',
           isSelect: false,
           owner: false
         },
         {
+          userId: '3',
           profilePic: 'https://bit.ly/2J9C0Hv',
           displayName: 'RawitSHIE',
           isSelect: false,
           owner: false
         },
         {
+          userId: '4',
           profilePic: 'https://bit.ly/2J9C0Hv',
           displayName: 'RawitSHIE',
           isSelect: false,
           owner: false
         },
         {
+          userId: '5',
           profilePic: 'https://bit.ly/2J9C0Hv',
           displayName: 'RawitSHIE',
           isSelect: false,
           owner: false
         },
         {
+          userId: '6',
           profilePic: 'https://bit.ly/2J9C0Hv',
           displayName: 'RawitSHIE',
           isSelect: false,
@@ -57,8 +77,30 @@ export class SelectFriendPage
       ],
       selectedFriendList: [],
       selectedFriend: 1,
-      totalBillPrice: 0
     };
+  }
+
+  componentDidMount() {
+    const { billName, selectedFriendList,
+      totalPrice, items,
+      vat, vatStatus, vatPrice,
+      serviceCharge, serviceChargeStatus, serviceChargePrice,
+      totalBillPrice } = history.state;
+
+    this.setState({
+      billName,
+      totalPrice,
+      items,
+      vat,
+      vatStatus,
+      vatPrice,
+      serviceCharge,
+      serviceChargeStatus,
+      serviceChargePrice,
+      totalBillPrice,
+      selectedFriendList: selectedFriendList === null ? [] : this.addIsSelect(selectedFriendList),
+      friends: this.mapFriends(selectedFriendList)
+    });
   }
 
   render() {
@@ -67,9 +109,9 @@ export class SelectFriendPage
         <div className="top-stepper">
           <Stepper
             step={BillingStep.ADD_FRIENDS}
-            step1="ใส่รายการ"
-            step2="เลือกเพื่อน"
-            step3="ช่องทางการชำระเงิน"
+            step1=" ใส่รายการ "
+            step2=" เลือกเพื่อน "
+            step3="เรียกเก็บเงิน"
           />
         </div>
         <div className="bill-title">
@@ -80,6 +122,8 @@ export class SelectFriendPage
               id="1"
               type=""
               shadow={true}
+              onChange={(event) => this.updateBillName(event)}
+              value={this.state.billName}
             />
           </div>
         </div>
@@ -94,7 +138,7 @@ export class SelectFriendPage
                   title="All"
                   type=""
                   disable={this.state.selectedFriend === this.state.friends.length}
-                  onclick={() => this.selectAll()}
+                  onClick={() => this.selectAll()}
                 />
               </div>
               <div className="select-number">
@@ -122,9 +166,10 @@ export class SelectFriendPage
                 title="ถัดไป"
                 type=""
                 disable={false}
-                onclick={
+                onClick={
                   () => {
-                    history.pushState(this.state, '', '');
+                    history.pushState(this.stateInfomation(), '', '/summary');
+                    history.go();
                   }
                 }
               />
@@ -191,6 +236,14 @@ export class SelectFriendPage
     );
   }
 
+  updateBillName(event: React.ChangeEvent<HTMLInputElement>) {
+    const billName = event.target.value;
+
+    this.setState({
+      billName
+    });
+  }
+
   updateSelected() {
     const friends = this.state.friends;
     const selectedFriendList = friends.filter((friend) => friend.isSelect);
@@ -216,4 +269,66 @@ export class SelectFriendPage
   selectClass(checked: boolean) {
     return checked ? 'friend-list__row selected' : 'friend-list__row';
   }
+
+  stateInfomation() {
+    const state = {
+      billName: this.state.billName,
+      selectedFriendList: this.removeIsSelect(this.state.selectedFriendList),
+      items: this.state.items,
+      vat: this.state.vat,
+      vatStatus: this.state.vatStatus,
+      vatPrice: this.state.vatPrice,
+      serviceCharge: this.state.serviceCharge,
+      serviceChargeStatus: this.state.serviceChargeStatus,
+      serviceChargePrice: this.state.serviceChargePrice,
+      totalPrice: this.state.totalPrice,
+      totalBillPrice: this.state.totalBillPrice,
+    };
+
+    return state;
+  }
+
+  removeIsSelect(friends: Friend[]) {
+    return friends.map(friend => {
+      const newFriend = {
+        userId: friend.userId,
+        profilePic: friend.profilePic,
+        displayName: friend.displayName,
+        owner: friend.owner,
+      };
+
+      return newFriend;
+    });
+  }
+
+  addIsSelect(friends: Friend[]) {
+    friends.map(friend => {
+      const newFriend = {
+        userId: friend.userId,
+        profilePic: friend.profilePic,
+        displayName: friend.displayName,
+        owner: friend.owner,
+        isSelect: true
+      };
+
+      return newFriend;
+    });
+
+    return friends;
+  }
+
+  mapFriends(friends: Friend[]) {
+    let allFriends = this.state.friends;
+
+    for (let i = 0; i < allFriends.length; i++) {
+      for (let j = 0; j < friends.length; j++) {
+        if (friends[j].userId === allFriends[i].userId) {
+          allFriends[i].isSelect = true;
+        }
+      }
+    }
+
+    return allFriends;
+  }
+
 }
