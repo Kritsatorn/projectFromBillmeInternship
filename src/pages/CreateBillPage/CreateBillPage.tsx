@@ -29,6 +29,7 @@ export class CreateBillPage
       serviceChargeStatus: false,
       totalPrice: 0,
       totalBillPrice: 0,
+      selectedFriendList: []
     };
 
     this.addList = this.addList.bind(this);
@@ -37,7 +38,7 @@ export class CreateBillPage
 
   componentDidMount() {
     if (history.state !== null) {
-      const { billName, items, vatStatus, vatPrice,
+      const { billName, selectedFriendList, items, vatStatus, vatPrice,
       serviceCharge, serviceChargeStatus, serviceChargePrice, totalBillPrice } = history.state;
 
       this.setState({
@@ -48,7 +49,8 @@ export class CreateBillPage
         serviceCharge,
         serviceChargeStatus,
         serviceChargePrice,
-        totalBillPrice
+        totalBillPrice,
+        selectedFriendList
       });
     }
   }
