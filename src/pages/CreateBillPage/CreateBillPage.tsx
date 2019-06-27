@@ -35,6 +35,24 @@ export class CreateBillPage
     this.updateDetail = this.updateDetail.bind(this);
   }
 
+  componentDidMount() {
+    if (history.state !== null) {
+      const { billName, items, vatStatus, vatPrice,
+      serviceCharge, serviceChargeStatus, serviceChargePrice, totalBillPrice } = history.state;
+
+      this.setState({
+        billName,
+        items,
+        vatStatus,
+        vatPrice,
+        serviceCharge,
+        serviceChargeStatus,
+        serviceChargePrice,
+        totalBillPrice
+      });
+    }
+  }
+
   render() {
     return (
       <div className="bg">
@@ -84,6 +102,7 @@ export class CreateBillPage
             <div className="checkbox-list">
               <Checkbox
                 title="VAT"
+                checked={this.state.vatStatus}
                 onChange={(checked) => {
                   this.setState({
                     vatStatus: checked,
