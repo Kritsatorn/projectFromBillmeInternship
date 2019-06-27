@@ -15,6 +15,7 @@ export interface SelectFriendState {
 }
 
 export interface Friend {
+  userId: string;
   profilePic: string;
   displayName: string;
   isSelect: boolean;
