@@ -5,7 +5,7 @@ import { BillPaymentState, Card } from './BillPaymentTypes';
 import { Dropdown } from '../../components/Dropdown/Dropdown';
 import { BillingStep } from '../../definitions/enum/BillingStep';
 import { TextField } from '../../components/TextField/TextField';
-import './BillPayment.css';
+import './BillPaymentPage.css';
 
 export class BillPayment
   extends React.Component<object, BillPaymentState> {
