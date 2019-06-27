@@ -1,5 +1,9 @@
 # Changelog
 
+## [V0.0.16] - 2019-06-26
+## Updated
+- Updated stepper component css style.
+
 ## [V0.0.15] - 2019-06-26
 ## Updated
 - Added Bill owner status.

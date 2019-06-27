@@ -42,7 +42,7 @@ export class CreateBillPage
             step={BillingStep.CREATE_BILL}
             step1="ใส่รายการ"
             step2="เลือกเพื่อน"
-            step3="ช่องทางการชำระเงิน"
+            step3="เรียกเก็บเงิน"
           />
         </div>
         <div className="bill-title">
