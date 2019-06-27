@@ -1,5 +1,8 @@
 # Changelog
 
+## [V0.0.20] - 2019-06-27
+## bugfixed
+- Added 0 index item array length alternative.
 
 ## [V0.0.18] - 2019-06-27
 ## Updated
