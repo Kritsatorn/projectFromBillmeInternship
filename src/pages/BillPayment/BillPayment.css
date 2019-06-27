@@ -1,0 +1,125 @@
+.body {
+  background-repeat: repeat-x;
+  background-image: url('../../assets/background.svg');
+}
+
+.content {
+  height: 100vh;
+}
+
+.top-stepper {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 16px;
+}
+.title {
+  width: 50%;
+  height: 30px;
+  font-family: Kanit;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  align-self: flex-start;
+  margin-right: auto;
+  margin-top: 16px;
+  border-radius: 16px;
+  background-color: #21343a;
+  padding: 0 40px 0 20px
+}
+
+.payment__feild {
+  margin: auto;
+  width: 351px;
+  height: Calc(100% - 239px);
+  min-height: 240px;
+  margin-top: 20px;
+  border-radius: 30px;
+  background-color: #f2f2f2;
+  overflow-x: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.payment__card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: Calc(100% - 48px);
+  min-height: 74px;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px 0 #00000029;
+  background-color: #ffffff;
+  margin: 8px 0;
+  padding: 0 12px;
+}
+
+.payment__card.add {
+  font-size: 40px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  color: #afafaf;
+  outline: none;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+  border: none;
+  width: Calc(100% - 25px);
+}
+.bank-number {
+  width: 115px;
+}
+
+.cancel-button {
+  width: 28px;
+  margin: 0px;
+  height: 28px;
+  border: none;
+  outline: none;
+  color: white;
+  border-radius: 50%;
+  background-color: #ff6666;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+}
+
+.button.payment__card {
+  color: #ffffff;
+}
+.drop__card {
+  height: 50px;
+  width: 132px;
+  position: relative;
+}
+
+.payment__footer {
+  display: flex;
+  height: 88px;
+  width: Calc(100% - 40px);
+  position: absolute;
+  bottom: 0;
+  background-color: #00ace1;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+.payment__footer .button {
+  width: 122px;
+  height: 41px;
+  border-radius: 16px;
+  box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.16);
+}
+
+.auto-adjust {
+  position: relative;
+  height: Calc(100% - 500px);
+  min-height: 145px;
+}
