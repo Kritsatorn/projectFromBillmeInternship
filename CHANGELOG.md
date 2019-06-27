@@ -3,8 +3,8 @@
 ## [V0.0.17] - 2019-06-28
 ## Updated
 - Added history state to pass between page.
-- Added remove isSelect flag function.
-- Added add isSelect flag function.
+- Added removeIsSelect function.
+- Added addIsSelect function.
 
 ## [V0.0.16] - 2019-06-26
 ## Updated
