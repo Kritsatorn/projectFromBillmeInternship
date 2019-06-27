@@ -138,7 +138,7 @@ export class SelectFriendPage
                   title="All"
                   type=""
                   disable={this.state.selectedFriend === this.state.friends.length}
-                  onclick={() => this.selectAll()}
+                  onClick={() => this.selectAll()}
                 />
               </div>
               <div className="select-number">
@@ -166,7 +166,7 @@ export class SelectFriendPage
                 title="ถัดไป"
                 type=""
                 disable={false}
-                onclick={
+                onClick={
                   () => {
                     history.pushState(this.stateInfomation(), '', '/summary');
                     history.go();

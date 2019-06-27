@@ -96,7 +96,7 @@ export class CreateBillPage
             <Button
               title="+ เพิ่มรายการในบิล"
               type="addlist"
-              onclick={() => this.addList()}
+              onClick={() => this.addList()}
               disable={false}
             />
           </div>
@@ -171,7 +171,7 @@ export class CreateBillPage
                 title="ถัดไป"
                 type=""
                 disable={this.state.totalBillPrice === 0 ? true : false}
-                onclick={() => {
+                onClick={() => {
                   history.pushState(this.state, '', '/select');
                   history.go();
                 }}
