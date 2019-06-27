@@ -38,8 +38,10 @@ export class CreateBillPage
 
   componentDidMount() {
     if (history.state !== null) {
-      const { billName, selectedFriendList, items, vatStatus, vatPrice,
-      serviceCharge, serviceChargeStatus, serviceChargePrice, totalBillPrice } = history.state;
+      const { billName, selectedFriendList, items,
+        vatStatus, vatPrice,
+        serviceCharge, serviceChargeStatus, serviceChargePrice,
+        totalBillPrice } = history.state;
 
       this.setState({
         billName,
