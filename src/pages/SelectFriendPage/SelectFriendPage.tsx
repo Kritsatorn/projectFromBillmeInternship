@@ -10,6 +10,8 @@ import './SelectFriendPage.css';
 export class SelectFriendPage
   extends React.Component<{}, SelectFriendState> {
 
+  private static ownerSymbol = require('../../assets/crown.png');
+
   constructor(props: {}) {
     super(props);
 
@@ -33,36 +35,42 @@ export class SelectFriendPage
         {
           profilePic: 'https://bit.ly/2FwSc4j',
           displayName: 'RawitSHIE',
-          isSelect: false,
+          isSelect: true,
+          owner: true
         },
         {
           profilePic: 'https://bit.ly/2J9C0Hv',
           displayName: 'Wiput',
           isSelect: false,
+          owner: false
         },
         {
           profilePic: 'https://bit.ly/2J9C0Hv',
           displayName: 'RawitSHIE',
           isSelect: false,
+          owner: false
         },
         {
           profilePic: 'https://bit.ly/2J9C0Hv',
           displayName: 'RawitSHIE',
           isSelect: false,
+          owner: false
         },
         {
           profilePic: 'https://bit.ly/2J9C0Hv',
           displayName: 'RawitSHIE',
           isSelect: false,
+          owner: false
         },
         {
           profilePic: 'https://bit.ly/2J9C0Hv',
           displayName: 'RawitSHIE',
           isSelect: false,
+          owner: false
         }
       ],
       selectedFriendList: [],
-      selectedFriend: 0,
+      selectedFriend: 1,
     };
 
     this.getState();
@@ -105,7 +113,7 @@ export class SelectFriendPage
                 <Button
                   title="All"
                   type=""
-                  disable={false}
+                  disable={this.state.selectedFriend === this.state.friends.length}
                   onclick={() => this.selectAll()}
                 />
               </div>
@@ -134,6 +142,11 @@ export class SelectFriendPage
                 title="ถัดไป"
                 type=""
                 disable={false}
+                onclick={
+                  () => {
+                    history.pushState(this.state, '', '');
+                  }
+                }
               />
             </div>
           </div>
@@ -154,28 +167,44 @@ export class SelectFriendPage
 
   listItemRow(index: number, friend: Friend) {
     return (
-      <div key={index} className="friend-list__row">
-        <img className="profile-picture" src={friend.profilePic} alt={friend.displayName + 'picture'} />
+      <div key={index} className={this.selectClass(friend.isSelect)}>
+        <div className="profile-picture-div">
+          <img className="profile-picture" src={friend.profilePic} alt={friend.displayName + 'picture'} />
+        </div>
         <div className="name-box">
           <div className="display-name">
             {friend.displayName}
           </div>
           <div>
-            <Checkbox
-              title=""
-              checked={friend.isSelect}
-              onChange={(checked) => {
-                friend.isSelect = checked;
-                let friends = this.state.friends;
-                friends[index] = friend;
-                const { selectedFriend, selectedFriendList } = this.updateSelected();
-                this.setState({
-                  friends,
-                  selectedFriend,
-                  selectedFriendList
-                });
-              }}
-            />
+            {
+              friend.owner ?
+                (
+                  <div>
+                    <img
+                      className="owner-symbol"
+                      src={SelectFriendPage.ownerSymbol}
+                      alt="owner"
+                    />
+                  </div>
+                ) :
+                (
+                  <Checkbox
+                    title=""
+                    checked={friend.isSelect}
+                    onChange={(checked) => {
+                      friend.isSelect = checked;
+                      let friends = this.state.friends;
+                      friends[index] = friend;
+                      const { selectedFriend, selectedFriendList } = this.updateSelected();
+                      this.setState({
+                        friends,
+                        selectedFriend,
+                        selectedFriendList
+                      });
+                    }}
+                  />
+                )
+            }
           </div>
         </div>
       </div>
@@ -202,5 +231,9 @@ export class SelectFriendPage
       selectedFriend: friends.length,
       selectedFriendList: friends
     });
+  }
+
+  selectClass(checked: boolean) {
+    return checked ? 'friend-list__row selected' : 'friend-list__row';
   }
 }

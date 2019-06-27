@@ -30,6 +30,9 @@ export class Stepper
             </div>
             <div className="stepper-title">{step3}</div>
           </div>
+          <div className="bar-line">
+            <div className="bar" />
+          </div>
         </div>
       </div>
     );

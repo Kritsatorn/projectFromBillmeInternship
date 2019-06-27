@@ -1,7 +1,18 @@
 .stepper {
   width: 70%;
-  background-color: #00ace1;
   display: flex;
+}
+
+.bar-line {
+  width: 45%;
+  z-index: 0;
+  position: absolute;
+  padding-bottom: 17px;
+}
+
+.bar {
+  background-color: white;
+  height: 5px;
 }
 
 .stepper-bar {
@@ -18,6 +29,7 @@
   flex-direction: column;
   align-items: center;
   overflow: visible;
+  z-index: 100;
 }
 
 .progress {
@@ -67,7 +79,9 @@
 
 .stepper-title {
   color: #494949;
+  margin-top: 2px;
   font-size: 10px;
+  font-weight: 100;
   text-overflow: ellipsis;
   overflow: visible;
 }

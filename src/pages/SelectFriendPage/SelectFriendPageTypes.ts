@@ -18,6 +18,7 @@ export interface Friend {
   profilePic: string;
   displayName: string;
   isSelect: boolean;
+  owner: boolean;
 }
 
 export interface Item {
