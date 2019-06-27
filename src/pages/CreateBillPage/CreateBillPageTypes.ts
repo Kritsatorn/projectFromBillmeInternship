@@ -9,6 +9,15 @@ export interface CreateBillState {
   serviceCharge: number;
   serviceChargeStatus: boolean;
   serviceChargePrice: number;
+  selectedFriendList: Friend[];
+}
+
+export interface Friend {
+  userId: string;
+  profilePic: string;
+  displayName: string;
+  isSelect: boolean;
+  owner: boolean;
 }
 
 export interface Item {
