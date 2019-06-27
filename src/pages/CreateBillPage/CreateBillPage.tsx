@@ -297,15 +297,19 @@ export class CreateBillPage
   }
 
   calculateTotalPrice() {
-    let totalPrice = this.state.items
-      .map((item) => item.price)
-      .reduce((itemPrice, total) => itemPrice + total);
+    if (this.state.items.length !== 0) {
+      let totalPrice = this.state.items
+        .map((item) => item.price)
+        .reduce((itemPrice, total) => itemPrice + total);
 
-    this.setState({
-      totalPrice
-    });
+      this.setState({
+        totalPrice
+      });
 
-    return totalPrice;
+      return totalPrice;
+    }
+
+    return 0;
   }
 
   calculateServiceCharge(serviceCharge: boolean, totalPrice: number, serviceChargeAmount?: number) {
