@@ -1,5 +1,9 @@
 # Changelog
 
+## [V0.0.15] - 2019-06-26
+## Updated
+- Added Bill owner status.
+
 ## [V0.0.14] - 2019-06-26
 ## Updated
 - Added select friends calculation function.
