@@ -7,7 +7,7 @@ import { BillingStep } from '../../definitions/enum/BillingStep';
 import { TextField } from '../../components/TextField/TextField';
 import './BillPaymentPage.css';
 
-export class BillPayment
+export class BillPaymentPage
   extends React.Component<object, BillPaymentState> {
 
   box: HTMLElement | null;
@@ -75,7 +75,7 @@ export class BillPayment
     );
   }
 
-  renderPaymentFeild(index: number, cards: Card) {
+  renderPaymentField(index: number, cards: Card) {
     return (
       <div key={index} className="payment__card">
         <div className="drop__card" style={{zIndex: 100 - index}}>
@@ -183,7 +183,7 @@ export class BillPayment
     return (
       this.state.cards.map(
         (cards, index) => {
-          return this.renderPaymentFeild(index, cards);
+          return this.renderPaymentField(index, cards);
         }
       )
     );
