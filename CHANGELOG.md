@@ -1,5 +1,9 @@
 # Changelog
 
+## [V0.0.19] - 2019-06-27
+## Updated
+- Updated Create bill page style.
+- Updated Select friend page style.
 
 ## [V0.0.18] - 2019-06-27
 ## Updated
