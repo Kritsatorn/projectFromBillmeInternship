@@ -15,6 +15,20 @@ export class SelectFriendPage
 
     this.state = {
       billName: '',
+      items: [
+        {
+          detail: '',
+          price: 0
+        }
+      ],
+      vat: 7,
+      vatStatus: false,
+      vatPrice: 0,
+      serviceCharge: 10,
+      serviceChargePrice: 0,
+      serviceChargeStatus: false,
+      totalPrice: 0,
+      totalBillPrice: 0,
       friends: [
         {
           profilePic: 'https://bit.ly/2FwSc4j',
@@ -49,8 +63,14 @@ export class SelectFriendPage
       ],
       selectedFriendList: [],
       selectedFriend: 0,
-      totalBillPrice: 0
     };
+
+    this.getState();
+  }
+
+  getState() {
+    // tslint:disable-next-line:no-console
+    console.log(history.state);
   }
 
   render() {

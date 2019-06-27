@@ -14,13 +14,13 @@ export class CreateBillPage
     super(props);
 
     this.state = {
+      billName: '',
       items: [
         {
           detail: '',
           price: 0
         }
       ],
-      billName: '',
       vat: 7,
       vatStatus: false,
       vatPrice: 0,
@@ -148,6 +148,10 @@ export class CreateBillPage
                 title="ถัดไป"
                 type=""
                 disable={this.state.totalBillPrice === 0 ? true : false}
+                onclick={() => {
+                  history.pushState(this.state, '', '/select');
+                  history.go();
+                }}
               />
             </div>
           </div>
