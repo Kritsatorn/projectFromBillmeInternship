@@ -16,7 +16,6 @@ export interface Friend {
   userId: string;
   profilePic: string;
   displayName: string;
-  isSelect: boolean;
   owner: boolean;
 }
 
