@@ -88,18 +88,18 @@ export class SelectFriendPage
       totalBillPrice } = history.state;
 
     this.setState({
-        billName,
-        totalPrice,
-        items,
-        vat,
-        vatStatus,
-        vatPrice,
-        serviceCharge,
-        serviceChargeStatus,
-        serviceChargePrice,
-        totalBillPrice,
-        selectedFriendList: selectedFriendList === null ? [] : this.addIsSelect(selectedFriendList),
-        friends: this.mapFriends(selectedFriendList)
+      billName,
+      totalPrice,
+      items,
+      vat,
+      vatStatus,
+      vatPrice,
+      serviceCharge,
+      serviceChargeStatus,
+      serviceChargePrice,
+      totalBillPrice,
+      selectedFriendList: selectedFriendList === null ? [] : this.addIsSelect(selectedFriendList),
+      friends: this.mapFriends(selectedFriendList)
     });
   }
 
@@ -271,21 +271,21 @@ export class SelectFriendPage
   }
 
   stateInfomation() {
-   const state = {
-    billName: this.state.billName,
-    selectedFriendList: this.removeIsSelect(this.state.selectedFriendList),
-    items: this.state.items,
-    vat: this.state.vat,
-    vatStatus: this.state.vatStatus,
-    vatPrice: this.state.vatPrice,
-    serviceCharge: this.state.serviceCharge,
-    serviceChargeStatus: this.state.serviceChargeStatus,
-    serviceChargePrice: this.state.serviceChargePrice,
-    totalPrice: this.state.totalPrice,
-    totalBillPrice: this.state.totalBillPrice,
-   };
+    const state = {
+      billName: this.state.billName,
+      selectedFriendList: this.removeIsSelect(this.state.selectedFriendList),
+      items: this.state.items,
+      vat: this.state.vat,
+      vatStatus: this.state.vatStatus,
+      vatPrice: this.state.vatPrice,
+      serviceCharge: this.state.serviceCharge,
+      serviceChargeStatus: this.state.serviceChargeStatus,
+      serviceChargePrice: this.state.serviceChargePrice,
+      totalPrice: this.state.totalPrice,
+      totalBillPrice: this.state.totalBillPrice,
+    };
 
-   return state;
+    return state;
   }
 
   removeIsSelect(friends: Friend[]) {
@@ -320,7 +320,7 @@ export class SelectFriendPage
   mapFriends(friends: Friend[]) {
     let allFriends = this.state.friends;
 
-    for (let i = 0; i < allFriends.length; i ++) {
+    for (let i = 0; i < allFriends.length; i++) {
       for (let j = 0; j < friends.length; j++) {
         if (friends[j].userId === allFriends[i].userId) {
           allFriends[i].isSelect = true;
