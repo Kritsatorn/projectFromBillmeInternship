@@ -14,6 +14,7 @@ export class CreateBillPage
     super(props);
 
     this.state = {
+      billName: '',
       items: [
         {
           detail: '',
@@ -28,10 +29,32 @@ export class CreateBillPage
       serviceChargeStatus: false,
       totalPrice: 0,
       totalBillPrice: 0,
+      selectedFriendList: []
     };
 
     this.addList = this.addList.bind(this);
     this.updateDetail = this.updateDetail.bind(this);
+  }
+
+  componentDidMount() {
+    if (history.state !== null) {
+      const { billName, selectedFriendList, items,
+        vatStatus, vatPrice,
+        serviceCharge, serviceChargeStatus, serviceChargePrice,
+        totalBillPrice } = history.state;
+
+      this.setState({
+        billName,
+        items,
+        vatStatus,
+        vatPrice,
+        serviceCharge,
+        serviceChargeStatus,
+        serviceChargePrice,
+        totalBillPrice,
+        selectedFriendList
+      });
+    }
   }
 
   render() {
@@ -53,6 +76,8 @@ export class CreateBillPage
               id="1"
               type=""
               shadow={true}
+              value={this.state.billName}
+              onChange={(event => this.updateBillName(event))}
             />
           </div>
         </div>
@@ -71,7 +96,7 @@ export class CreateBillPage
             <Button
               title="+ เพิ่มรายการในบิล"
               type="addlist"
-              onclick={() => this.addList()}
+              onClick={() => this.addList()}
               disable={false}
             />
           </div>
@@ -81,6 +106,7 @@ export class CreateBillPage
             <div className="checkbox-list">
               <Checkbox
                 title="VAT"
+                checked={this.state.vatStatus}
                 onChange={(checked) => {
                   this.setState({
                     vatStatus: checked,
@@ -145,6 +171,10 @@ export class CreateBillPage
                 title="ถัดไป"
                 type=""
                 disable={this.state.totalBillPrice === 0 ? true : false}
+                onClick={() => {
+                  history.pushState(this.state, '', '/select');
+                  history.go();
+                }}
               />
             </div>
           </div>
@@ -227,6 +257,14 @@ export class CreateBillPage
     this.setState({
       items,
       totalBillPrice: this.calculateTotalBillPrice(this.state.vatStatus, this.state.serviceChargeStatus)
+    });
+  }
+
+  updateBillName(event: React.ChangeEvent<HTMLInputElement>) {
+    const billName = event.target.value;
+
+    this.setState({
+      billName
     });
   }
 
