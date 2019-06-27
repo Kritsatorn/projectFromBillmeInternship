@@ -1,5 +1,9 @@
 # Changelog
 
+## [V0.0.17] - 2019-06-28
+## Updated
+- Added history state to pass between page.
+
 ## [V0.0.16] - 2019-06-26
 ## Updated
 - Updated stepper component css style.
