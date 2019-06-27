@@ -1,4 +1,5 @@
 export interface CreateBillState {
+  billName: string;
   totalPrice: number;
   items: Item[];
   vat: number;
