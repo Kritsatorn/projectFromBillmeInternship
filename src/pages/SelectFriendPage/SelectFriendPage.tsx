@@ -16,16 +16,14 @@ export class SelectFriendPage
     super(props);
 
     // tslint:disable-next-line:no-console
-    window.onpopstate = (event) => console.log(event.state);
+    window.onpopstate = () => {
+      history.pushState(this.stateInfomation(), '', '/create');
+      history.go();
+    };
 
     this.state = {
       billName: '',
-      items: [
-        {
-          detail: '',
-          price: 0
-        }
-      ],
+      items: [],
       vat: 7,
       vatStatus: false,
       vatPrice: 0,
@@ -36,36 +34,42 @@ export class SelectFriendPage
       totalBillPrice: 0,
       friends: [
         {
+          userId: '1',
           profilePic: 'https://bit.ly/2FwSc4j',
           displayName: 'RawitSHIE',
           isSelect: true,
           owner: true
         },
         {
+          userId: '2',
           profilePic: 'https://bit.ly/2J9C0Hv',
           displayName: 'Wiput',
           isSelect: false,
           owner: false
         },
         {
+          userId: '3',
           profilePic: 'https://bit.ly/2J9C0Hv',
           displayName: 'RawitSHIE',
           isSelect: false,
           owner: false
         },
         {
+          userId: '4',
           profilePic: 'https://bit.ly/2J9C0Hv',
           displayName: 'RawitSHIE',
           isSelect: false,
           owner: false
         },
         {
+          userId: '5',
           profilePic: 'https://bit.ly/2J9C0Hv',
           displayName: 'RawitSHIE',
           isSelect: false,
           owner: false
         },
         {
+          userId: '6',
           profilePic: 'https://bit.ly/2J9C0Hv',
           displayName: 'RawitSHIE',
           isSelect: false,
@@ -78,7 +82,7 @@ export class SelectFriendPage
   }
 
   componentDidMount() {
-    const { billName, totalPrice,
+    const { billName, totalPrice, items,
       vat, vatStatus, vatPrice,
       serviceCharge, serviceChargeStatus, serviceChargePrice,
       totalBillPrice } = history.state;
@@ -86,6 +90,7 @@ export class SelectFriendPage
     this.setState({
         billName,
         totalPrice,
+        items,
         vat,
         vatStatus,
         vatPrice,
@@ -277,6 +282,9 @@ export class SelectFriendPage
     totalPrice: this.state.totalPrice,
     totalBillPrice: this.state.totalBillPrice
    };
+
+   // tslint:disable-next-line:no-console
+   console.log(state);
    return state;
   }
 
