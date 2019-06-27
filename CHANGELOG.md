@@ -1,6 +1,11 @@
 # Changelog
 
-## [V0.0.17] - 2019-06-28
+
+## [V0.0.18] - 2019-06-27
+## Updated
+- Updated PaymentBill page.
+
+## [V0.0.17] - 2019-06-27
 ## Updated
 - Added history state to pass between page.
 - Added removeIsSelect function.
