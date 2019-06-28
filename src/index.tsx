@@ -4,6 +4,7 @@ import { createBrowserHistory } from 'history';
 import { Route, Switch, Router } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 import { ProfilePage } from './pages/ProfilePage/ProfilePage';
+import { SummaryPage } from './pages/SummaryPage/SummaryPage';
 import { CreateBillPage } from './pages/CreateBillPage/CreateBillPage';
 import { BillPaymentPage } from './pages/BillPaymentPage/BillPaymentPage';
 import { SelectFriendPage } from './pages/SelectFriendPage/SelectFriendPage';
@@ -18,6 +19,7 @@ ReactDOM.render(
       <Route exact={true} path="/create" component={CreateBillPage}/>
       <Route exact={true} path="/payment" component={BillPaymentPage}/>
       <Route exact={true} path="/select" component={SelectFriendPage}/>
+      <Route exact={true} path="/summary" component={SummaryPage}/>
     </Switch>
   </Router>,
   document.getElementById('root')
