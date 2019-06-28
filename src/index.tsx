@@ -1,6 +1,6 @@
 import * as React from 'react';
+import { history } from './config';
 import * as ReactDOM from 'react-dom';
-import { createBrowserHistory } from 'history';
 import { Route, Switch, Router } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 import { SummaryPage } from './pages/SummaryPage/SummaryPage';
@@ -9,8 +9,6 @@ import { CreateBillPage } from './pages/CreateBillPage/CreateBillPage';
 import { BillPaymentPage } from './pages/BillPaymentPage/BillPaymentPage';
 import { SelectFriendPage } from './pages/SelectFriendPage/SelectFriendPage';
 import './styles/index.css';
-
-const history = createBrowserHistory();
 
 ReactDOM.render(
   <Router history={history}>
