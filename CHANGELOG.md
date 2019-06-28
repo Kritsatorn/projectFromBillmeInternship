@@ -1,5 +1,9 @@
 # Changelog
 
+## [V0.0.23] - 2019-06-28
+## Updated
+- Added history config
+
 ## [V0.0.22] - 2019-06-28
 ## Updated
 - Fixed Profile page
