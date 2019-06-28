@@ -17,8 +17,8 @@ ReactDOM.render(
     <Switch>
       <Route exact={true} path="/" component={ProfilePage} />
       <Route exact={true} path="/create" component={CreateBillPage}/>
-      <Route exact={true} path="/payment" component={BillPaymentPage}/>
       <Route exact={true} path="/select" component={SelectFriendPage}/>
+      <Route exact={true} path="/payment" component={BillPaymentPage}/>
       <Route exact={true} path="/summary" component={SummaryPage}/>
     </Switch>
   </Router>,
