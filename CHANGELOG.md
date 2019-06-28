@@ -1,6 +1,10 @@
 # Changelog
 
+## [V0.0.21] - 2019-06-28
+- Added 0 index item array length alternative.
+
 ## [V0.0.20] - 2019-06-28
+## Update
 - Updated Create bill page style.
 - Updated Select friend page style.
 
@@ -66,7 +70,7 @@
 - Added addlist method for Create Bill Page.
 
 ## [V0.0.5] - 2019-06-20
-## Fixed
+## Bugfixed
 - Fixed container's name in profile page.
 
 ## [V0.0.4] - 2019-06-20
