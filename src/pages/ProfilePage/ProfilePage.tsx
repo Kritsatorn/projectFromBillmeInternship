@@ -60,7 +60,7 @@ export class ProfilePage
             }
           <div className="footer">
             <Button
-              title="HI"
+              title="เพิ่มบิลใหม่"
               type=""
               disable={false}
               onClick={() => {
