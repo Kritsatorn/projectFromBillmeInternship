@@ -84,28 +84,30 @@ export class SelectFriendPage
   }
 
   componentDidMount() {
-    const { billName, selectedFriendList,
-      totalPrice, items,
-      vat, vatStatus, vatPrice,
-      serviceCharge, serviceChargeStatus, serviceChargePrice,
-      totalBillPrice } = history.state;
+    if (history.state !== null) {
+      const { billName, selectedFriendList,
+        totalPrice, items,
+        vat, vatStatus, vatPrice,
+        serviceCharge, serviceChargeStatus, serviceChargePrice,
+        totalBillPrice } = history.state;
 
-    window.addEventListener('load', (e) => this.setState({ boxHeight: this.box!.clientHeight }));
+      window.addEventListener('load', (e) => this.setState({ boxHeight: this.box!.clientHeight }));
 
-    this.setState({
-      billName,
-      totalPrice,
-      items,
-      vat,
-      vatStatus,
-      vatPrice,
-      serviceCharge,
-      serviceChargeStatus,
-      serviceChargePrice,
-      totalBillPrice,
-      selectedFriendList: selectedFriendList === null ? [] : this.addIsSelect(selectedFriendList),
-      friends: this.mapFriends(selectedFriendList)
-    });
+      this.setState({
+        billName,
+        totalPrice,
+        items,
+        vat,
+        vatStatus,
+        vatPrice,
+        serviceCharge,
+        serviceChargeStatus,
+        serviceChargePrice,
+        totalBillPrice,
+        selectedFriendList: selectedFriendList === null ? [] : this.addIsSelect(selectedFriendList),
+        friends: this.mapFriends(selectedFriendList)
+      });
+    }
   }
 
   componentWillUnmount() {
@@ -179,7 +181,7 @@ export class SelectFriendPage
                     disable={false}
                     onClick={
                       () => {
-                        history.pushState(this.stateInfomation(), '', '/summary');
+                        history.pushState(this.stateInfomation(), '', '/payment');
                         history.go();
                       }
                     }

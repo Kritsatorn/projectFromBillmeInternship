@@ -40,26 +40,24 @@ export class CreateBillPage
   }
 
   componentDidMount() {
+    const historyState = history.state;
+
+    this.setState({
+      billName: historyState.billName ? historyState.billName : '',
+      items: historyState.items ? historyState.items : [{ detail: '', price: 0}],
+      vatStatus: historyState.vatStatus ? historyState.vatStatus : false,
+      vatPrice: historyState.vatPrice ? historyState.vatPrice : 0,
+      serviceCharge: historyState.serviceCharge ? historyState.serviceCharge : 10,
+      serviceChargeStatus: historyState.serviceChargeStatus ? historyState.serviceChargeStatus : false,
+      serviceChargePrice: historyState.serviceChargePrice ? historyState.serviceChargePrice : 0,
+      totalBillPrice: historyState.totalBillPrice ? historyState.totalBillPrice : 0,
+      selectedFriendList: historyState.selectedFriendList ? historyState.selectedFriendList : []
+    });
+
+  }
+
+  componentWillMount() {
     window.addEventListener('load', (e) => this.setState({ boxHeight: this.box!.clientHeight }));
-
-    if (history.state !== null) {
-      const { billName, selectedFriendList, items,
-        vatStatus, vatPrice,
-        serviceCharge, serviceChargeStatus, serviceChargePrice,
-        totalBillPrice } = history.state;
-
-      this.setState({
-        billName,
-        items,
-        vatStatus,
-        vatPrice,
-        serviceCharge,
-        serviceChargeStatus,
-        serviceChargePrice,
-        totalBillPrice,
-        selectedFriendList
-      });
-    }
   }
 
   componentWillUnmount() {
