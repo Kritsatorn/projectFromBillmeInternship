@@ -1,5 +1,6 @@
 export interface ProfilePageState {
   userId: string;
+  groupId: string;
   billInfo: {
     billId: string,
     billName: string,
@@ -9,4 +10,5 @@ export interface ProfilePageState {
     image: string
   }[];
   isLoadingComplete: boolean;
+  isEmpty: boolean;
 }

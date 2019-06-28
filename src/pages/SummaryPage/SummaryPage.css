@@ -7,7 +7,8 @@
 .header__background {
   background-color: #00ace1;
   width: 100%;
-  height: 30%;
+  height: 40%;
+  min-height: 160px;
   display: flex;
   align-content: center;
 }
@@ -88,4 +89,36 @@
   letter-spacing: normal;
   text-align: left;
   color: #ffffff;
+}
+
+.friend-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.friend-bar {
+  display:inline-flex;
+  width: 374px;
+  height: 30px;
+  background-color: #21343a;
+  align-items: center;
+}
+
+.friend-bar-title {
+  width: 132px;
+  height: 27px;
+  font-family: Kanit;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  margin-left: 28px;
+}
+
+.friend-bar-button {
+  margin-left: auto
 }

@@ -9,13 +9,40 @@ export class SummaryPage
       super(props);
 
       this.state = {
+        showFriendMenu: false,
         bill: {
           billImage: '',
           billName: 'ค่าข้าวเที่ยงร้านเฮลโล่ว',
           billDate: '18 มิ.ย. 2562',
           billOwnerName: 'Tangkwa',
           billOwnerImage: 'https://bit.ly/2J9C0Hv'
-        }
+        },
+        friends: [
+          {
+            userId: '2',
+            profilePic: 'https://bit.ly/2J9C0Hv',
+            displayName: 'Wiput',
+            owner: false
+          },
+          {
+            userId: '2',
+            profilePic: 'https://bit.ly/2J9C0Hv',
+            displayName: 'Wiput',
+            owner: false
+          },
+          {
+            userId: '2',
+            profilePic: 'https://bit.ly/2J9C0Hv',
+            displayName: 'Wiput',
+            owner: false
+          },
+          {
+            userId: '2',
+            profilePic: 'https://bit.ly/2J9C0Hv',
+            displayName: 'Wiput',
+            owner: false
+          },
+        ]
       };
     }
 
@@ -32,6 +59,19 @@ export class SummaryPage
                 <div className="bill-owner-name">{this.state.bill.billOwnerName}</div>
               </div>
             </div>
+          </div>
+          <div className="friend-field">
+              <div className="friend-bar">
+                <div className="friend-bar-title">เพื่อนที่หารด้วยกัน</div>
+                <div className="friend-bar-button">b</div>
+              </div>
+              <div className="friend-show">
+                {
+                  this.state.showFriendMenu ?
+                  null :
+                  null
+                }
+              </div>
           </div>
         </div>
       );

@@ -1,5 +1,9 @@
 # Changelog
 
+## [V0.0.22] - 2019-06-28
+## Updated
+- Fixed Profile page
+
 ## [V0.0.21] - 2019-06-28
 - Added 0 index item array length alternative.
 
