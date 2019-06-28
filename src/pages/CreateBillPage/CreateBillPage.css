@@ -1,13 +1,11 @@
-.bg {
-  height: 100%;
-  position: fixed;
-  min-height: 100vh;
-  padding-top: 16px;
+.background {
   background-image: url('../../assets/background.svg');
+  background-repeat: repeat-x;
 }
 
 .top-stepper {
-  width: 100vm;
+  padding-top: 16px;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,7 +27,8 @@
 .bill-box {
   margin: auto;
   width: 351px;
-  height: 307px;
+  height: Calc(100% - 337px);
+  min-height: 240px;
   margin-top: 20px;
   border-radius: 30px;
   background-color: #f2f2f2;
@@ -150,4 +149,14 @@
   margin-left: 10px;
   margin-right: 10px;
   text-decoration: underline;
+}
+
+.auto-adjust {
+  position: relative;
+  height: Calc(100% - 500px);
+  min-height: 145px;
+}
+
+.content {
+  height: 100vh;
 }

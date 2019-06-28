@@ -1,13 +1,10 @@
 .background {
-  height: 100%;
-  position: fixed;
-  min-height: 100vh;
-  padding-top: 16px;
   background-image: url('../../assets/background.svg');
+  background-repeat: repeat-x;
 }
 
 .top-stepper {
-  width: 100vm;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,7 +26,8 @@
 .friend-box {
   margin: auto;
   width: 351px;
-  height: 60%;
+  height: Calc(100% - 276px);
+  min-height: 200px;
   margin-top: 20px;
   border-radius: 30px;
   background-color: #f2f2f2;
@@ -167,4 +165,14 @@
 .owner-symbol {
   width: 36px;
   height: 36px;
+}
+
+.auto-adjust {
+  position: relative;
+  height: Calc(100% - 500px);
+  min-height: 145px;
+}
+
+.content {
+  height: 100vh;
 }

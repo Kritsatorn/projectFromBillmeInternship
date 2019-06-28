@@ -10,6 +10,7 @@ export interface CreateBillState {
   serviceChargeStatus: boolean;
   serviceChargePrice: number;
   selectedFriendList: Friend[];
+  boxHeight: number;
 }
 
 export interface Friend {

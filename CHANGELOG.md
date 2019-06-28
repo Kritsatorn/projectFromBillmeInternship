@@ -1,8 +1,12 @@
 # Changelog
 
-## [V0.0.20] - 2019-06-28
-## Bugfixed
+## [V0.0.21] - 2019-06-28
 - Added 0 index item array length alternative.
+
+## [V0.0.20] - 2019-06-28
+## Update
+- Updated Create bill page style.
+- Updated Select friend page style.
 
 ## [V0.0.19] - 2019-06-27
 ## Updated
