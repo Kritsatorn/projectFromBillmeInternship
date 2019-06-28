@@ -60,7 +60,7 @@ export class SummaryPage
               </div>
             </div>
           </div>
-          <div className="friend-feild">
+          <div className="friend-field">
               <div className="friend-bar">
                 <div className="friend-bar-title">เพื่อนที่หารด้วยกัน</div>
                 <div className="friend-bar-button">b</div>
