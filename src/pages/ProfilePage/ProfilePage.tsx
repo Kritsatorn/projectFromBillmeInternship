@@ -5,6 +5,7 @@ import { Button } from '../../components/Button/Button';
 import { MyWindow } from '../../definitions/interfaces/MyWindow';
 import { UnfinishedBillBox } from '../../components/UnfinishedBillBox/UnfinishedBillBox';
 import './ProfilePage.css';
+import { history } from '../../config';
 
 export class ProfilePage
     extends React.Component<object, ProfilePageState> {
@@ -73,8 +74,7 @@ export class ProfilePage
               type=""
               disable={false}
               onClick={() => {
-                history.pushState({}, '', '/create');
-                history.go();
+                history.push('/create');
               }}
             />
           </div>
