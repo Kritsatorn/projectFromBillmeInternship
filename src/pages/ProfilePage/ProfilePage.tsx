@@ -73,7 +73,7 @@ export class ProfilePage
               type=""
               disable={false}
               onClick={() => {
-                history.pushState(this.state, '', '/create');
+                history.pushState({}, '', '/create');
                 history.go();
               }}
             />
