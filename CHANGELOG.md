@@ -1,5 +1,9 @@
 # Changelog
 
+## [V0.0.20] - 2019-06-28
+- Updated Create bill page style.
+- Updated Select friend page style.
+
 ## [V0.0.19] - 2019-06-27
 ## Updated
 - Added header of Summary page.
