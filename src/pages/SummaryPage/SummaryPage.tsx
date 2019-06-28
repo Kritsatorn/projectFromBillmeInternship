@@ -76,12 +76,4 @@ export class SummaryPage
         </div>
       );
     }
-
-    renderFriendRow() {
-      return(
-        <div>
-          hi
-        </div>
-      );
-    }
   }
