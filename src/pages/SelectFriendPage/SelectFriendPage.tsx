@@ -141,7 +141,7 @@ export class SelectFriendPage
             <div className="friend-top-row">
               <div className="friend__column-title column-left">
                 ใครอยู่ในบิลนี้บ้าง ?
-            </div>
+              </div>
               <div className="friend__column-right">
                 <div className="all-button">
                   <Button
@@ -169,7 +169,7 @@ export class SelectFriendPage
                     {(this.state.totalBillPrice).toFixed(2)}
                   </span>
                   บาท
-            </div>
+                  </div>
               </div>
               <div className="summary-section__row">
                 <div className="next-button-size">

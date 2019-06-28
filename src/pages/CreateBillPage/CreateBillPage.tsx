@@ -95,10 +95,10 @@ export class CreateBillPage
             <div className="top-row">
               <div className="column-title column-left row">
                 รายการ
-            </div>
+              </div>
               <div className="column-title column-right row">
                 ราคา
-            </div>
+              </div>
               <div style={{ width: '28px' }} />
             </div>
             {this.mappingItems()}
@@ -170,11 +170,11 @@ export class CreateBillPage
               <div className="summary-section__row">
                 <div className="summary-section__text">
                   ยอดรวม
-                <span className="summary-section__text--price">
+                  <span className="summary-section__text--price">
                     {(this.state.totalBillPrice).toFixed(2)}
                   </span>
                   บาท
-              </div>
+                </div>
               </div>
               <div className="summary-section__row">
                 <div className="next-button-size">
