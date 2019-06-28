@@ -2,7 +2,7 @@
 
 ## [V0.0.19] - 2019-06-27
 ## Updated
-- Added header of Suammary page.
+- Added header of Summary page.
 
 ## [V0.0.18] - 2019-06-27
 ## Updated
