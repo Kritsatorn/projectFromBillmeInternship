@@ -1,8 +1,12 @@
 # Changelog
 
-## [V0.0.19] - 2019-06-27
-## bugfixed
+## [V0.0.21] - 2019-06-28
+## Bugfixed
 - Added 0 index item array length alternative.
+
+## [V0.0.19] - 2019-06-27
+## Updated
+- Added header of Summary page.
 
 ## [V0.0.18] - 2019-06-27
 ## Updated
