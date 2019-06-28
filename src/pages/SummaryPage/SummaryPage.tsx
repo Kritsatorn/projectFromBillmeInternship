@@ -9,7 +9,7 @@ export class SummaryPage
       super(props);
 
       this.state = {
-        showFriendMenu: false ,
+        showFriendMenu: false,
         bill: {
           billImage: '',
           billName: 'ค่าข้าวเที่ยงร้านเฮลโล่ว',

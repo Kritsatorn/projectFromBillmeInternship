@@ -17,18 +17,23 @@ export class ProfilePage
 
       this.state = {
         userId : '',
+        groupId: '',
         billInfo: [],
-        isLoadingComplete: false
+        isLoadingComplete: false,
+        isEmpty: false
       };
 
       const billList = BillFacade.getBillList('userId');
-
-      billList.then(result => {
-        this.setState({
-          billInfo: result.billList,
-          isLoadingComplete: true
+      if (billList !== null) {
+          billList.then(result => {
+          this.setState({
+            billInfo: result.billList,
+            isLoadingComplete: true
+          });
         });
-      });
+      } else {
+        this.setState({isEmpty: true});
+      }
 
       this.initialize = this.initialize.bind(this);
     }
@@ -49,14 +54,18 @@ export class ProfilePage
     render() {
       return (
         <div className="profile-page">
-          <div className="title">
+          <div className="title-page">
             <div className="title-text">รายการบิลที่มี</div>
           </div>
           <div className="profile-page__container">
             {
-              this.state.isLoadingComplete ?
-              this.renderUnfinishedBillBox(this.state.billInfo) :
-              <br/>
+              !this.state.isEmpty ?
+              (
+                this.state.isLoadingComplete ?
+                this.renderUnfinishedBillBox(this.state.billInfo) :
+                <br/>
+              ) :
+              null
             }
           <div className="footer">
             <Button

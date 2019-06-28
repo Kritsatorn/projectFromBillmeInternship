@@ -16,16 +16,20 @@ export class BillListModel {
   }
 
   static formatBills(datalist: BillDataAPI[]) {
-    return datalist.map(data => {
-      return {
-        billId: data.id,
-        billName: data.bill_name,
-        billOwner: data.owner,
-        publishDate: data.published_date,
-        image: data.bill_image,
-        billStatus: data.bill_status
-      };
-    });
+    if (datalist) {
+      return datalist.map(data => {
+        return {
+          billId: data.id,
+          billName: data.bill_name,
+          billOwner: data.owner,
+          publishDate: data.published_date,
+          image: data.bill_image,
+          billStatus: data.bill_status
+        };
+      });
+    } else {
+      return [];
+    }
   }
 
   constructor (datalist: BillDataAPI[]) {

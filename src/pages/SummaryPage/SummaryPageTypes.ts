@@ -1,5 +1,4 @@
 export interface SummaryPageState {
-  text?: string;
   bill: Bill;
   showFriendMenu: boolean;
   friends: Friend[];
