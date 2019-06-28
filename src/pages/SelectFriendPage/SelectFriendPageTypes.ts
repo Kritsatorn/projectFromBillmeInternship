@@ -12,6 +12,7 @@ export interface SelectFriendState {
   serviceCharge: number;
   serviceChargeStatus: boolean;
   serviceChargePrice: number;
+  boxHeight: number;
 }
 
 export interface Friend {

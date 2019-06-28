@@ -23,7 +23,3 @@
 .button:focus {
   outline: none;
 }
-
-.button:active {
-  background-color: #ff8a8a;
-}
