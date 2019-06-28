@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ProfilePageState } from './ProfilePageTypes';
-// import { BillFacade } from '../../facades/BillFacade';
+import { BillFacade } from '../../facades/BillFacade';
 import { Button } from '../../components/Button/Button';
 import { MyWindow } from '../../definitions/interfaces/MyWindow';
 import { UnfinishedBillBox } from '../../components/UnfinishedBillBox/UnfinishedBillBox';
@@ -21,14 +21,14 @@ export class ProfilePage
         isLoadingComplete: false
       };
 
-      // const billList = BillFacade.getBillList('userId');
+      const billList = BillFacade.getBillList('userId');
 
-      // billList.then(result => {
-      //   this.setState({
-      //     billInfo: result.billList,
-      //     isLoadingComplete: true
-      //   });
-      // });
+      billList.then(result => {
+        this.setState({
+          billInfo: result.billList,
+          isLoadingComplete: true
+        });
+      });
 
       this.initialize = this.initialize.bind(this);
     }
@@ -54,15 +54,19 @@ export class ProfilePage
           </div>
           <div className="profile-page__container">
             {
-              // this.state.isLoadingComplete ?
-              // this.renderUnfinishedBillBox(this.state.billInfo) :
-              // <br/>
+              this.state.isLoadingComplete ?
+              this.renderUnfinishedBillBox(this.state.billInfo) :
+              <br/>
             }
           <div className="footer">
             <Button
               title="HI"
               type=""
               disable={false}
+              onClick={() => {
+                history.pushState(this.state, '', '/create');
+                history.go();
+              }}
             />
           </div>
           <div className="background-footer" />
