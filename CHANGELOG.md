@@ -1,5 +1,10 @@
 # Changelog
 
+## [V0.0.24] - 2019-06-30
+## Updated
+- rename profile page to billinglsit page
+- rename unfinishedbillbox component to billing card component
+
 ## [V0.0.23] - 2019-06-28
 ## Updated
 - Added history config

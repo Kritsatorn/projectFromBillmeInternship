@@ -1,4 +1,4 @@
-export interface ProfilePageState {
+export interface BillingListPageState {
   userId: string;
   groupId: string;
   billInfo: {

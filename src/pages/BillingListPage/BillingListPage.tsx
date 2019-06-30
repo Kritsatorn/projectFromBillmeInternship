@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { ProfilePageState } from './ProfilePageTypes';
 import { BillFacade } from '../../facades/BillFacade';
 import { Button } from '../../components/Button/Button';
+import { BillingListPageState } from './BillingListPageTypes';
 import { MyWindow } from '../../definitions/interfaces/MyWindow';
-import { UnfinishedBillBox } from '../../components/UnfinishedBillBox/UnfinishedBillBox';
-import './ProfilePage.css';
+import { BillingCard } from '../../components/BillingCard/BillingCard';
+import './BillingListPage.css';
 import { history } from '../../config';
 
-export class ProfilePage
-    extends React.Component<object, ProfilePageState> {
+export class BillingListPage
+    extends React.Component<object, BillingListPageState> {
 
     myWindow: MyWindow = window;
     liff = this.myWindow.liff;
@@ -97,7 +97,7 @@ export class ProfilePage
       return data2.map((result, index) => {
         return(
           <div key={`unfinish-bill--${index}`}>
-            <UnfinishedBillBox
+            <BillingCard
               billName={result.billName}
               billOwner={result.billOwner}
               publishDate={result.publishDate}
