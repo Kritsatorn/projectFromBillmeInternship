@@ -97,11 +97,7 @@ export class SummaryPage
                   'friend-show-row'
                 }
               >
-                {
-                  this.state.showFriendMenu ?
-                  this.mappingFriendList() :
-                  this.mappingFriendList()
-                }
+                {this.mappingFriendList()}
               </div>
           </div>
         </div>
