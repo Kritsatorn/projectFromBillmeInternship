@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { SummaryPageState, Friend } from './SummaryPageTypes';
+import { FriendData } from '../../mocks/FriendData';
+import { MenuData } from '../../mocks/MenuData';
+import { SummaryPageState, Friend, Menu } from './SummaryPageTypes';
 import './SummaryPage.css';
 
 export class SummaryPage
@@ -9,7 +11,10 @@ export class SummaryPage
       super(props);
 
       this.state = {
-        showFriendMenu: true,
+        showFriendMenu: false,
+        servicePrice: 0.00,
+        vatPrice: 3.85,
+        totalPrice: 58.85,
         bill: {
           billImage: '',
           billName: 'ค่าข้าวเที่ยงร้านเฮลโล่ว',
@@ -17,50 +22,8 @@ export class SummaryPage
           billOwnerName: 'Tangkwa',
           billOwnerImage: 'https://bit.ly/2J9C0Hv'
         },
-        friends: [
-          {
-            userId: '2',
-            profilePic: 'https://bit.ly/2J9C0Hv',
-            displayName: 'Wiput',
-            owner: false
-          },
-          {
-            userId: '2',
-            profilePic: 'https://bit.ly/2J9C0Hv',
-            displayName: 'Wiput',
-            owner: true
-          },
-          {
-            userId: '2',
-            profilePic: 'https://bit.ly/2J9C0Hv',
-            displayName: 'Wiput',
-            owner: false
-          },
-          {
-            userId: '2',
-            profilePic: 'https://bit.ly/2J9C0Hv',
-            displayName: 'Wiput',
-            owner: false
-          },
-          {
-            userId: '2',
-            profilePic: 'https://bit.ly/2J9C0Hv',
-            displayName: 'Wiput',
-            owner: false
-          },
-          {
-            userId: '2',
-            profilePic: 'https://bit.ly/2J9C0Hv',
-            displayName: 'Wiput',
-            owner: false
-          },
-          {
-            userId: '2',
-            profilePic: 'https://bit.ly/2J9C0Hv',
-            displayName: 'Wiput',
-            owner: false
-          }
-        ]
+        friends: FriendData.friends,
+        menu: MenuData.menu
       };
 
       this.showFriendList = this.showFriendList.bind(this);
@@ -99,6 +62,55 @@ export class SummaryPage
               >
                 {this.mappingFriendList()}
               </div>
+          </div>
+          <div className="menu-feild">
+            <div className="menu-title">รายการในบิล</div>
+            <div className="inside__menu-feild">
+              <div className="menu-card-feild">
+                {this.mappingMenu()}
+              </div>
+              <div className="service-feild">
+                Service charge
+                <div className="service-feild-price">{this.state.servicePrice}</div>
+              </div>
+              <div className="vat-feild">
+                VAT
+                <div className="vat-feild-price">{this.state.vatPrice}</div>
+              </div>
+              <div className="total__price">
+                <div className="total__price-name">รวม</div>
+                <div className="total__price-price">{this.state.totalPrice}</div>
+              </div>
+              <div className="menu-button-equal">
+                หารกับเพื่อนเท่าๆกัน
+              </div>
+              <div className="menu-button-not__equal">
+                ให้เพื่อนๆเข้ามาเลือกรายการของตนเอง
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    mappingMenu() {
+      return(
+        this.state.menu.map(
+          (menu, index) => {
+            return this.renderMenu(index, menu);
+          }
+        )
+      );
+    }
+
+    renderMenu(index: number, menu: Menu) {
+      return(
+        <div key={index} className="menu-card">
+          <div className="menu-card-name">
+            {menu.menuName}
+          </div>
+          <div className="menu-card-price">
+            {menu.menuPrice}
           </div>
         </div>
       );

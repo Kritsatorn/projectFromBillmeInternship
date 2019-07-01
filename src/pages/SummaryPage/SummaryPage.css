@@ -1,13 +1,13 @@
 .summary__background {
-  background-color: #f2f2f2;
-  height: 100%;
+  background-color: #ffffff;
+  height: 100vh;
   width: 100%;
 }
 
 .header__background {
   background-color: #00ace1;
   width: 100%;
-  height: 40%;
+  height: 157px;
   min-height: 160px;
   display: flex;
   align-content: center;
@@ -135,12 +135,14 @@
 .friend-show-row {
   display: flex;
   overflow-y: scroll;
+  background-color: #f2f2f2;
 }
 
 .friend-show-column {
   display: flex;
   flex-direction: column;
   padding-top: 4px;
+  background-color: #f2f2f2;
 }
 
 .friend-show-column .friend-card {
@@ -195,7 +197,7 @@
   object-fit: contain;
   border-radius: 48px;
   border: solid 2px #21343a;
-  padding:2px;
+  padding: 2px;
 }
 
 .friend-card-image-owner-crow {
@@ -247,4 +249,212 @@
 .friend-card__row {
   display: flex;
   flex-direction: row;
+}
+
+.menu-feild {
+  background-color: #ffffff;
+  height: 584px;
+  position: relative;
+}
+
+.menu-title {
+  width: 152px;
+  height: 30px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: #21343a;
+  font-family: Kanit;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 10px;
+  z-index: 2;
+  position: absolute;
+}
+
+.inside__menu-feild {
+  width: 329px;
+  height: 558px;
+  background-color: #f2f2f2;
+  position: absolute;
+  left: 23px;
+  top: 26px;
+  z-index: 1;
+  padding-top: 14px;
+}
+
+.menu-card-feild {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-card {
+  width: 310px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  margin: 6px 10px 6px 10px;
+  display: flex;
+  align-items: center;
+}
+
+.menu-card-name {
+  font-family: Kanit;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.53;
+  letter-spacing: normal;
+  text-align: left;
+  color: #494949;
+  margin: 9px 0 8px 8px;
+}
+
+.menu-card-price {
+  font-family: Kanit;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.53;
+  letter-spacing: normal;
+  text-align: right;
+  color: #494949;
+  margin: 8px 20px 8px 0;
+  margin-left: auto;
+}
+
+.service-feild {
+  font-family: Kanit;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.53;
+  letter-spacing: normal;
+  color: #494949;
+  display: flex;
+  margin: 14px 20px 0 20px;
+}
+
+.service-feild-price {
+  font-family: Kanit;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.53;
+  letter-spacing: normal;
+  text-align: left;
+  color: #494949;
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+.vat-feild {
+  font-family: Kanit;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.53;
+  letter-spacing: normal;
+  color: #494949;
+  display: flex;
+  margin: 20px 20px 0 20px;
+}
+
+.vat-feild-price {
+  font-family: Kanit;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.53;
+  letter-spacing: normal;
+  text-align: left;
+  color: #494949;
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+.total__price {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.total__price-name {
+  font-family: Kanit;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #21343a;
+  margin-top: 20px;
+}
+
+.total__price-price {
+  font-size: 30px;
+  font-family: Kanit;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #21343a;
+  margin: 20px 20px 0 20px;
+}
+
+.menu-button-equal {
+  width: 277px;
+  height: 40px;
+  border-radius: 16px;
+  box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #00ace1;
+  margin: auto;
+  margin: 16px auto 0 auto;
+  font-family: Kanit;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-button-not__equal {
+  width: 277px;
+  height: 40px;
+  border-radius: 16px;
+  box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #00ace1;
+  margin: auto;
+  margin: 16px auto 0 auto;
+  font-family: Kanit;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
