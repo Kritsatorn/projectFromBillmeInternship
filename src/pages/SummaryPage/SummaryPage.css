@@ -1,5 +1,5 @@
 .summary__background {
-  background-color: red;
+  background-color: #f2f2f2;
   height: 100%;
   width: 100%;
 }
@@ -101,7 +101,7 @@
   width: 374px;
   height: 30px;
   background-color: #21343a;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .friend-bar-title {
@@ -120,5 +120,131 @@
 }
 
 .friend-bar-button {
-  margin-left: auto
+  margin-left: auto;
+  margin-right: 4px;
+  width: 71px;
+  height: 24px;
+  background-color: #f2f2f2;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.friend-show-row {
+  display: flex;
+  overflow-y: scroll;
+}
+
+.friend-show-column {
+  display: flex;
+  flex-direction: column;
+  padding-top: 4px;
+}
+
+.friend-show-column .friend-card {
+  background-color: #f2f2f2;
+  display: flex;
+  margin: 8px 0 8px 0;
+}
+
+.friend-show-row .friend-card {
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 11px 16px 8px 16px;
+}
+
+.friend-show-column .friend-card-image-box {
+  margin-left: 24px;
+}
+
+.friend-card-image-box {
+  margin-left: 0;
+}
+
+.friend-card-image {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 48px;
+}
+
+.friend-show-row .friend-card-image-box-owner {
+  margin-top: -4px;
+  margin-bottom: 4px;
+}
+
+.friend-show-column .friend-card-image-box-owner {
+  margin-left: -4px;
+}
+
+.friend-card-image-box-owner {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  position: relative;
+}
+
+.friend-card-image-owner {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 48px;
+  border: solid 2px #21343a;
+  padding:2px;
+}
+
+.friend-card-image-owner-crow {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.friend-show-row .friend-card-name {
+  width: 40px;
+  height: 23px;
+  font-family: Kanit;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.53;
+  letter-spacing: normal;
+  text-align: left;
+  color: #494949;
+  margin-left: 0;
+  align-self: center;
+}
+
+.friend-show-column .friend-card-name {
+  width: 40px;
+  height: 23px;
+  font-family: Kanit;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.53;
+  letter-spacing: normal;
+  text-align: left;
+  color: #494949;
+  margin-left: 20px;
+  align-self: center;
+}
+
+.friend-show-column .friend-card-name.owner {
+  margin: 16px;
+}
+
+.friend-card__row {
+  display: flex;
+  flex-direction: row;
 }
