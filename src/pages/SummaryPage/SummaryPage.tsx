@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { FriendData } from '../../mocks/FriendData';
 import { MenuData } from '../../mocks/MenuData';
+import { FriendData } from '../../mocks/FriendData';
 import { SummaryPageState, Friend, Menu } from './SummaryPageTypes';
 import './SummaryPage.css';
 
