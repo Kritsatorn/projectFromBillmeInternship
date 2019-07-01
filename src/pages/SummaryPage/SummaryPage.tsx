@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SummaryPageState } from './SummaryPageTypes';
+import { SummaryPageState, Friend } from './SummaryPageTypes';
 import './SummaryPage.css';
 
 export class SummaryPage
@@ -9,7 +9,7 @@ export class SummaryPage
       super(props);
 
       this.state = {
-        showFriendMenu: false,
+        showFriendMenu: true,
         bill: {
           billImage: '',
           billName: 'ค่าข้าวเที่ยงร้านเฮลโล่ว',
@@ -28,6 +28,18 @@ export class SummaryPage
             userId: '2',
             profilePic: 'https://bit.ly/2J9C0Hv',
             displayName: 'Wiput',
+            owner: true
+          },
+          {
+            userId: '2',
+            profilePic: 'https://bit.ly/2J9C0Hv',
+            displayName: 'Wiput',
+            owner: false
+          },
+          {
+            userId: '2',
+            profilePic: 'https://bit.ly/2J9C0Hv',
+            displayName: 'Wiput',
             owner: false
           },
           {
@@ -42,8 +54,16 @@ export class SummaryPage
             displayName: 'Wiput',
             owner: false
           },
+          {
+            userId: '2',
+            profilePic: 'https://bit.ly/2J9C0Hv',
+            displayName: 'Wiput',
+            owner: false
+          }
         ]
       };
+
+      this.showFriendList = this.showFriendList.bind(this);
     }
 
     render() {
@@ -63,17 +83,81 @@ export class SummaryPage
           <div className="friend-field">
               <div className="friend-bar">
                 <div className="friend-bar-title">เพื่อนที่หารด้วยกัน</div>
-                <div className="friend-bar-button">b</div>
+                <div
+                  className="friend-bar-button"
+                  onClick={event => this.showFriendList(event)}
+                >
+                  ดูทั้งหมด
+                </div>
               </div>
-              <div className="friend-show">
+              <div
+                className={
+                  this.state.showFriendMenu ?
+                  'friend-show-column' :
+                  'friend-show-row'
+                }
+              >
                 {
                   this.state.showFriendMenu ?
-                  null :
-                  null
+                  this.mappingFriendList() :
+                  this.mappingFriendList()
                 }
               </div>
           </div>
         </div>
+      );
+    }
+
+    mappingFriendList() {
+      return(
+        this.state.friends.map(
+          (friends, index) => {
+            return this.renderFriend(index, friends);
+          }
+        )
+      );
+    }
+
+    renderFriend(index: number, friend: Friend) {
+      return(
+        <div key={index} className={`friend-card`}>
+          <div className={`friend-card-image-box ${friend.owner ? 'owner' : ''}`}>
+            {
+              !friend.owner ?
+              <img
+                className={'friend-card-image'}
+                src={friend.profilePic}
+              /> :
+              <div className="friend-card-image-box-owner">
+                <img
+                  className={'friend-card-image-owner'}
+                  src={friend.profilePic}
+                />
+                <img
+                  className={'friend-card-image-owner-crow'}
+                  src={require('../../assets/crown.png')}
+                />
+              </div>
+            }
+          </div>
+          <div
+            className={`friend-card-name ${friend.owner ? 'owner' : ''}`}
+          >
+            {friend.displayName}
+          </div>
+        </div>
+      );
+    }
+
+    showFriendList(event: React.MouseEvent<HTMLDivElement>) {
+      event.preventDefault();
+
+      this.state.showFriendMenu ?
+      this.setState(
+        {showFriendMenu: false}
+      ) :
+      this.setState(
+        {showFriendMenu: true}
       );
     }
   }

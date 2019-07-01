@@ -1,5 +1,9 @@
 # Changelog
 
+## [V0.0.25] - 2019-06-30
+## Updated
+- Added friend list show in Summary page.
+
 ## [V0.0.24] - 2019-06-30
 ## Updated
 - Renamed Profile page to BillingList page.
