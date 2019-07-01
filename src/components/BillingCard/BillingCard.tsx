@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { UnfinishedBillBoxProps } from './UnfinishedBillBoxTypes';
-import './UnfinishedBillBox.css';
+import { BillingCardProps } from './BillingCardTypes';
+import './BillingCard.css';
 
-export class UnfinishedBillBox
-  extends React.Component<UnfinishedBillBoxProps> {
+export class BillingCard
+  extends React.Component<BillingCardProps> {
 
   render() {
     const { billName, billOwner, publishDate, image } = this.props;

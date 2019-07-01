@@ -1,4 +1,4 @@
-export interface UnfinishedBillBoxProps {
+export interface BillingCardProps {
   billName?: string;
   billOwner?: string;
   publishDate?: string;

@@ -1,4 +1,4 @@
-import { BankListModel } from '../Models/BankListModel';
+import { BankListModel } from '../models/BankListModel';
 import { BankDatasource } from '../datasources/BankDatasource';
 
 export class BankFacade {
