@@ -2,6 +2,10 @@ export interface SummaryPageState {
   bill: Bill;
   showFriendMenu: boolean;
   friends: Friend[];
+  menu: Menu[];
+  servicePrice: number;
+  vatPrice: number;
+  totalPrice: number;
 }
 
 export interface Bill {
@@ -17,4 +21,9 @@ export interface Friend {
   profilePic: string;
   displayName: string;
   owner: boolean;
+}
+
+export interface Menu {
+  menuName: string;
+  menuPrice: string;
 }
