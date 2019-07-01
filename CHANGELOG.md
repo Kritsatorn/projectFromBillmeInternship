@@ -2,16 +2,17 @@
 
 ## [V0.0.24] - 2019-06-30
 ## Updated
-- rename profile page to billinglsit page
-- rename unfinishedbillbox component to billing card component
+- rename Profile page to BillingList page.
+- rename unfinishedbillbox component to billing card component.
+- rename Models folder to models.
 
 ## [V0.0.23] - 2019-06-28
 ## Updated
-- Added history config
+- Added history config.
 
 ## [V0.0.22] - 2019-06-28
 ## Updated
-- Fixed Profile page
+- Fixed Profile page.
 
 ## [V0.0.21] - 2019-06-28
 - Added 0 index item array length alternative.
