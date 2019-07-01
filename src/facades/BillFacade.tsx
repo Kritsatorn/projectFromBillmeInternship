@@ -1,4 +1,4 @@
-import { BillListModel } from '../Models/BillListModel';
+import { BillListModel } from '../models/BillListModel';
 import { BillDatasource } from '../datasources/BillDatasource';
 
 export class BillFacade {
