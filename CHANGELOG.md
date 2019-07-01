@@ -2,9 +2,9 @@
 
 ## [V0.0.24] - 2019-06-30
 ## Updated
-- rename Profile page to BillingList page.
-- rename unfinishedbillbox component to billing card component.
-- rename Models folder to models.
+- Renamed Profile page to BillingList page.
+- Renamed unfinishedbillbox component to billing card component.
+- Renamed Models folder to models.
 
 ## [V0.0.23] - 2019-06-28
 ## Updated
