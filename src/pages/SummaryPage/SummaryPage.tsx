@@ -33,9 +33,9 @@ export class SummaryPage
       return (
         <div className="summary__background">
           <div className="header__background">
-            <img className="bill-image" src={require('../../assets/upload__picture.jpg')}/>
-            <div className="bill-detail">
-              <div className="bill-name">{this.state.bill.billName}</div>
+            <img className="bill-image-summary" src={require('../../assets/upload__picture.jpg')}/>
+            <div className="bill-detail-summary">
+              <div className="bill-name-summary">{this.state.bill.billName}</div>
               <div className="bill-date">{this.state.bill.billDate}</div>
               <div className="bill-user">
                 <img className="bill-owner-image" src={this.state.bill.billOwnerImage}/>
@@ -50,7 +50,11 @@ export class SummaryPage
                   className="friend-bar-button"
                   onClick={event => this.showFriendList(event)}
                 >
-                  ดูทั้งหมด
+                  {
+                    !this.state.showFriendMenu ?
+                    'ดูทั้งหมด' :
+                    'ย่อ'
+                  }
                 </div>
               </div>
               <div

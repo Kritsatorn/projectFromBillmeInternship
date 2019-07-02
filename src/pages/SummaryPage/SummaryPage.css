@@ -13,7 +13,7 @@
   align-content: center;
 }
 
-.bill-image {
+.bill-image-summary {
   width: 85px;
   height: 107.4px;
   background-color: #ffffff;
@@ -22,15 +22,15 @@
   position: relative;
 }
 
-.bill-detail {
+.bill-detail-summary {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   position: relative;
-  margin-top: 30px;
+  margin-top: 38px;
 }
 
-.bill-name {
+.bill-name-summary {
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   background-color: #21343a;
@@ -45,7 +45,7 @@
   letter-spacing: normal;
   text-align: left;
   color: #ffffff;
-  padding: 0 27px 0 0;
+  padding: 0 27px 0 10px;
 }
 
 .bill-date {
