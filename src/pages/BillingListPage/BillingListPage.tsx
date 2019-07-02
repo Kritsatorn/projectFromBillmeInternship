@@ -1,11 +1,11 @@
 import * as React from 'react';
+import { history } from '../../config';
 import { BillFacade } from '../../facades/BillFacade';
 import { Button } from '../../components/Button/Button';
 import { BillingListPageState } from './BillingListPageTypes';
-import { MyWindow } from '../../definitions/interfaces/MyWindow';
 import { BillingCard } from '../../components/BillingCard/BillingCard';
+import { MyWindow, LineInit } from '../../definitions/interfaces/MyWindow';
 import './BillingListPage.css';
-import { history } from '../../config';
 
 export class BillingListPage
     extends React.Component<object, BillingListPageState> {
@@ -17,14 +17,14 @@ export class BillingListPage
       super(props);
 
       this.state = {
-        userId : '',
+        userId: '',
         groupId: '',
         billInfo: [],
         isLoadingComplete: false,
         isEmpty: false
       };
 
-      const billList = BillFacade.getBillList('userId');
+      const billList = BillFacade.getBillList(this.state.userId, this.state.groupId);
       if (billList !== null) {
           billList.then(result => {
           this.setState({
@@ -44,29 +44,32 @@ export class BillingListPage
     }
 
     initialize() {
-      this.liff!.init(async () => {
+      this.liff!.init(async (data: LineInit) => {
         let profile = await this.liff!.getProfile();
         this.setState({
-          userId : profile.userId
+          userId : profile.userId,
+          groupId: data.context.groupId
         });
       });
     }
 
     render() {
       return (
-        <div className="profile-page">
+        <div className="billing__list-page">
           <div className="title-page">
             <div className="title-text">รายการบิลที่มี</div>
           </div>
-          <div className="profile-page__container">
+          <div className="billing__list-page__container">
             {
-              !this.state.isEmpty ?
+              this.state.isEmpty ?
               (
                 this.state.isLoadingComplete ?
                 this.renderUnfinishedBillBox(this.state.billInfo) :
                 <br/>
               ) :
-              null
+              <div className="empty__bill">
+                 - ยังไม่มีรายการ -
+              </div>
             }
           <div className="footer">
             <Button
@@ -89,7 +92,7 @@ export class BillingListPage
         billId: string;
         billName: string ;
         billOwner: string;
-        billStatus: boolean;
+        billStatus: string;
         publishDate: string;
         image: string;
       }[]

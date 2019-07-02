@@ -15,3 +15,14 @@ export interface MyWindow
       sendMessages: (data: any) => Promise<any>;
     };
 }
+
+export interface LineInit {
+  language: string;
+  context: {
+    viewType: string,
+    userId: string,
+    utouId: string,
+    roomId: string,
+    groupId: string
+  };
+}

@@ -1,10 +1,10 @@
 export interface BillDataAPI {
   id: string;
-  bill_name: string;
-  owner: string;
-  published_date: string;
-  bill_status: boolean;
-  bill_image: string;
+  status: string;
+  name: string;
+  owner_id: string;
+  image_url: string;
+  created: string;
 }
 
 export interface BankData {

@@ -5,7 +5,7 @@ export interface BillingListPageState {
     billId: string,
     billName: string,
     billOwner: string,
-    billStatus: boolean,
+    billStatus: string,
     publishDate: string,
     image: string
   }[];
