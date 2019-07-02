@@ -1,5 +1,11 @@
 # Changelog
 
+## [V0.0.26] - 2019-07-01
+## Updated
+- Added api in Billing list page.
+- Added line liff group id.
+- Added a word when billing list is empty.
+
 ## [V0.0.25] - 2019-06-30
 ## Updated
 - Added friend list show in Summary page.

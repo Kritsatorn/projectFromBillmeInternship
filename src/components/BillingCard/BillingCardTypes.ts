@@ -2,6 +2,6 @@ export interface BillingCardProps {
   billName?: string;
   billOwner?: string;
   publishDate?: string;
-  status?: boolean;
+  status?: string;
   image?: string;
 }

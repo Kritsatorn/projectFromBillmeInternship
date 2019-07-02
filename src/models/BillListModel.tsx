@@ -8,7 +8,7 @@ export class BillListModel {
     billOwner: string;
     publishDate: string;
     image: string;
-    billStatus: boolean;
+    billStatus: string;
   }[];
 
   static apply(datalist: BillDataAPI[]) {
@@ -20,11 +20,11 @@ export class BillListModel {
       return datalist.map(data => {
         return {
           billId: data.id,
-          billName: data.bill_name,
-          billOwner: data.owner,
-          publishDate: data.published_date,
-          image: data.bill_image,
-          billStatus: data.bill_status
+          billName: data.name,
+          billOwner: data.owner_id,
+          publishDate: data.created,
+          image: data.image_url,
+          billStatus: data.status
         };
       });
     } else {
