@@ -1,10 +1,14 @@
 # Changelog
 
-## [V0.0.26] - 2019-07-01
+## [V0.0.27] - 2019-07-01
 ## Updated
 - Added api in Billing list page.
 - Added line liff group id.
 - Added a word when billing list is empty.
+
+## [V0.0.26] - 2019-07-01
+## Updated
+- Fixed terrible css in Summary page.
 
 ## [V0.0.25] - 2019-06-30
 ## Updated
