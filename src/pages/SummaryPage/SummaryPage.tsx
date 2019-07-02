@@ -1,11 +1,14 @@
 import * as React from 'react';
 import { MenuData } from '../../mocks/MenuData';
 import { FriendData } from '../../mocks/FriendData';
+import { BillFacade } from '../../facades/BillFacade';
 import { SummaryPageState, Friend, Menu } from './SummaryPageTypes';
 import './SummaryPage.css';
 
 export class SummaryPage
   extends React.Component<object, SummaryPageState> {
+
+    private fileInput: HTMLInputElement | null;
 
     constructor(props: object) {
       super(props);
@@ -15,6 +18,7 @@ export class SummaryPage
         servicePrice: 0.00,
         vatPrice: 3.85,
         totalPrice: 58.85,
+        url: '',
         bill: {
           billImage: '',
           billName: 'ค่าข้าวเที่ยงร้านเฮลโล่ว',
@@ -33,7 +37,26 @@ export class SummaryPage
       return (
         <div className="summary__background">
           <div className="header__background">
-            <img className="bill-image-summary" src={require('../../assets/upload__picture.jpg')}/>
+            <div
+              className="bill-image-summary-box"
+              onClick={() => this.handleClickUploadImage()}
+            >
+              <img
+                className="bill-image-summary"
+                src={
+                  this.state.url ?
+                  this.state.url :
+                  require('../../assets/upload__picture.jpg')
+                }
+              />
+              <input
+                className="bill-input"
+                ref={input => this.fileInput = input}
+                type="file"
+                accept="image/*"
+                onChange={event => this.uploadImage(event)}
+              />
+            </div>
             <div className="bill-detail-summary">
               <div className="bill-name-summary">{this.state.bill.billName}</div>
               <div className="bill-date">{this.state.bill.billDate}</div>
@@ -97,6 +120,18 @@ export class SummaryPage
       );
     }
 
+    handleClickUploadImage() {
+      this.fileInput!.click();
+    }
+
+    uploadImage(event: React.ChangeEvent<HTMLInputElement>) {
+      const file = event.target.files!.item(0)!;
+
+      BillFacade.ImageUpload(file)
+      .then(result => {
+        this.setState({url: result.key});
+      });
+    }
     mappingMenu() {
       return(
         this.state.menu.map(

@@ -13,7 +13,7 @@
   align-content: center;
 }
 
-.bill-image-summary {
+.bill-image-summary-box {
   width: 85px;
   height: 107.4px;
   background-color: #ffffff;
@@ -22,6 +22,19 @@
   position: relative;
 }
 
+.bill-image-summary {
+  width: 85px;
+  height: 107.4px;
+  background-color: #ffffff;
+  border-radius: 0%;
+  position: relative;
+}
+
+.bill-input {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
 .bill-detail-summary {
   display: flex;
   justify-content: flex-start;
