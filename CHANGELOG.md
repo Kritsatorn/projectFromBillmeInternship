@@ -1,5 +1,9 @@
 # Changelog
 
+## [V0.0.26] - 2019-07-01
+## Updated
+- Fixed terrible css in Summary page.
+
 ## [V0.0.25] - 2019-06-30
 ## Updated
 - Added friend list show in Summary page.
