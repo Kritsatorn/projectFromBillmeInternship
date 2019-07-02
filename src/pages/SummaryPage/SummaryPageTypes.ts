@@ -6,6 +6,7 @@ export interface SummaryPageState {
   servicePrice: number;
   vatPrice: number;
   totalPrice: number;
+  url: string;
 }
 
 export interface Bill {

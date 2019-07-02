@@ -8,4 +8,10 @@ export class BillFacade {
       return BillListModel.apply(result.quotations);
     });
   }
+  static ImageUpload(file: File) {
+    return BillDatasource.ImageUpload(file)
+    .then(result => {
+      return result;
+    });
+  }
 }
