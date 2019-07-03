@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Button } from '../../components/Button/Button';
 import { Stepper } from '../../components/Stepper/Stepper';
+import { Bank } from '../../definitions/types/Banklist';
 import { BillPaymentState, Card } from './BillPaymentTypes';
 import { Dropdown } from '../../components/Dropdown/Dropdown';
 import { BillingStep } from '../../definitions/enum/BillingStep';
@@ -15,10 +16,33 @@ export class BillPaymentPage
   constructor(props: {}) {
     super(props);
 
+    window.onpopstate = () => {
+      history.pushState(this.stateInfomation(), '', '/select');
+      history.go();
+    };
+
     this.state = {
-      cards: [
+      previousState: {
+        billName: '',
+        items: [],
+        vat: 7,
+        vatStatus: false,
+        vatPrice: 0,
+        serviceCharge: 10,
+        serviceChargePrice: 0,
+        serviceChargeStatus: false,
+        totalPrice: 0,
+        totalBillPrice: 0,
+        friends: [],
+        selectedFriendList: [],
+        selectedFriend: 1,
+      },
+      paymentList: [
         {
-          bank: '',
+          nameEng: '',
+          nameTh: '',
+          logo: '',
+          format: '',
           value: ''
         }
       ],
@@ -32,6 +56,30 @@ export class BillPaymentPage
     window.addEventListener('load', (e) => this.setState({
       boxHeight: this.box!.clientHeight
     }));
+
+    if (history.state !== null) {
+      const { billName, selectedFriendList,
+        totalPrice, items,
+        vat, vatStatus, vatPrice,
+        serviceCharge, serviceChargeStatus, serviceChargePrice,
+        totalBillPrice } = history.state;
+
+      const previousState = this.state.previousState;
+
+      previousState.billName = billName,
+      previousState.selectedFriendList = selectedFriendList,
+      previousState.totalPrice = totalPrice,
+      previousState.items = items,
+      previousState.vat = vat,
+      previousState.vatStatus = vatStatus,
+      previousState.vatPrice = vatPrice,
+      previousState.serviceCharge = serviceCharge,
+      previousState.serviceChargeStatus = serviceChargeStatus,
+      previousState.serviceChargePrice = serviceChargePrice,
+      previousState.totalBillPrice = totalBillPrice;
+
+      this.setState({previousState});
+    }
   }
 
   componentWillUnmount() {
@@ -67,8 +115,7 @@ export class BillPaymentPage
                 type=""
                 disable={false}
                 onClick={() => {
-                  let state = history.state;
-                  history.pushState(state, '', '/summary');
+                  history.pushState(this.stateInfomation(), '', '/summary');
                   history.go();
                 }}
               />
@@ -79,14 +126,32 @@ export class BillPaymentPage
     );
   }
 
+  stateInfomation() {
+    const state = {
+      billName: this.state.previousState.billName,
+      selectedFriendList: this.state.previousState.selectedFriendList,
+      items: this.state.previousState.items,
+      vat: this.state.previousState.vat,
+      vatStatus: this.state.previousState.vatStatus,
+      vatPrice: this.state.previousState.vatPrice,
+      serviceCharge: this.state.previousState.serviceCharge,
+      serviceChargeStatus: this.state.previousState.serviceChargeStatus,
+      serviceChargePrice: this.state.previousState.serviceChargePrice,
+      totalPrice: this.state.previousState.totalPrice,
+      totalBillPrice: this.state.previousState.totalBillPrice,
+      paymentList: this.state.paymentList
+    };
+
+    return state;
+  }
   renderPaymentField(index: number, cards: Card) {
     return (
       <div key={index} className="payment__card">
         <div className="drop__card" style={{zIndex: 100 - index}}>
           <Dropdown
             title="เลือก . . ."
-            onChange={(text) => {
-              this.handleBankChange(text, index);
+            onChange={(bank) => {
+              this.handleBankChange(bank, index);
             }}
           />
         </div>
@@ -98,7 +163,7 @@ export class BillPaymentPage
             isUnderline={true}
             onChange={(event) => {
               this.handleValueChange(
-                this.formatValue(event.target.value, cards.bank),
+                this.formatValue(event.target.value, cards.nameTh),
                 index
               );
             }}
@@ -117,12 +182,12 @@ export class BillPaymentPage
   }
 
   removeCard(index: number) {
-    const cards = this.state.cards;
+    const cards = this.state.paymentList;
 
     cards.splice(index, 1);
 
     this.setState({
-      cards
+      paymentList: cards
     });
   }
 
@@ -153,41 +218,48 @@ export class BillPaymentPage
   }
 
   handleValueChange(text: string, index: number) {
-    const cards = this.state.cards;
+    const cards = this.state.paymentList;
 
     cards[index].value = text;
 
     this.setState({
-      cards
+      paymentList: cards
     });
   }
 
-  handleBankChange(text: string, index: number) {
-    const cards = this.state.cards;
+  handleBankChange(bank: Bank, index: number) {
+    const cards = this.state.paymentList;
 
-    cards[index].bank = text;
+    cards[index].nameTh = bank.nameTh;
+    cards[index].nameEng = bank.nameEng;
+    cards[index].logo = bank.logo;
+    cards[index].format = bank.format;
+    cards[index].value = '';
 
     this.setState({
-      cards
+      paymentList: cards
     });
   }
 
   addCard() {
-    const cards = this.state.cards;
+    const cards = this.state.paymentList;
 
     cards.push({
-      bank: '',
+      nameEng: '',
+      nameTh: '',
+      logo: '',
+      format: '',
       value: ''
     });
 
     this.setState({
-      cards
+      paymentList: cards
     });
   }
 
   mappingPaymentCard() {
     return (
-      this.state.cards.map(
+      this.state.paymentList.map(
         (cards, index) => {
           return this.renderPaymentField(index, cards);
         }

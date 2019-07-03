@@ -14,8 +14,12 @@ export class Dropdown
         displayMenu: false,
         bankInfo: [],
         isPaymentSelected: false,
-        selectedName: '',
-        selectedLogo: ''
+        selectedBank: {
+          nameEng: '',
+          nameTh: '',
+          logo: '',
+          format: ''
+        }
       };
 
       const bankList = BankFacade.getBankList();
@@ -82,13 +86,12 @@ export class Dropdown
       document.removeEventListener('click', this.hideDropdownMenu);
     }
 
-    paymentSelected(name?: string, logo?: string) {
+    paymentSelected(result: Bank) {
       this.setState({
         isPaymentSelected: true,
-        selectedName: name,
-        selectedLogo: logo
+        selectedBank: result
       });
-      this.props.onChange(name!);
+      this.props.onChange(this.state.selectedBank);
     }
 
     renderDropdownBank(banklist: Bank[]) {
@@ -97,19 +100,14 @@ export class Dropdown
           <div
             className="dropdown-container"
             key={`bank-${index}`}
-            onClick={
-              () => this.paymentSelected(
-                this.fixName(result.name),
-                result.logo
-              )
-            }
+            onClick={() => this.paymentSelected(result)}
           >
             <img
               className="bank__dropdown-image"
               src={result.logo}
               alt="image"
             />
-            <div className="bank__dropdown-name">{this.fixName(result.name)}</div>
+            <div className="bank__dropdown-name">{this.fixName(result.nameTh)}</div>
           </div>
         );
       });
@@ -131,10 +129,10 @@ export class Dropdown
         <div className="dropdown-container">
             <img
               className="bank__dropdown-image"
-              src={this.state.selectedLogo}
+              src={this.state.selectedBank.logo}
               alt="image"
             />
-            <div className="bank__dropdown-name">{this.state.selectedName}</div>
+            <div className="bank__dropdown-name">{this.state.selectedBank.nameTh}</div>
           </div>
       );
     }

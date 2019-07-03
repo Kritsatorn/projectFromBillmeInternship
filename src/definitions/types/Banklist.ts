@@ -1,4 +1,6 @@
 export interface Bank {
-  name?: string;
-  logo?: string;
+  nameEng: string;
+  nameTh: string;
+  logo: string;
+  format: string;
 }

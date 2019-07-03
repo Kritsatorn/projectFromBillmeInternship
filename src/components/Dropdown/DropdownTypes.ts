@@ -1,16 +1,18 @@
 export interface DropdownProps {
   title?: string;
-  onChange: (value: string) => void;
+  onChange: (bank: Bank) => void;
 }
 
 export interface DropdownState {
   displayMenu?: boolean;
-  bankInfo: {
-    name?: string;
-    logo?: string;
-    format?: string;
-  }[];
+  bankInfo: Bank[];
   isPaymentSelected?: boolean;
-  selectedName?: string;
-  selectedLogo?: string;
+  selectedBank: Bank;
+}
+
+export interface Bank {
+  nameEng: string;
+  nameTh: string;
+  logo: string;
+  format: string;
 }
