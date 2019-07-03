@@ -98,7 +98,7 @@ export class Dropdown
             key={`bank-${index}`}
             onClick={
               () => this.paymentSelected(
-                result.name,
+                this.fixName(result.name),
                 result.logo
               )
             }
@@ -108,12 +108,19 @@ export class Dropdown
               src={result.logo}
               alt="image"
             />
-            <div className="bank__dropdown-name">{result.name}</div>
+            <div className="bank__dropdown-name">{this.fixName(result.name)}</div>
           </div>
         );
       });
     }
 
+    fixName(name?: string) {
+      if (name === 'ธนาคารพัฒนาวิสาหกิจขนาดกลางและขนาดย่อมแห่งประเทศไทย') {
+        return 'ธนาคารพัฒนาวิสาหกิจแห่งประเทศไทย';
+      } else {
+        return name;
+      }
+    }
     selectStyle(displayMenu?: boolean) {
       return displayMenu ? 'button__dropdown-clicked' : 'button__dropdown';
     }

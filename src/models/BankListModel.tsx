@@ -5,6 +5,7 @@ export class BankListModel {
   bankList: {
     name: string;
     logo: string;
+    format?: string;
   }[];
 
   static apply(datalist: BankData[]) {
@@ -14,8 +15,9 @@ export class BankListModel {
   static formatBankData(datalist: BankData[]) {
     return datalist.map(data => {
       return {
-        name: data.name,
-        logo: data.logo
+        name: data.name_th,
+        logo: data.logo,
+        format: data.format
       };
     });
   }
