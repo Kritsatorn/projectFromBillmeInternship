@@ -53,7 +53,10 @@
 .bank__dropdown-image {
   width: 26px;
   height: 26px;
+  min-width: 26px;
+  min-height: 26px;
   margin-left: 8px;
+  margin-top: 12px;
 }
 
 .bank__dropdown-name {

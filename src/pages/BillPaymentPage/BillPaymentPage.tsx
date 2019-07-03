@@ -130,8 +130,10 @@ export class BillPaymentPage
     var i , j;
     var text =  '';
     var format = '';
-    if (type === 'พร้อมเพย์') {
+    if (type === 'พร้อมเพย์ - หมายเลขโทรศัพท์มือถือ') {
       format = 'xxx-xxx-xxxx';
+    } else if (type === 'พร้อมเพย์ - รหัสบัตรประชาชน') {
+      format = 'x-xxxx-xxxxx-xx-x';
     } else {
       format = 'xxx-x-xxxxx-x';
     }

@@ -39,7 +39,7 @@ export class Dropdown
       return (
         <div className="dropdown">
           <div
-            className={this.selectStyle(this.state.displayMenu)}
+            className={this.selectStyle()}
             onClick={event => this.showDropdownMenu(event)}
           >
             {
@@ -99,7 +99,7 @@ export class Dropdown
             key={`bank-${index}`}
             onClick={
               () => this.paymentSelected(
-                result.name,
+                this.fixName(result.name),
                 result.logo
               )
             }
@@ -109,14 +109,21 @@ export class Dropdown
               src={result.logo}
               alt="image"
             />
-            <div className="bank__dropdown-name">{result.name}</div>
+            <div className="bank__dropdown-name">{this.fixName(result.name)}</div>
           </div>
         );
       });
     }
 
-    selectStyle(displayMenu?: boolean) {
-      return displayMenu ? 'button__dropdown-clicked' : 'button__dropdown';
+    fixName(name?: string) {
+      if (name === 'ธนาคารพัฒนาวิสาหกิจขนาดกลางและขนาดย่อมแห่งประเทศไทย') {
+        return 'ธนาคารพัฒนาวิสาหกิจแห่งประเทศไทย';
+      } else {
+        return name;
+      }
+    }
+    selectStyle() {
+      return 'button__dropdown';
     }
 
     renderSelectedBank() {

@@ -9,7 +9,8 @@ export interface BillDataAPI {
 
 export interface BankData {
   id: string;
-  name: string;
+  name_eng: string;
+  name_th: string;
   logo: string;
   format: string;
 }

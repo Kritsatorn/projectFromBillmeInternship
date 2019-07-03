@@ -1,5 +1,9 @@
 # Changelog
 
+## [V0.0.30] - 2019-07-04
+## Updated
+- Added bank api in payment page
+
 ## [V0.0.29] - 2019-07-03
 ## Updated
 - Added arrow down in payment page

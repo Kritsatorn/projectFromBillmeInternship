@@ -8,6 +8,7 @@ export interface DropdownState {
   bankInfo: {
     name?: string;
     logo?: string;
+    format?: string;
   }[];
   isPaymentSelected?: boolean;
   selectedName?: string;
