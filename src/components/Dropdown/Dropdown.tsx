@@ -39,7 +39,7 @@ export class Dropdown
       return (
         <div className="dropdown">
           <div
-            className={this.selectStyle(this.state.displayMenu)}
+            className={this.selectStyle()}
             onClick={event => this.showDropdownMenu(event)}
           >
             {
@@ -122,8 +122,8 @@ export class Dropdown
         return name;
       }
     }
-    selectStyle(displayMenu?: boolean) {
-      return displayMenu ? 'button__dropdown-clicked' : 'button__dropdown';
+    selectStyle() {
+      return 'button__dropdown';
     }
 
     renderSelectedBank() {
