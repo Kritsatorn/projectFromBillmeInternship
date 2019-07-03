@@ -70,8 +70,6 @@ export class BillPaymentPage
                   let state = history.state;
                   history.pushState(state, '', '/summary');
                   history.go();
-                  // tslint:disable-next-line:no-console
-                  console.log(state);
                 }}
               />
             </div>

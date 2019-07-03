@@ -47,6 +47,7 @@ export class Dropdown
               this.renderSelectedBank() :
               <div className="title__dropdown">{title}</div>
             }
+            <div className="arrow-down"/>
           </div>
           {
             this.state.displayMenu ?
