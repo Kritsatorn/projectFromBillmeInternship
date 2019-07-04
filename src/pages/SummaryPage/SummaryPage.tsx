@@ -46,12 +46,10 @@ export class SummaryPage
 
     componentDidMount() {
       if (history.state !== null) {
-        const { billName,
-          selectedFriendList,
-          totalPrice, items,
-          vat, vatStatus, vatPrice,
-          serviceCharge, serviceChargeStatus, serviceChargePrice,
-          totalBillPrice, paymentList } = history.state;
+        const { billName, selectedFriendList, totalPrice,
+          items, vat, vatStatus,
+          vatPrice, serviceCharge, serviceChargeStatus,
+          serviceChargePrice, totalBillPrice, paymentList } = history.state;
 
         const previousState = this.state.previousState;
 
