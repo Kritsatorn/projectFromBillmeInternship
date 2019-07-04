@@ -82,7 +82,6 @@ export class BillPaymentPage
       previousState.serviceChargePrice = serviceChargePrice,
       previousState.totalBillPrice = totalBillPrice;
 
-      console.log(selectedFriendList);
       this.setState({previousState});
     }
   }

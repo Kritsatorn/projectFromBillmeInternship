@@ -117,6 +117,7 @@ export class SelectFriendPage
         serviceChargeStatus,
         serviceChargePrice,
         totalBillPrice,
+        // TODO: will remove after this pr.
         selectedFriendList: selectedFriendList.length < 1 ?
         [
           {
@@ -138,7 +139,7 @@ export class SelectFriendPage
   }
 
   render() {
-    console.log('test', this.state.selectedFriendList);
+
     return (
       <div className="background">
         <div className="content">
@@ -330,7 +331,7 @@ export class SelectFriendPage
   }
 
   removeIsSelect(friends: Friend[]) {
-    console.log(friends);
+
     return friends.map(friend => {
       return {
         userId: friend.userId,
@@ -342,7 +343,7 @@ export class SelectFriendPage
   }
 
   addIsSelect(friends: Friend[]) {
-    console.log('ffff', friends);
+
     return friends.map(friend => {
       return {
         userId: friend.userId,

@@ -2,7 +2,9 @@
 
 ## [V0.0.32] - 2019-07-04
 ## Updated
-- Added summary api.
+- Updated connect create bill api.
+- Updated onchange props of dropdown component.
+- Updated mock file in selected friend page.
 
 ## [V0.0.31] - 2019-07-04
 ## Updated

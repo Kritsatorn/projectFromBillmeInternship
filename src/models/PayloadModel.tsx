@@ -1,5 +1,5 @@
-import { SummaryPageState } from '../pages/SummaryPage/SummaryPageTypes';
 import { Payload } from '../definitions/types/Payload';
+import { SummaryPageState } from '../pages/SummaryPage/SummaryPageTypes';
 
 export class PayloadModel {
 

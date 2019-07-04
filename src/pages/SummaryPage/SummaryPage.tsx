@@ -74,7 +74,7 @@ export class SummaryPage
     }
 
     render() {
-      console.log(this.state.previousState.paymentList);
+
       return (
         <div className="summary__background">
           <div className="header__background">

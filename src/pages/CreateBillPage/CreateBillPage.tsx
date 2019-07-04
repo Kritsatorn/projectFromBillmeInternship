@@ -46,10 +46,7 @@ export class CreateBillPage
 
     this.setState({
       userId: historyState.userId,
-      groupId: historyState.groupId
-    });
-
-    this.setState({
+      groupId: historyState.groupId,
       billName: historyState.billName ? historyState.billName : '',
       items: historyState.items ? historyState.items : [{ detail: '', price: 0}],
       vatStatus: historyState.vatStatus ? historyState.vatStatus : false,

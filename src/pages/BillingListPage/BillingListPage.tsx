@@ -94,6 +94,7 @@ export class BillingListPage
       };
       return state;
     }
+
     renderUnfinishedBillBox(
       data2: {
         billId: string;
