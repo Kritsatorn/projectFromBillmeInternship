@@ -113,13 +113,14 @@ export class Dropdown
       });
     }
 
-    fixName(name?: string) {
+    fixName(name: string) {
       if (name === 'ธนาคารพัฒนาวิสาหกิจขนาดกลางและขนาดย่อมแห่งประเทศไทย') {
         return 'ธนาคารพัฒนาวิสาหกิจแห่งประเทศไทย';
       } else {
         return name;
       }
     }
+
     selectStyle() {
       return 'button__dropdown';
     }
