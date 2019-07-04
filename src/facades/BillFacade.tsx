@@ -1,6 +1,6 @@
+import { PayloadModel } from '../models/PayloadModel';
 import { BillListModel } from '../models/BillListModel';
 import { BillDatasource } from '../datasources/BillDatasource';
-import { PayloadModel } from '../models/PayloadModel';
 import { SummaryPageState } from '../pages/SummaryPage/SummaryPageTypes';
 
 export class BillFacade {
