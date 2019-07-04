@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { MenuData } from '../../mocks/MenuData';
-import { FriendData } from '../../mocks/FriendData';
+// import { MenuData } from '../../mocks/MenuData';
+// import { FriendData } from '../../mocks/FriendData';
 import { BillFacade } from '../../facades/BillFacade';
-import { SummaryPageState, Friend, Menu } from './SummaryPageTypes';
+import { SummaryPageState, Friend, Item } from './SummaryPageTypes';
 import './SummaryPage.css';
 
 export class SummaryPage
@@ -15,22 +15,59 @@ export class SummaryPage
 
       this.state = {
         showFriendMenu: false,
-        servicePrice: 0.00,
-        vatPrice: 3.85,
-        totalPrice: 58.85,
         url: '',
         bill: {
           billImage: '',
-          billName: 'ค่าข้าวเที่ยงร้านเฮลโล่ว',
+          billName: '',
           billDate: '18 มิ.ย. 2562',
           billOwnerName: 'Tangkwa',
           billOwnerImage: 'https://bit.ly/2J9C0Hv'
         },
-        friends: FriendData.friends,
-        menu: MenuData.menu
+        previousState: {
+          billName: '',
+          items: [],
+          vat: 7,
+          vatStatus: false,
+          vatPrice: 0,
+          serviceCharge: 10,
+          serviceChargePrice: 0,
+          serviceChargeStatus: false,
+          totalPrice: 0,
+          totalBillPrice: 0,
+          friends: [],
+          selectedFriendList: [],
+          selectedFriend: 1,
+          paymentList: []
+        }
       };
 
       this.showFriendList = this.showFriendList.bind(this);
+    }
+
+    componentDidMount() {
+      if (history.state !== null) {
+        const { billName, selectedFriendList, totalPrice,
+          items, vat, vatStatus,
+          vatPrice, serviceCharge, serviceChargeStatus,
+          serviceChargePrice, totalBillPrice, paymentList } = history.state;
+
+        const previousState = this.state.previousState;
+
+        previousState.billName = billName,
+        previousState.selectedFriendList = selectedFriendList,
+        previousState.totalPrice = totalPrice,
+        previousState.items = items,
+        previousState.vat = vat,
+        previousState.vatStatus = vatStatus,
+        previousState.vatPrice = vatPrice,
+        previousState.serviceCharge = serviceCharge,
+        previousState.serviceChargeStatus = serviceChargeStatus,
+        previousState.serviceChargePrice = serviceChargePrice,
+        previousState.totalBillPrice = totalBillPrice;
+        previousState.paymentList = paymentList;
+
+        this.setState({previousState});
+      }
     }
 
     render() {
@@ -58,7 +95,7 @@ export class SummaryPage
               />
             </div>
             <div className="bill-detail-summary">
-              <div className="bill-name-summary">{this.state.bill.billName}</div>
+              <div className="bill-name-summary">{this.state.previousState.billName}</div>
               <div className="bill-date">{this.state.bill.billDate}</div>
               <div className="bill-user">
                 <img className="bill-owner-image" src={this.state.bill.billOwnerImage}/>
@@ -98,15 +135,15 @@ export class SummaryPage
               </div>
               <div className="service-feild">
                 Service charge
-                <div className="service-feild-price">{this.state.servicePrice}</div>
+                <div className="service-feild-price">{this.state.previousState.serviceChargePrice}</div>
               </div>
               <div className="vat-feild">
                 VAT
-                <div className="vat-feild-price">{this.state.vatPrice}</div>
+                <div className="vat-feild-price">{this.state.previousState.vatPrice}</div>
               </div>
               <div className="total__price">
                 <div className="total__price-name">รวม</div>
-                <div className="total__price-price">{this.state.totalPrice}</div>
+                <div className="total__price-price">{this.state.previousState.totalBillPrice}</div>
               </div>
               <div className="menu-button-equal">
                 หารกับเพื่อนเท่าๆกัน
@@ -134,7 +171,7 @@ export class SummaryPage
     }
     mappingMenu() {
       return(
-        this.state.menu.map(
+        this.state.previousState.items.map(
           (menu, index) => {
             return this.renderMenu(index, menu);
           }
@@ -142,14 +179,14 @@ export class SummaryPage
       );
     }
 
-    renderMenu(index: number, menu: Menu) {
+    renderMenu(index: number, menu: Item) {
       return(
         <div key={index} className="menu-card">
           <div className="menu-card-name">
-            {menu.menuName}
+            {menu.detail}
           </div>
           <div className="menu-card-price">
-            {menu.menuPrice}
+            {menu.price}
           </div>
         </div>
       );
@@ -157,7 +194,7 @@ export class SummaryPage
 
     mappingFriendList() {
       return(
-        this.state.friends.map(
+        this.state.previousState.selectedFriendList.map(
           (friends, index) => {
             return this.renderFriend(index, friends);
           }

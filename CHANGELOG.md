@@ -1,17 +1,21 @@
 # Changelog
 
+## [V0.0.31] - 2019-07-04
+## Updated
+- Added state to pass between all pages.
+
 ## [V0.0.30] - 2019-07-04
 ## Updated
-- Added bank api in payment page
+- Added bank api in payment page.
 
 ## [V0.0.29] - 2019-07-03
 ## Updated
-- Added arrow down in payment page
-- Fixed title css
+- Added arrow down in payment page.
+- Fixed title css.
 
 ## [V0.0.28] - 2019-07-02
 ## Updated
-- Added image uploader in summary page
+- Added image uploader in summary page.
 
 ## [V0.0.27] - 2019-07-01
 ## Updated

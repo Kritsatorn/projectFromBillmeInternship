@@ -1,12 +1,46 @@
 export interface SummaryPageState {
   bill: Bill;
   showFriendMenu: boolean;
-  friends: Friend[];
-  menu: Menu[];
-  servicePrice: number;
-  vatPrice: number;
-  totalPrice: number;
   url: string;
+  previousState: PreviousState;
+}
+
+export interface PreviousState {
+  billName: string;
+  friends: Friend[];
+  selectedFriendList: Friend[];
+  selectedFriend: number;
+  totalPrice: number;
+  items: Item[];
+  vat: number;
+  vatStatus: boolean;
+  vatPrice: number;
+  totalBillPrice: number;
+  serviceCharge: number;
+  serviceChargeStatus: boolean;
+  serviceChargePrice: number;
+  paymentList: Card[];
+}
+
+export interface Card {
+  nameEng: string;
+  nameTh: string;
+  logo: string;
+  format: string;
+  value: string;
+}
+
+export interface Friend {
+  userId: string;
+  profilePic: string;
+  displayName: string;
+  isSelect: boolean;
+  owner: boolean;
+}
+
+export interface Item {
+  detail: string;
+  price: number;
 }
 
 export interface Bill {
@@ -15,13 +49,6 @@ export interface Bill {
   billDate: string;
   billOwnerName: string;
   billOwnerImage: string;
-}
-
-export interface Friend {
-  userId: string;
-  profilePic: string;
-  displayName: string;
-  owner: boolean;
 }
 
 export interface Menu {
