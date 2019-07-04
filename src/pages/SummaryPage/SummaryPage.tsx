@@ -23,8 +23,6 @@ export class SummaryPage
           billOwnerName: 'Tangkwa',
           billOwnerImage: 'https://bit.ly/2J9C0Hv'
         },
-        // friends: FriendData.friends,
-        // menu: MenuData.menu,
         previousState: {
           billName: '',
           items: [],

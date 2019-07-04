@@ -1,7 +1,6 @@
 export interface SummaryPageState {
   bill: Bill;
   showFriendMenu: boolean;
-  // friends: Friend[];
   url: string;
   previousState: PreviousState;
 }
