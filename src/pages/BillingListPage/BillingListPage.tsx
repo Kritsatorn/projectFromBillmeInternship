@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { history } from '../../config';
 import { BillFacade } from '../../facades/BillFacade';
 import { Button } from '../../components/Button/Button';
 import { BillingListPageState } from './BillingListPageTypes';
@@ -77,7 +76,8 @@ export class BillingListPage
               type=""
               disable={false}
               onClick={() => {
-                history.push('/create');
+                history.pushState(this.stateInfomation(), '', '/create');
+                history.go();
               }}
             />
           </div>
@@ -87,6 +87,13 @@ export class BillingListPage
       );
     }
 
+    stateInfomation() {
+      const state = {
+        userId: this.state.userId,
+        groupId: this.state.groupId
+      };
+      return state;
+    }
     renderUnfinishedBillBox(
       data2: {
         billId: string;

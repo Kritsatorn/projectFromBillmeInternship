@@ -24,6 +24,8 @@ export class BillPaymentPage
     this.state = {
       previousState: {
         billName: '',
+        userId: '',
+        groupId: '',
         items: [],
         vat: 7,
         vatStatus: false,
@@ -58,7 +60,7 @@ export class BillPaymentPage
     }));
 
     if (history.state !== null) {
-      const { billName, selectedFriendList,
+      const { billName, selectedFriendList, userId, groupId,
         totalPrice, items,
         vat, vatStatus, vatPrice,
         serviceCharge, serviceChargeStatus, serviceChargePrice,
@@ -67,6 +69,8 @@ export class BillPaymentPage
       const previousState = this.state.previousState;
 
       previousState.billName = billName,
+      previousState.userId = userId,
+      previousState.groupId = groupId,
       previousState.selectedFriendList = selectedFriendList,
       previousState.totalPrice = totalPrice,
       previousState.items = items,
@@ -78,6 +82,7 @@ export class BillPaymentPage
       previousState.serviceChargePrice = serviceChargePrice,
       previousState.totalBillPrice = totalBillPrice;
 
+      console.log(selectedFriendList);
       this.setState({previousState});
     }
   }
@@ -129,6 +134,8 @@ export class BillPaymentPage
   stateInfomation() {
     const state = {
       billName: this.state.previousState.billName,
+      userId: this.state.previousState.userId,
+      groupId: this.state.previousState.groupId,
       selectedFriendList: this.state.previousState.selectedFriendList,
       items: this.state.previousState.items,
       vat: this.state.previousState.vat,

@@ -1,5 +1,9 @@
 # Changelog
 
+## [V0.0.32] - 2019-07-04
+## Updated
+- Added summary api.
+
 ## [V0.0.31] - 2019-07-04
 ## Updated
 - Added state to pass between all pages.

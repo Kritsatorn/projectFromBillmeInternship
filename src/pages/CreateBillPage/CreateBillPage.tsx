@@ -17,6 +17,8 @@ export class CreateBillPage
 
     this.state = {
       billName: '',
+      userId: '',
+      groupId: '',
       items: [
         {
           detail: '',
@@ -41,6 +43,11 @@ export class CreateBillPage
 
   componentDidMount() {
     const historyState = history.state;
+
+    this.setState({
+      userId: historyState.userId,
+      groupId: historyState.groupId
+    });
 
     this.setState({
       billName: historyState.billName ? historyState.billName : '',

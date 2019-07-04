@@ -91,7 +91,7 @@ export class Dropdown
         isPaymentSelected: true,
         selectedBank: result
       });
-      this.props.onChange(this.state.selectedBank);
+      this.props.onChange(result);
     }
 
     renderDropdownBank(banklist: Bank[]) {

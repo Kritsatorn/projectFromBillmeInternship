@@ -7,6 +7,8 @@ export interface SummaryPageState {
 
 export interface PreviousState {
   billName: string;
+  userId: string;
+  groupId: string;
   friends: Friend[];
   selectedFriendList: Friend[];
   selectedFriend: number;
