@@ -24,6 +24,8 @@ export class SelectFriendPage
 
     this.state = {
       billName: '',
+      userId: '',
+      groupId: '',
       items: [],
       vat: 7,
       vatStatus: false,
@@ -35,49 +37,58 @@ export class SelectFriendPage
       totalBillPrice: 0,
       friends: [
         {
-          userId: '1',
+          userId: 'Uf77cf2a5c273a986359267abea8fe35e',
           profilePic: 'https://bit.ly/2FwSc4j',
           displayName: 'RawitSHIE',
           isSelect: true,
           owner: true
-        },
+        }
+        // TO DO remove hardcode later
+        // {
+        //   userId: 'Uf77cf2a5c273a986359267abea8fe35e',
+        //   profilePic: 'https://bit.ly/2J9C0Hv',
+        //   displayName: 'Wiput',
+        //   isSelect: false,
+        //   owner: false
+        // },
+        // {
+        //   userId: 'Uf77cf2a5c273a986359267abea8fe35e',
+        //   profilePic: 'https://bit.ly/2J9C0Hv',
+        //   displayName: 'RawitSHIE',
+        //   isSelect: false,
+        //   owner: false
+        // },
+        // {
+        //   userId: 'Uf77cf2a5c273a986359267abea8fe35e',
+        //   profilePic: 'https://bit.ly/2J9C0Hv',
+        //   displayName: 'RawitSHIE',
+        //   isSelect: false,
+        //   owner: false
+        // },
+        // {
+        //   userId: 'Uf77cf2a5c273a986359267abea8fe35e',
+        //   profilePic: 'https://bit.ly/2J9C0Hv',
+        //   displayName: 'RawitSHIE',
+        //   isSelect: false,
+        //   owner: false
+        // },
+        // {
+        //   userId: 'Uf77cf2a5c273a986359267abea8fe35e',
+        //   profilePic: 'https://bit.ly/2J9C0Hv',
+        //   displayName: 'RawitSHIE',
+        //   isSelect: false,
+        //   owner: false
+        // }
+      ],
+      selectedFriendList: [
         {
-          userId: '2',
-          profilePic: 'https://bit.ly/2J9C0Hv',
-          displayName: 'Wiput',
-          isSelect: false,
-          owner: false
-        },
-        {
-          userId: '3',
-          profilePic: 'https://bit.ly/2J9C0Hv',
+          userId: 'Uf77cf2a5c273a986359267abea8fe35e',
+          profilePic: 'https://bit.ly/2FwSc4j',
           displayName: 'RawitSHIE',
-          isSelect: false,
-          owner: false
-        },
-        {
-          userId: '4',
-          profilePic: 'https://bit.ly/2J9C0Hv',
-          displayName: 'RawitSHIE',
-          isSelect: false,
-          owner: false
-        },
-        {
-          userId: '5',
-          profilePic: 'https://bit.ly/2J9C0Hv',
-          displayName: 'RawitSHIE',
-          isSelect: false,
-          owner: false
-        },
-        {
-          userId: '6',
-          profilePic: 'https://bit.ly/2J9C0Hv',
-          displayName: 'RawitSHIE',
-          isSelect: false,
-          owner: false
+          isSelect: true,
+          owner: true
         }
       ],
-      selectedFriendList: [],
       selectedFriend: 1,
       boxHeight: 240
     };
@@ -85,8 +96,8 @@ export class SelectFriendPage
 
   componentDidMount() {
     if (history.state !== null) {
-      const { billName, selectedFriendList,
-        totalPrice, items,
+      const { billName, userId, groupId,
+        selectedFriendList, totalPrice, items,
         vat, vatStatus, vatPrice,
         serviceCharge, serviceChargeStatus, serviceChargePrice,
         totalBillPrice } = history.state;
@@ -95,6 +106,8 @@ export class SelectFriendPage
 
       this.setState({
         billName,
+        userId,
+        groupId,
         totalPrice,
         items,
         vat,
@@ -104,7 +117,18 @@ export class SelectFriendPage
         serviceChargeStatus,
         serviceChargePrice,
         totalBillPrice,
-        selectedFriendList: selectedFriendList === null ? [] : this.addIsSelect(selectedFriendList),
+        // TODO: will remove after this pr.
+        selectedFriendList: selectedFriendList.length < 1 ?
+        [
+          {
+            userId: 'Uf77cf2a5c273a986359267abea8fe35e',
+            profilePic: 'https://bit.ly/2FwSc4j',
+            displayName: 'RawitSHIE',
+            isSelect: true,
+            owner: true
+          }
+        ] :
+        this.addIsSelect(selectedFriendList),
         friends: this.mapFriends(selectedFriendList)
       });
     }
@@ -115,6 +139,7 @@ export class SelectFriendPage
   }
 
   render() {
+
     return (
       <div className="background">
         <div className="content">
@@ -288,6 +313,8 @@ export class SelectFriendPage
   stateInfomation() {
     const state = {
       billName: this.state.billName,
+      userId: this.state.userId,
+      groupId: this.state.groupId,
       selectedFriendList: this.removeIsSelect(this.state.selectedFriendList),
       items: this.state.items,
       vat: this.state.vat,
@@ -304,32 +331,28 @@ export class SelectFriendPage
   }
 
   removeIsSelect(friends: Friend[]) {
+
     return friends.map(friend => {
-      const newFriend = {
+      return {
         userId: friend.userId,
         profilePic: friend.profilePic,
         displayName: friend.displayName,
         owner: friend.owner,
       };
-
-      return newFriend;
     });
   }
 
   addIsSelect(friends: Friend[]) {
-    friends.map(friend => {
-      const newFriend = {
+
+    return friends.map(friend => {
+      return {
         userId: friend.userId,
         profilePic: friend.profilePic,
         displayName: friend.displayName,
         owner: friend.owner,
         isSelect: true
       };
-
-      return newFriend;
     });
-
-    return friends;
   }
 
   mapFriends(friends: Friend[]) {

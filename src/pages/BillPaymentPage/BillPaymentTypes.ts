@@ -1,5 +1,4 @@
 export interface BillPaymentState {
-  text?: string;
   paymentList: Card[];
   boxHeight: number;
   previousState: SelectFriendState;
@@ -15,6 +14,8 @@ export interface Card {
 
 export interface SelectFriendState {
   billName: string;
+  userId: string;
+  groupId: string;
   friends: Friend[];
   selectedFriendList: Friend[];
   selectedFriend: number;

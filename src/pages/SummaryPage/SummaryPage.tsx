@@ -1,6 +1,4 @@
 import * as React from 'react';
-// import { MenuData } from '../../mocks/MenuData';
-// import { FriendData } from '../../mocks/FriendData';
 import { BillFacade } from '../../facades/BillFacade';
 import { SummaryPageState, Friend, Item } from './SummaryPageTypes';
 import './SummaryPage.css';
@@ -25,6 +23,8 @@ export class SummaryPage
         },
         previousState: {
           billName: '',
+          userId: '',
+          groupId: '',
           items: [],
           vat: 7,
           vatStatus: false,
@@ -46,14 +46,17 @@ export class SummaryPage
 
     componentDidMount() {
       if (history.state !== null) {
-        const { billName, selectedFriendList, totalPrice,
-          items, vat, vatStatus,
-          vatPrice, serviceCharge, serviceChargeStatus,
-          serviceChargePrice, totalBillPrice, paymentList } = history.state;
+        const { billName, userId, groupId,
+          selectedFriendList, totalPrice, items,
+          vat, vatStatus, vatPrice,
+          serviceCharge, serviceChargeStatus, serviceChargePrice,
+          totalBillPrice, paymentList } = history.state;
 
         const previousState = this.state.previousState;
 
         previousState.billName = billName,
+        previousState.userId = userId,
+        previousState.groupId = groupId,
         previousState.selectedFriendList = selectedFriendList,
         previousState.totalPrice = totalPrice,
         previousState.items = items,
@@ -71,6 +74,7 @@ export class SummaryPage
     }
 
     render() {
+
       return (
         <div className="summary__background">
           <div className="header__background">
@@ -135,17 +139,24 @@ export class SummaryPage
               </div>
               <div className="service-feild">
                 Service charge
-                <div className="service-feild-price">{this.state.previousState.serviceChargePrice}</div>
+                <div className="service-feild-price">
+                  {this.state.previousState.serviceChargePrice.toLocaleString()}
+                </div>
               </div>
               <div className="vat-feild">
                 VAT
-                <div className="vat-feild-price">{this.state.previousState.vatPrice}</div>
+                <div className="vat-feild-price">{this.state.previousState.vatPrice.toLocaleString()}</div>
               </div>
               <div className="total__price">
                 <div className="total__price-name">รวม</div>
-                <div className="total__price-price">{this.state.previousState.totalBillPrice}</div>
+                <div className="total__price-price">
+                  {this.state.previousState.totalBillPrice.toLocaleString()}
+                </div>
               </div>
-              <div className="menu-button-equal">
+              <div
+                className="menu-button-equal"
+                onClick={() => this.handleCreateBill(this.state)}
+              >
                 หารกับเพื่อนเท่าๆกัน
               </div>
               <div className="menu-button-not__equal">
@@ -154,6 +165,14 @@ export class SummaryPage
             </div>
           </div>
         </div>
+      );
+    }
+
+    handleCreateBill(bill: SummaryPageState) {
+      return  BillFacade.createBill(
+        this.state.previousState.userId,
+        this.state.previousState.groupId,
+        bill
       );
     }
 

@@ -21,6 +21,36 @@ export class API {
     });
   }
 
+  static post(host: string, path: string, options?: {isRequiredToken?: boolean, body: object}) {
+    const isRequiredToken = options ? options.isRequiredToken : true;
+    const body = options ? options.body : '';
+    const SUCCESS = 200;
+
+    const headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+
+    if (isRequiredToken) {
+      headers.append('X-Access-Token', localStorage.getItem('token')!);
+    }
+
+    return fetch(
+      `${host}${path}`,
+      {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify(body)
+      }
+    )
+    .then(response => {
+      if (response.status === SUCCESS) {
+        return response.json();
+      } else {
+        return response.status;
+      }
+    });
+  }
+
   static upload(host: string, key: string, path: string, file: File) {
     const SUCCESS = 200;
     var bodyData = new FormData();

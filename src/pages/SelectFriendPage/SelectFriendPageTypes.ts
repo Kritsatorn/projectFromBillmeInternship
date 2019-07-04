@@ -1,5 +1,7 @@
 export interface SelectFriendState {
   billName: string;
+  userId: string;
+  groupId: string;
   friends: Friend[];
   selectedFriendList: Friend[];
   selectedFriend: number;
