@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Button } from '../../components/Button/Button';
-import { Stepper } from '../../components/Stepper/Stepper';
 import { Bank } from '../../definitions/types/Banklist';
+import { Stepper } from '../../components/Stepper/Stepper';
 import { BillPaymentState, Card } from './BillPaymentTypes';
 import { Dropdown } from '../../components/Dropdown/Dropdown';
 import { BillingStep } from '../../definitions/enum/BillingStep';
